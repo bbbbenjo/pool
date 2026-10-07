@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Football Pool Simulator</title>
+<title>Football Pool Simulator.</title>
 
 <style>
 :root{
@@ -700,7 +700,7 @@ body.simple-mode .pick-conf::before{
 <header>
   <div class="header-inner">
     <div class="title-wrap">
-      <h1><span class="page-title-desktop">Week 4 Football Pool Simulator</span><span class="page-title-mobile">Week 4 Simulator</span></h1>
+      <h1><span class="page-title-desktop" id="pageTitleDesktop"></span><span class="page-title-mobile" id="pageTitleMobile"></span></h1>
       <div class="instructions">Click a player. Gray = default favorite; click a matchup to include that result.</div>
     </div>
     <div class="view-controls" role="group" aria-label="View mode">
@@ -729,7 +729,7 @@ body.simple-mode .pick-conf::before{
 
   <section class="mobile" id="mobileView">
     <div class="mobile-grid">
-      <div class="mcol weekly-col"><div class="mhead" id="mobileWeekHeader"><span>Week 4</span><span id="mobileSortControls"></span></div><div id="mobileWeekly"></div></div>
+      <div class="mcol weekly-col"><div class="mhead" id="mobileWeekHeader"><span id="mobileWeekLabel"></span><span id="mobileSortControls"></span></div><div id="mobileWeekly"></div></div>
       <div class="mcol games-col"><div class="mhead">Games</div><div id="mobileGames"></div></div>
       <div class="mcol overall-col"><div class="mhead">Overall</div><div id="mobileOverall"></div></div>
     </div>
@@ -738,10 +738,21 @@ body.simple-mode .pick-conf::before{
 
 <footer>Made by B-B-B-Benny and the Jets, with help from AI. Send suggestions and questions to Ben.</footer>
 
+<script src="picks-data.js"></script>
+<script src="games-data.js"></script>
 <script>
-</script>
-<script src="week-data.js"></script>
-<script>
+const DATA = {
+  week: PICKS_DATA.week,
+  weekLabel: PICKS_DATA.weekLabel,
+  players: PICKS_DATA.players,
+  games: GAMES_DATA.games,
+  colors: GAMES_DATA.colors || {}
+};
+
+document.getElementById("pageTitleDesktop").textContent = `${DATA.weekLabel} Football Pool Simulator`;
+document.getElementById("pageTitleMobile").textContent = `${DATA.weekLabel} Simulator`;
+document.getElementById("mobileWeekLabel").textContent = DATA.weekLabel;
+
 const state = {
   selectedPlayer: null,
   viewMode: "simple",
@@ -895,10 +906,10 @@ function renderDesktop(model){
     ? [...model.weekly].sort((a,b)=>b.prob-a.prob || b.week-a.week || a.name.localeCompare(b.name))
     : model.weekly;
   let h=`<thead><tr><th class="player-head"><div class="player-head-inner">
-    <div class="player-head-title">Week 4</div>
+    <div class="player-head-title">${DATA.weekLabel}</div>
     ${state.viewMode==="advanced" ? `<div class="week-sort-block">
       <div class="week-sort-label">Sort by:</div>
-      <div class="week-sort-controls" role="group" aria-label="Sort Week 4 standings">
+      <div class="week-sort-controls" role="group" aria-label="Sort ${DATA.weekLabel} standings">
         <button type="button" class="week-sort-btn ${state.weeklySort==="points"?"active":""}" data-week-sort="points"><span class="sort-label-desktop">Points</span><span class="sort-label-mobile">Pts.</span></button>
         <button type="button" class="week-sort-btn ${state.weeklySort==="prob"?"active":""}" data-week-sort="prob"><span class="sort-label-desktop">Win %</span><span class="sort-label-mobile">%</span></button>
       </div>
@@ -961,7 +972,7 @@ function renderMobile(model){
   if(mobileSort){
     mobileSort.innerHTML=state.viewMode==="advanced" ? `<span class="mobile-sort-wrap">
       <span class="week-sort-label mobile-sort-label">Sort by:</span>
-      <span class="week-sort-controls mobile-sort-controls" role="group" aria-label="Sort Week 4 standings">
+      <span class="week-sort-controls mobile-sort-controls" role="group" aria-label="Sort ${DATA.weekLabel} standings">
         <button type="button" class="week-sort-btn ${state.weeklySort==="points"?"active":""}" data-week-sort="points"><span class="sort-label-desktop">Points</span><span class="sort-label-mobile">Pts.</span></button>
         <button type="button" class="week-sort-btn ${state.weeklySort==="prob"?"active":""}" data-week-sort="prob"><span class="sort-label-desktop">Win %</span><span class="sort-label-mobile">%</span></button>
       </span>
@@ -1108,7 +1119,7 @@ function syncDesktopScrollbars(){
   const needsScroll=table.scrollWidth > wrap.clientWidth + 2;
   top.classList.toggle("is-hidden", !needsScroll);
 
-  /* Desktop horizontal scrolling is games-only. The Week 4 column stays
+  /* Desktop horizontal scrolling is games-only. The weekly column stays
      pinned at the left, and the synchronized top scrollbar begins immediately
      to its right. Matching the reduced scrollbar viewport/content widths keeps
      its scroll range identical to the table's game-scroll range. */
@@ -1136,7 +1147,7 @@ function syncDesktopScrollbars(){
     inner.style.width=table.scrollWidth+"px";
   }
 
-  /* When the top scrollbar is present, visually extend the Week 4 header
+  /* When the top scrollbar is present, visually extend the weekly header
      upward into the space to the left of the scrollbar, and make the Overall
      header itself taller by the same offset. The player rows therefore remain
      aligned while the empty gaps around the scrollbar become dark blue. */
@@ -1434,7 +1445,7 @@ render();
 
 
 <style>
-/* Advanced Week 4 sort controls */
+/* Advanced weekly sort controls */
 .week-sort-controls{
   display:flex;
   gap:3px;
@@ -1550,7 +1561,7 @@ render();
 
 
 <style>
-/* Larger, clearer Advanced sorting controls without competing with the Week 4 title. */
+/* Larger, clearer Advanced sorting controls without competing with the weekly title. */
 .week-sort-label{
   font-size:11px!important;
   font-weight:950!important;
@@ -1561,7 +1572,7 @@ render();
   padding:5px 8px!important;
 }
 
-/* Desktop: short Week 4 title on the left; Sort by block has its own space on the right. */
+/* Desktop: short weekly title on the left; Sort by block has its own space on the right. */
 @media(min-width:821px){
   body.advanced-mode .player-head-inner{
     height:52px!important;
@@ -1582,7 +1593,7 @@ render();
   }
 }
 
-/* Mobile: give sorting its own second line in the Week 4 header.
+/* Mobile: give sorting its own second line in the weekly header.
    "Sort by:" stays beside the Points / Win % buttons. */
 @media(max-width:820px){
   body.advanced-mode #mobileWeekHeader{
@@ -1759,7 +1770,7 @@ render();
 
 
 <style>
-/* Desktop hard alignment: the Week 4 blue header, game header row, and
+/* Desktop hard alignment: the weekly blue header, game header row, and
    Overall blue header share the same top/bottom boundaries within each mode. */
 @media(min-width:821px){
   body.simple-mode .player-head-inner,
@@ -1820,9 +1831,9 @@ render();
 /* ===== v2.57 queued desktop refinements ===== */
 
 /* Desktop header invariant:
-   - Week 4 and Overall blue headers use the same height and font size.
+   - Weekly and Overall blue headers use the same height and font size.
    - Offset Overall by the table's top border-spacing so the visible blue
-     top AND bottom edges line up exactly with the Week 4 header.
+     top AND bottom edges line up exactly with the weekly header.
    - Simple gets the same vertical room above matchup teams as Advanced,
      so FINAL is never clipped. */
 @media(min-width:821px){
@@ -2008,7 +2019,7 @@ render();
 
 
 <style>
-/* Simple desktop: when the Week 4 column grows on wider windows, let its
+/* Simple desktop: when the weekly column grows on wider windows, let its
    contents use the full column width. This keeps the score immediately
    against the first game column and gives the player name all remaining room. */
 @media(min-width:821px){
@@ -2032,9 +2043,9 @@ render();
 
 <style>
 /* Desktop: dynamically compensate the Overall header for whatever vertical
-   space sits above the Week 4 matrix header (top scrollbar + table spacing).
+   space sits above the weekly matrix header (top scrollbar + table spacing).
    The extra height is added above the Overall text, so its baseline stays
-   vertically aligned with the Week 4 title. */
+   vertically aligned with the weekly title. */
 @media(min-width:821px){
   .overall-panel h2.matrix-aligned{
     margin-top:0!important;
@@ -2061,7 +2072,7 @@ render();
 
 <style>
 @media(min-width:821px){
-  /* Hard desktop rule: Week 4 is the pinned column; only game columns move. */
+  /* Hard desktop rule: The weekly standings column is pinned; only game columns move. */
   .matrix .player-head,
   .matrix .player-cell{
     position:sticky!important;
@@ -2081,7 +2092,7 @@ render();
 
 <style>
 @media(min-width:821px){
-  /* Freeze the ENTIRE Week 4 column, not just its header.
+  /* Freeze the ENTIRE weekly column, not just its header.
      Keep the first-column TDs as real table cells so sticky positioning
      applies consistently to every player row while the game columns scroll. */
   .matrix .player-head,
@@ -2131,7 +2142,7 @@ render();
 }
 
 /* When desktop needs the top horizontal scrollbar, visually extend the
-   Week 4 blue header upward into the empty area to the scrollbar's left. */
+   weekly blue header upward into the empty area to the scrollbar's left. */
 @media(min-width:821px){
   .matrix-shell{
     position:relative;
@@ -2198,7 +2209,7 @@ render();
     border-radius:0 8px 8px 0!important;
   }
 
-  /* Keep the sticky Week 4 cell above scrolling game content without hiding
+  /* Keep the sticky weekly cell above scrolling game content without hiding
      the selected-row border as it crosses into the first game column. */
   body.advanced-mode .selected-row > .player-cell{
     z-index:55!important;
@@ -2223,13 +2234,13 @@ render();
     background:#f8e9e8!important;
   }
 
-  /* With the top scrollbar present, the Week 4 header should have only ONE
+  /* With the top scrollbar present, the weekly header should have only ONE
      rounded top: the added blue strip. Square off the lower header's top. */
   .matrix-shell.has-top-scroll .matrix thead .player-head{
     border-radius:0!important;
   }
 
-  /* Make Overall match Week 4 exactly: same extra blue height above the normal
+  /* Make Overall match the weekly header exactly: same extra blue height above the normal
      header content, same single rounded outer top, and rows stay aligned. */
   .desktop-grid.has-top-scroll .overall-panel h2{
     height:calc(64px + var(--top-scroll-gap))!important;
@@ -2250,7 +2261,7 @@ render();
 
 
 <style>
-/* v2.67 — remove the remaining "double top" on the frozen Week 4 header.
+/* v2.67 — remove the remaining "double top" on the frozen weekly header.
    The upper blue extension is the ONLY rounded top. The matrix panel/header
    beneath it must be square at the top-left so the two pieces read as one block. */
 @media(min-width:821px){
@@ -2279,7 +2290,7 @@ render();
 
 
 <style>
-/* v2.68 — align the added Week 4 cap and top scrollbar to the real table geometry. */
+/* v2.68 — align the added weekly cap and top scrollbar to the real table geometry. */
 @media(min-width:821px){
   .matrix-shell.has-top-scroll::before{
     left:var(--pinned-week-left)!important;
@@ -2748,8 +2759,8 @@ render();
   .page-title-desktop{display:none!important}
   .page-title-mobile{display:inline!important}
 
-  /* Advanced mobile Week 4 header:
-     - Week 4 sits at the same vertical center as Games and Overall.
+  /* Advanced mobile weekly header:
+     - The weekly label sits at the same vertical center as Games and Overall.
      - Sort by is centered directly above the compact Pts./% buttons. */
   body.advanced-mode #mobileWeekHeader{
     display:flex!important;
