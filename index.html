@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Football Pool Simulator.</title>
+<title>Football Pool Simulator</title>
 
 <style>
 :root{
@@ -704,8 +704,9 @@ body.simple-mode .pick-conf::before{
       <div class="instructions">Click a player. Gray = default favorite; click a matchup to include that result.</div>
     </div>
     <div class="view-controls" role="group" aria-label="View mode">
-      <button class="mode-btn active" id="simpleBtn" type="button">Basic</button>
-      <button class="mode-btn" id="advancedBtn" type="button">Advanced</button>
+      <button class="mode-btn active" id="pointsBtn" type="button">Points</button>
+      <button class="mode-btn" id="winPctBtn" type="button">Win %</button>
+      <button class="mode-btn combo-mode-btn" id="comboBtn" type="button"><span>Combo</span><span class="beta-tag">Beta</span></button>
     </div>
     <button class="reset" id="resetBtn" type="button">Reset</button>
   </div>
@@ -759,8 +760,11 @@ const state = {
   winners: {},
   advancedWinners: {},
   simpleWinners: {},
+  winPctWinners: {},
   defaults: {},
-  assumed: new Set(),
+  advancedAssumed: new Set(),
+  winPctAssumed: new Set(),
+  assumed: null,
   weeklySort: "points"
 };
 
@@ -768,8 +772,10 @@ for (const g of DATA.games) {
   state.defaults[g.id] = g.final ? g.winner : g.favorite;
   state.advancedWinners[g.id] = state.defaults[g.id];
   state.simpleWinners[g.id] = state.defaults[g.id];
+  state.winPctWinners[g.id] = g.final ? g.winner : null;
 }
 state.winners = state.simpleWinners;
+state.assumed = state.advancedAssumed;
 
 function pickFor(player, gid){ return player.picks[gid] || null; }
 function scorePlayer(player, winners=state.winners){
@@ -841,7 +847,7 @@ function calcWinTieProbabilities(){
 }
 
 function buildModel(){
-  const probs = state.viewMode==="advanced"
+  const probs = (state.viewMode==="advanced" || state.viewMode==="winpct")
     ? calcWinTieProbabilities()
     : Object.fromEntries(DATA.players.map(p=>[p.name,0]));
   const rows=DATA.players.map(p=>{
@@ -876,20 +882,41 @@ function toggleMatchup(gid){
     return;
   }
 
+  if(state.viewMode==="winpct"){
+    const favorite=g.favorite;
+    const other=favorite===g.away ? g.home : g.away;
+    if(!state.assumed.has(gid)){
+      state.winners[gid]=favorite;
+      state.assumed.add(gid);
+    }else if(state.winners[gid]===favorite){
+      state.winners[gid]=other;
+    }else{
+      state.winners[gid]=null;
+      state.assumed.delete(gid);
+    }
+    render();
+    return;
+  }
+
   const favorite=state.defaults[gid];
   const other=favorite===g.away ? g.home : g.away;
-  if(!state.assumed.has(gid)){
-    state.winners[gid]=favorite;
+
+  // Combo mode four-step cycle:
+  // 1) turn probability conditioning on, keep winner
+  // 2) keep conditioning on, switch winner
+  // 3) turn conditioning off, keep winner
+  // 4) keep conditioning off, switch winner
+  if(!state.assumed.has(gid) && state.winners[gid]===favorite){
     state.assumed.add(gid);
-  }else if(state.winners[gid]===favorite){
+  }else if(state.assumed.has(gid) && state.winners[gid]===favorite){
     state.winners[gid]=other;
+  }else if(state.assumed.has(gid) && state.winners[gid]===other){
+    state.assumed.delete(gid);
   }else{
     state.winners[gid]=favorite;
-    state.assumed.delete(gid);
   }
   render();
 }
-
 function selectPlayer(name){ state.selectedPlayer = state.selectedPlayer===name ? null : name; render(); }
 
 function teamButton(g, team, cls=""){
@@ -902,9 +929,12 @@ function teamButton(g, team, cls=""){
 
 function renderDesktop(model){
   const maxProb=Math.max(...model.rows.map(r=>r.prob),0.000001);
-  const sorted = state.viewMode==="advanced" && state.weeklySort==="prob"
-    ? [...model.weekly].sort((a,b)=>b.prob-a.prob || b.week-a.week || a.name.localeCompare(b.name))
-    : model.weekly;
+  const sorted = state.viewMode==="winpct"
+    ? [...model.rows].sort((a,b)=>b.prob-a.prob || b.week-a.week || a.name.localeCompare(b.name))
+    : state.viewMode==="advanced" && state.weeklySort==="prob"
+      ? [...model.weekly].sort((a,b)=>b.prob-a.prob || b.week-a.week || a.name.localeCompare(b.name))
+      : model.weekly;
+
   let h=`<thead><tr><th class="player-head"><div class="player-head-inner">
     <div class="player-head-title">${DATA.weekLabel}</div>
     ${state.viewMode==="advanced" ? `<div class="week-sort-block">
@@ -915,40 +945,56 @@ function renderDesktop(model){
       </div>
     </div>` : ""}
   </div></th>`;
+
   for(const g of DATA.games){
-    const assumed=state.viewMode==="advanced" && state.assumed.has(g.id);
+    const assumed=state.viewMode!=="simple" && state.assumed.has(g.id);
     const favorite=g.favorite;
     const underdog=favorite===g.away ? g.home : g.away;
     h+=`<th class="game-head ${g.final?"final-game":"toggle-zone"} ${assumed?"assumed":""}" data-toggle-game="${g.final?"":g.id}">
       ${g.final
         ? `<div class="gh-time final">FINAL</div>`
-        : state.viewMode==="simple"
-          ? `<div class="gh-simple-time">${displayTime(g.time)}</div>`
-          : ""}
+        : state.viewMode==="advanced" && assumed
+          ? `<div class="gh-assumed-pct">%</div>`
+          : (state.viewMode==="simple" || state.viewMode==="winpct")
+            ? `<div class="gh-simple-time">${displayTime(g.time)}</div>`
+            : ""}
       <div class="gh-teams">${teamButton(g,favorite,"team-mini")}${teamButton(g,underdog,"team-mini")}</div>
     </th>`;
   }
+
   h+=`</tr></thead><tbody>`;
   for(const r of sorted){
     const sel=r.name===state.selectedPlayer;
     h+=`<tr class="${sel?"selected-row":""}">
       <td class="player-cell" data-player="${r.name.replaceAll('"','&quot;')}">
-        <div class="week-topline">
-          <span class="rank-badge ${r.rank===1?"leader":""}">${r.rank}</span>
-          <span class="player-name">${r.name}</span>
-          <span class="week-score">${r.week}</span>
-        </div>
-        ${state.viewMode==="advanced" ? `<div class="week-prob">
-          <span class="prob-explainer">Win:</span>
-          ${probBar(r.prob,maxProb)}
-        </div>` : ""}
+        ${state.viewMode==="winpct"
+          ? `<div class="winpct-desktop-player">
+               <span class="player-name">${r.name}</span>
+               ${probBar(r.prob,maxProb)}
+             </div>`
+          : `<div class="week-topline">
+               <span class="rank-badge ${r.rank===1?"leader":""}">${r.rank}</span>
+               <span class="player-name">${r.name}</span>
+               <span class="week-score">${r.week}</span>
+             </div>
+             ${state.viewMode==="advanced" ? `<div class="week-prob">
+               <span class="prob-explainer">Win:</span>
+               ${probBar(r.prob,maxProb)}
+             </div>` : ""}`
+        }
       </td>`;
+
     for(const g of DATA.games){
       const p=pickFor(r.player,g.id);
-      if(!p){ h+=`<td class="pickcell na ${g.final?"final-col":""}">N/A</td>`; continue; }
+      if(!p){
+        h+=`<td class="pickcell na ${g.final?"final-col":""}">N/A</td>`;
+        continue;
+      }
       const w=state.winners[g.id];
-      const result = w==="TIE" ? "na" : (p.team===w?"good":"bad");
-      h+=state.viewMode==="simple"
+      const unresolvedNeutral = state.viewMode==="winpct" && !g.final && !state.assumed.has(g.id);
+      const result = unresolvedNeutral ? "pending" : (w==="TIE" ? "na" : (p.team===w?"good":"bad"));
+      const compact = state.viewMode==="simple" || state.viewMode==="winpct";
+      h+=compact
         ? `<td class="pickcell ${result} ${g.final?"final-col":""}"><div class="pickbox"><span class="pick-team">${p.team}</span><span class="pick-conf">${p.confidence}</span></div></td>`
         : `<td class="pickcell ${result} ${g.final?"final-col":""}"><div class="pickbox"><div class="pick-team">${p.team}</div><div class="pick-conf">${p.confidence}</div></div></td>`;
     }
@@ -962,12 +1008,14 @@ function renderDesktop(model){
       <span class="rank ${r.rank===1?"leader":""}">${r.rank}</span><span class="nm">${r.name}</span><span class="sc">${r.overall}</span>
     </div>`).join("");
 }
-
 function renderMobile(model){
   const maxProb=Math.max(...model.rows.map(r=>r.prob),0.000001);
-  const mobileWeeklyRows = state.viewMode==="advanced" && state.weeklySort==="prob"
-    ? [...model.weekly].sort((a,b)=>b.prob-a.prob || b.week-a.week || a.name.localeCompare(b.name))
-    : model.weekly;
+  const mobileWeeklyRows = state.viewMode==="winpct"
+    ? [...model.rows].sort((a,b)=>b.prob-a.prob || b.week-a.week || a.name.localeCompare(b.name))
+    : state.viewMode==="advanced" && state.weeklySort==="prob"
+      ? [...model.weekly].sort((a,b)=>b.prob-a.prob || b.week-a.week || a.name.localeCompare(b.name))
+      : model.weekly;
+
   const mobileSort=document.getElementById("mobileSortControls");
   if(mobileSort){
     mobileSort.innerHTML=state.viewMode==="advanced" ? `<span class="mobile-sort-wrap">
@@ -978,11 +1026,18 @@ function renderMobile(model){
       </span>
     </span>` : "";
   }
+
   document.getElementById("mobileWeekly").innerHTML=mobileWeeklyRows.map(r=>
-    `<div class="mrow ${r.name===state.selectedPlayer?"sel":""}" data-player="${r.name.replaceAll('"','&quot;')}">
-      <div class="mline"><span class="mrank ${r.rank===1?"leader":""}">${r.rank}</span><span class="mname">${r.name}</span><span class="mscore">${r.week}</span></div>
-      ${state.viewMode==="advanced" ? `<div class="mprob"><span class="prob-explainer">Win:</span>${probBar(r.prob,maxProb)}</div>` : ""}
-    </div>`).join("");
+    state.viewMode==="winpct"
+      ? `<div class="mrow winpct-mrow ${r.name===state.selectedPlayer?"sel":""}" data-player="${r.name.replaceAll('"','&quot;')}">
+           <div class="winpct-mobile-name">${r.name}</div>
+           <div class="winpct-mobile-prob">${probBar(r.prob,maxProb)}</div>
+         </div>`
+      : `<div class="mrow ${r.name===state.selectedPlayer?"sel":""}" data-player="${r.name.replaceAll('"','&quot;')}">
+           <div class="mline"><span class="mrank ${r.rank===1?"leader":""}">${r.rank}</span><span class="mname">${r.name}</span><span class="mscore">${r.week}</span></div>
+           ${state.viewMode==="advanced" ? `<div class="mprob"><span class="prob-explainer">Win:</span>${probBar(r.prob,maxProb)}</div>` : ""}
+         </div>`
+  ).join("");
 
   document.getElementById("mobileOverall").innerHTML=model.overall.map(r=>
     `<div class="mrow ${r.name===state.selectedPlayer?"sel":""}" data-player="${r.name.replaceAll('"','&quot;')}">
@@ -995,13 +1050,15 @@ function renderMobile(model){
     const slot=g.time.replace(/\d.*$/,"").trim()+" "+(g.time.includes("9:30")?"AM":g.time.includes("1:00")?"EARLY":g.time.includes("4:")?"LATE":g.time.includes("8:")?"NIGHT":"");
     const gap=prevSlot && slot!==prevSlot; prevSlot=slot;
     const p=sp ? pickFor(sp,g.id) : null;
-    const assumed=state.viewMode==="advanced" && state.assumed.has(g.id);
+    const assumed=state.viewMode!=="simple" && state.assumed.has(g.id);
     const favorite=g.favorite;
     const underdog=favorite===g.away ? g.home : g.away;
     const mark=(team)=>{
       if(!p || p.team!==team) return "";
       let cls="";
-      if(g.final) cls = p.team===state.winners[g.id] ? "correct" : "wrong";
+      if(g.final){
+        cls = p.team===state.winners[g.id] ? "correct" : "wrong";
+      }
       return `<span class="pick-mark ${cls}">${p.confidence}</span>`;
     };
     return `<div class="game-card ${gap?"slot-gap":""} ${g.final?"final-game":"toggle-zone"} ${assumed?"assumed":""}" data-toggle-game="${g.final?"":g.id}">
@@ -1016,7 +1073,6 @@ function renderMobile(model){
     </div>`;
   }).join("");
 }
-
 function attachHandlers(){
   document.querySelectorAll("[data-player]").forEach(el=>el.addEventListener("click",()=>selectPlayer(el.dataset.player)));
   document.querySelectorAll("[data-week-sort]").forEach(el=>el.addEventListener("click",(e)=>{
@@ -1041,15 +1097,23 @@ function attachHandlers(){
   });
 }
 function setViewMode(mode){
-  if(mode!=="simple" && mode!=="advanced") return;
+  if(mode!=="simple" && mode!=="winpct" && mode!=="advanced") return;
   if(mode==="advanced" && state.viewMode!=="advanced"){
     state.weeklySort="points";
   }
   state.viewMode=mode;
-  state.winners = mode==="simple" ? state.simpleWinners : state.advancedWinners;
+  if(mode==="simple"){
+    state.winners=state.simpleWinners;
+    state.assumed=state.advancedAssumed;
+  }else if(mode==="winpct"){
+    state.winners=state.winPctWinners;
+    state.assumed=state.winPctAssumed;
+  }else{
+    state.winners=state.advancedWinners;
+    state.assumed=state.advancedAssumed;
+  }
   render();
 }
-
 function updateInteractionWording(){
   const instructions=document.querySelector(".instructions");
   if(!instructions) return;
@@ -1078,20 +1142,30 @@ function updateTouchMobileScrolling(){
 
 function render(){
   document.body.classList.toggle("simple-mode", state.viewMode==="simple");
+  document.body.classList.toggle("winpct-mode", state.viewMode==="winpct");
   document.body.classList.toggle("advanced-mode", state.viewMode==="advanced");
 
-  const simpleBtn=document.getElementById("simpleBtn");
-  const advancedBtn=document.getElementById("advancedBtn");
-  simpleBtn.classList.toggle("active", state.viewMode==="simple");
-  advancedBtn.classList.toggle("active", state.viewMode==="advanced");
-  simpleBtn.setAttribute("aria-pressed", state.viewMode==="simple" ? "true" : "false");
-  advancedBtn.setAttribute("aria-pressed", state.viewMode==="advanced" ? "true" : "false");
+  const pointsBtn=document.getElementById("pointsBtn");
+  const winPctBtn=document.getElementById("winPctBtn");
+  const comboBtn=document.getElementById("comboBtn");
+  pointsBtn.classList.toggle("active", state.viewMode==="simple");
+  winPctBtn.classList.toggle("active", state.viewMode==="winpct");
+  comboBtn.classList.toggle("active", state.viewMode==="advanced");
+  pointsBtn.setAttribute("aria-pressed", state.viewMode==="simple" ? "true" : "false");
+  winPctBtn.setAttribute("aria-pressed", state.viewMode==="winpct" ? "true" : "false");
+  comboBtn.setAttribute("aria-pressed", state.viewMode==="advanced" ? "true" : "false");
 
-  document.querySelector(".instructions").textContent = state.viewMode==="simple"
-    ? "Click a player. Click any non-final game to toggle the winner."
-    : "Click a player. Gray = default favorite; click a matchup to include that result.";
+  if(state.viewMode==="simple"){
+    document.querySelector(".instructions").textContent =
+      "Click a player. Click any non-final game to toggle the winner.";
+  }else if(state.viewMode==="winpct"){
+    document.querySelector(".instructions").textContent =
+      "Click a player. Unselected games remain probabilistic; click a matchup to assume a winner.";
+  }else{
+    document.querySelector(".instructions").textContent =
+      "Click a player. Gray = default favorite; click a matchup to include that result.";
+  }
   updateInteractionWording();
-
   const model=buildModel();
   renderDesktop(model);
   renderMobile(model);
@@ -1241,17 +1315,29 @@ window.addEventListener("orientationchange",()=>{
   requestAnimationFrame(updateInteractionWording);
 });
 
-document.getElementById("simpleBtn").addEventListener("click",()=>setViewMode("simple"));
-document.getElementById("advancedBtn").addEventListener("click",()=>setViewMode("advanced"));
+document.getElementById("pointsBtn").addEventListener("click",()=>setViewMode("simple"));
+document.getElementById("winPctBtn").addEventListener("click",()=>setViewMode("winpct"));
+document.getElementById("comboBtn").addEventListener("click",()=>setViewMode("advanced"));
 
 document.getElementById("resetBtn").addEventListener("click",()=>{
-  state.assumed.clear();
+  state.advancedAssumed.clear();
+  state.winPctAssumed.clear();
   state.weeklySort="points";
   for(const g of DATA.games){
     state.advancedWinners[g.id]=state.defaults[g.id];
     state.simpleWinners[g.id]=state.defaults[g.id];
+    state.winPctWinners[g.id]=g.final ? g.winner : null;
   }
-  state.winners = state.viewMode==="simple" ? state.simpleWinners : state.advancedWinners;
+  if(state.viewMode==="simple"){
+    state.winners=state.simpleWinners;
+    state.assumed=state.advancedAssumed;
+  }else if(state.viewMode==="winpct"){
+    state.winners=state.winPctWinners;
+    state.assumed=state.winPctAssumed;
+  }else{
+    state.winners=state.advancedWinners;
+    state.assumed=state.advancedAssumed;
+  }
   render();
 
   /* Reset the independently scrolling mobile columns to their tops as well. */
@@ -2877,6 +2963,500 @@ render();
   .mhead,
   body.advanced-mode #mobileWeekHeader > span:first-child{
     font-size:12px!important;
+  }
+}
+</style>
+
+
+<style>
+/* ===== Win Percentage mode =====
+   Points = existing Basic behavior.
+   Combo = existing Advanced behavior.
+   Win Percentage = exact Win/Tie probabilities with neutral unresolved games. */
+
+@media(min-width:821px){
+  body.winpct-mode .desktop-grid{
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  body.winpct-mode .overall-panel{
+    display:none!important;
+  }
+
+  /* Use the space formerly occupied by Overall for a wider weekly probability column. */
+  body.winpct-mode .matrix .player-head,
+  body.winpct-mode .matrix .player-cell{
+    min-width:330px!important;
+    max-width:330px!important;
+  }
+  body.winpct-mode .player-head-inner{
+    height:46px!important;
+  }
+  body.winpct-mode .player-cell{
+    padding:4px 9px!important;
+  }
+  body.winpct-mode .winpct-desktop-player{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(125px,155px);
+    gap:12px;
+    align-items:center;
+    min-height:38px;
+  }
+  body.winpct-mode .winpct-desktop-player .player-name{
+    font-size:14px!important;
+  }
+  body.winpct-mode .winpct-desktop-player .prob-track{
+    min-width:125px;
+  }
+
+  /* Basic-like compact pick cards, but unresolved games stay neutral. */
+  body.winpct-mode .pickcell{
+    overflow:visible;
+  }
+  body.winpct-mode .pickcell.good,
+  body.winpct-mode .pickcell.bad,
+  body.winpct-mode .pickcell.pending{
+    background:#fff;
+  }
+  body.winpct-mode .pickbox{
+    position:relative!important;
+    inset:auto!important;
+    width:calc(100% - 4px)!important;
+    height:42px!important;
+    min-height:42px!important;
+    margin:2px 2px!important;
+    box-sizing:border-box!important;
+    display:flex!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:3px!important;
+    line-height:1!important;
+    border:0!important;
+    border-radius:7px!important;
+    overflow:hidden!important;
+  }
+  body.winpct-mode .pick-team,
+  body.winpct-mode .pick-conf{
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    line-height:1!important;
+    margin:0!important;
+    vertical-align:middle!important;
+  }
+  body.winpct-mode .pickcell.pending .pickbox{
+    background:#fff!important;
+    color:#223248!important;
+  }
+  body.winpct-mode .pickcell.pending .pick-conf{
+    color:#5f6f82!important;
+  }
+  body.winpct-mode .pickcell.good .pickbox{
+    background:#e6f3eb!important;
+  }
+  body.winpct-mode .pickcell.bad .pickbox{
+    background:#f8e9e8!important;
+  }
+
+  /* Preserve the existing final-column treatment. */
+  body.winpct-mode .pickcell.final-col{
+    background:#c7d0d8!important;
+  }
+  body.winpct-mode .pickcell.good.final-col .pickbox{
+    background:#cfead8!important;
+    box-shadow:inset 0 0 0 2px #2f8f57!important;
+  }
+  body.winpct-mode .pickcell.bad.final-col .pickbox{
+    background:#f2cccc!important;
+    box-shadow:inset 0 0 0 2px #c04b4b!important;
+  }
+}
+
+/* Neutral unresolved desktop picks. */
+body.winpct-mode .pickcell.pending{
+  color:#223248!important;
+}
+body.winpct-mode .pickcell.pending .pick-conf{
+  color:#5f6f82!important;
+}
+
+/* Mobile/header room for three top-level modes. */
+@media(max-width:820px){
+  .header-inner{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto!important;
+    gap:6px 7px!important;
+    align-items:center!important;
+  }
+  .title-wrap{
+    grid-column:1;
+    grid-row:1;
+  }
+  .reset{
+    grid-column:2;
+    grid-row:1;
+  }
+  .view-controls{
+    grid-column:1 / -1;
+    grid-row:2;
+    width:100%;
+    min-width:0;
+  }
+  .mode-btn{
+    flex:1 1 0;
+    min-width:0;
+    padding:6px 4px!important;
+    font-size:11px!important;
+    white-space:nowrap;
+  }
+
+  body.winpct-mode .mobile-grid,
+  body.winpct-mode.touch-independent-scroll .mobile-grid{
+    grid-template-columns:minmax(0,1fr) 104px!important;
+    gap:2px!important;
+  }
+  body.winpct-mode .overall-col{
+    display:none!important;
+  }
+
+  body.winpct-mode .weekly-col .mrow{
+    min-height:62px!important;
+    height:62px!important;
+    padding:6px 6px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    justify-content:center!important;
+  }
+  body.winpct-mode .winpct-mobile-name{
+    font-size:11px!important;
+    line-height:1.05!important;
+    font-weight:850!important;
+    color:var(--ink)!important;
+    overflow-wrap:anywhere;
+    min-width:0;
+  }
+  body.winpct-mode .winpct-mobile-prob{
+    margin-top:6px;
+    width:100%;
+    min-width:0;
+  }
+  body.winpct-mode .winpct-mobile-prob .prob-wrap,
+  body.winpct-mode .winpct-mobile-prob .prob-track{
+    width:100%!important;
+    min-width:0!important;
+  }
+  body.winpct-mode .winpct-mobile-prob .prob-track{
+    height:21px!important;
+  }
+
+  /* Before an assumption is made, the selected player's confidence marker
+     is white/neutral. After selection it becomes green/red. */
+  body.winpct-mode .pick-mark{
+    border-color:#cfd8e2!important;
+    color:#5f6f82!important;
+    background:#fff!important;
+  }
+  body.winpct-mode .pick-mark.correct{
+    border-color:#75b18c!important;
+    color:#176b3b!important;
+    background:#e6f3eb!important;
+  }
+  body.winpct-mode .pick-mark.wrong{
+    border-color:#d49b9b!important;
+    color:#9f3030!important;
+    background:#f8e9e8!important;
+  }
+}
+
+/* Keep the Win Percentage week header clean: no rank or sort UI is generated. */
+body.winpct-mode .week-prob,
+body.winpct-mode .mprob{
+  display:none;
+}
+</style>
+
+
+<style>
+/* ===== v5 refinements ===== */
+.combo-mode-btn{
+  display:inline-flex;
+  align-items:baseline;
+  justify-content:center;
+  gap:3px;
+}
+.beta-tag{
+  font-size:7px;
+  line-height:1;
+  font-weight:850;
+  letter-spacing:.03em;
+  text-transform:uppercase;
+  opacity:.55;
+}
+.mode-btn.active .beta-tag{opacity:.48}
+
+@media(min-width:821px){
+  body.winpct-mode .matrix{
+    border-spacing:2px 1px!important;
+  }
+  body.winpct-mode .matrix th,
+  body.winpct-mode .matrix td{
+    height:32px!important;
+  }
+  body.winpct-mode .player-head-inner{
+    height:36px!important;
+  }
+  body.winpct-mode .player-cell{
+    padding:1px 8px!important;
+  }
+  body.winpct-mode .winpct-desktop-player{
+    min-height:30px!important;
+  }
+  body.winpct-mode .pickbox{
+    height:30px!important;
+    min-height:30px!important;
+    margin:1px 2px!important;
+    border-radius:6px!important;
+  }
+  body.winpct-mode .game-head.assumed{
+    background:#fff!important;
+    box-shadow:inset 0 0 0 1px #dbe3ea!important;
+  }
+}
+
+@media(max-width:820px){
+  .header-inner{
+    display:flex!important;
+    flex-wrap:nowrap!important;
+    align-items:center!important;
+    gap:5px!important;
+    padding:6px 6px!important;
+  }
+  .title-wrap{
+    grid-column:auto!important;
+    grid-row:auto!important;
+    flex:1 1 auto!important;
+    min-width:84px!important;
+  }
+  h1{
+    font-size:14px!important;
+    white-space:nowrap!important;
+  }
+  .instructions{
+    display:none!important;
+  }
+  .view-controls{
+    grid-column:auto!important;
+    grid-row:auto!important;
+    flex:0 1 auto!important;
+    width:auto!important;
+    min-width:0!important;
+    gap:2px!important;
+    padding:2px!important;
+    border-radius:8px!important;
+  }
+  .mode-btn{
+    flex:0 1 auto!important;
+    min-width:0!important;
+    padding:5px 5px!important;
+    font-size:10px!important;
+    border-radius:6px!important;
+    white-space:nowrap!important;
+  }
+  .beta-tag{
+    font-size:6px!important;
+  }
+  .reset{
+    grid-column:auto!important;
+    grid-row:auto!important;
+    flex:0 0 auto!important;
+    padding:6px 7px!important;
+    font-size:10px!important;
+    border-radius:8px!important;
+  }
+
+  body.winpct-mode .pick-mark{
+    border:1px solid var(--gold)!important;
+    color:#7b6114!important;
+    background:#fff9e5!important;
+  }
+  body.winpct-mode .pick-mark.correct{
+    border-color:#75b18c!important;
+    color:#176b3b!important;
+    background:#e6f3eb!important;
+  }
+  body.winpct-mode .pick-mark.wrong{
+    border-color:#d49b9b!important;
+    color:#9f3030!important;
+    background:#f8e9e8!important;
+  }
+}
+
+@media(max-width:390px){
+  h1{font-size:13px!important}
+  .mode-btn{padding:5px 4px!important;font-size:9px!important}
+  .reset{padding:6px 6px!important;font-size:9px!important}
+}
+</style>
+
+
+<style>
+/* ===== v6 desktop Win % geometry + Combo beta placement ===== */
+
+/* "Beta" sits beneath Combo in every layout without making the mode control taller. */
+.combo-mode-btn{
+  position:relative!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  padding-top:5px!important;
+  padding-bottom:9px!important;
+}
+.combo-mode-btn > span:first-child{
+  position:relative;
+  top:-2px;
+}
+.combo-mode-btn .beta-tag{
+  position:absolute!important;
+  left:0;
+  right:0;
+  bottom:2px;
+  text-align:center;
+  font-size:6px!important;
+  line-height:1!important;
+  font-weight:850!important;
+  letter-spacing:.04em!important;
+  opacity:.55!important;
+}
+
+@media(min-width:821px){
+  /* Win % header must use the exact same compact vertical geometry as Points. */
+  body.winpct-mode .matrix{
+    border-spacing:2px 1px!important;
+    table-layout:fixed!important;
+
+    /* Keep the weekly/probability column fixed; any extra desktop width
+       is distributed across the 16 game columns instead. */
+    width:max(100%, 1264px)!important;
+    min-width:1264px!important;
+  }
+
+  body.winpct-mode .matrix th,
+  body.winpct-mode .matrix td{
+    height:32px!important;
+  }
+
+  body.winpct-mode .matrix .player-head,
+  body.winpct-mode .matrix .player-cell{
+    width:330px!important;
+    min-width:330px!important;
+    max-width:330px!important;
+  }
+
+  body.winpct-mode .game-head,
+  body.winpct-mode .pickcell{
+    width:auto!important;
+    min-width:56px!important;
+  }
+
+  body.winpct-mode .player-head-inner{
+    height:36px!important;
+  }
+
+  /* Same date/time treatment as Points: absolutely positioned, so it adds
+     no height to the matchup header row, and uses the identical typography. */
+  body.winpct-mode .game-head{
+    position:relative!important;
+  }
+  body.winpct-mode .gh-simple-time{
+    position:absolute!important;
+    top:4px!important;
+    left:0!important;
+    right:0!important;
+    height:10px!important;
+    line-height:10px!important;
+    margin:0!important;
+    text-align:center!important;
+    white-space:nowrap!important;
+    font-size:9px!important;
+    font-weight:850!important;
+    color:#58687a!important;
+    pointer-events:none!important;
+    z-index:2!important;
+  }
+
+  body.winpct-mode .winpct-desktop-player{
+    grid-template-columns:minmax(0,1fr) 145px!important;
+    gap:9px!important;
+    min-height:30px!important;
+  }
+  body.winpct-mode .winpct-desktop-player .prob-track{
+    min-width:0!important;
+    width:100%!important;
+  }
+}
+
+/* Preserve the one-line mobile header while putting Beta below Combo. */
+@media(max-width:820px){
+  .combo-mode-btn{
+    padding-top:4px!important;
+    padding-bottom:8px!important;
+  }
+  .combo-mode-btn > span:first-child{
+    top:-2px;
+  }
+  .combo-mode-btn .beta-tag{
+    bottom:1px;
+    font-size:5px!important;
+  }
+}
+</style>
+
+
+<style>
+/* ===== v7 Combo probability indicator and click-cycle refinements ===== */
+
+/* Combo's assumption state is shown only by the green % marker, not by a gray outline. */
+body.advanced-mode .game-head.assumed{
+  background:#fff!important;
+  box-shadow:inset 0 0 0 1px #dbe3ea!important;
+}
+
+/* Green percent marker occupies the same vertical status position as FINAL. */
+body.advanced-mode .game-head{
+  position:relative!important;
+}
+body.advanced-mode .gh-assumed-pct{
+  position:absolute;
+  top:5px;
+  left:0;
+  right:0;
+  height:11px;
+  line-height:11px;
+  margin:0;
+  text-align:center;
+  color:#07864a;
+  font-size:12px;
+  font-weight:950;
+  pointer-events:none;
+  z-index:3;
+}
+
+/* Previously queued refinement: Beta a bit larger/higher, Combo a bit lower. */
+.combo-mode-btn > span:first-child{
+  top:0!important;
+}
+.combo-mode-btn .beta-tag{
+  bottom:3px!important;
+  font-size:7px!important;
+}
+
+@media(max-width:820px){
+  .combo-mode-btn > span:first-child{
+    top:0!important;
+  }
+  .combo-mode-btn .beta-tag{
+    bottom:2px!important;
+    font-size:6px!important;
   }
 }
 </style>
