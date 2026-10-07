@@ -1125,20 +1125,14 @@ function updateInteractionWording(){
 function updateTouchMobileScrolling(){
   const isTouchMobile = window.matchMedia("(max-width:820px) and (any-pointer: coarse)").matches;
   document.body.classList.toggle("touch-independent-scroll", isTouchMobile);
-  document.documentElement.classList.toggle("touch-scroll-locked", isTouchMobile);
 
   const grid=document.querySelector(".mobile-grid");
   if(!grid) return;
 
   if(isTouchMobile){
-    // The three columns are the only vertical scrollers on touch phones.
-    // Keep the document itself pinned at the top so their sticky headers
-    // can never slide beneath the overall page header.
-    if(window.scrollY!==0) window.scrollTo(0,0);
     requestAnimationFrame(()=>{
       const top=grid.getBoundingClientRect().top;
-      const viewportHeight=window.visualViewport ? window.visualViewport.height : window.innerHeight;
-      const available=Math.max(240, viewportHeight-top-8);
+      const available=Math.max(240, window.innerHeight-top-8);
       grid.style.setProperty("--touch-mobile-height", available+"px");
     });
   }else{
@@ -3516,45 +3510,6 @@ body.advanced-mode .gh-assumed-pct{
   header .reset{
     padding-left:8px!important;
     padding-right:8px!important;
-  }
-}
-</style>
-
-
-<style>
-/* ===== v9 mobile scroll containment =====
-   On touch phones, the page itself never scrolls vertically. Each pool
-   column remains its own scroll container, so its sticky blue header
-   cannot get trapped behind the overall page header. */
-@media(max-width:820px) and (any-pointer:coarse){
-  html.touch-scroll-locked,
-  html.touch-scroll-locked body{
-    height:100%;
-    overflow:hidden!important;
-    overscroll-behavior:none;
-  }
-
-  html.touch-scroll-locked body{
-    position:fixed;
-    inset:0;
-    width:100%;
-  }
-
-  body.touch-independent-scroll main{
-    overflow:hidden!important;
-  }
-
-  body.touch-independent-scroll .mobile{
-    overflow:hidden!important;
-  }
-
-  body.touch-independent-scroll .mobile-grid{
-    overflow:visible!important;
-  }
-
-  body.touch-independent-scroll .mobile-grid > .mcol{
-    overscroll-behavior-y:contain!important;
-    touch-action:pan-y;
   }
 }
 </style>
