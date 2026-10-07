@@ -83,10 +83,6 @@ h1{margin:0;font-size:18px;line-height:1.08;font-weight:850;letter-spacing:-.015
 .mode-btn.active:hover{background:#fff}
 
 main{max-width:1900px;margin:0 auto;padding:10px 10px 0}
-footer{
-  max-width:1900px;margin:12px auto 0;padding:10px 12px 16px;
-  font-size:11px;color:#617084;text-align:center
-}
 .mobile{display:none}
 .desktop{display:block}
 
@@ -685,7 +681,6 @@ body.simple-mode .pick-conf::before{
   }
   .pick-mark.correct{border-color:#75b18c;color:#176b3b;background:#e6f3eb}
   .pick-mark.wrong{border-color:#d49b9b;color:#9f3030;background:#f8e9e8}
-  footer{font-size:9px;padding:8px 6px 12px}
 }
 @media(max-width:390px){
   .mobile-grid{grid-template-columns:minmax(0,1fr) 156px minmax(0,.8fr)}
@@ -737,7 +732,6 @@ body.simple-mode .pick-conf::before{
   </section>
 </main>
 
-<footer>Made by B-B-B-Benny and the Jets, with help from AI. Send suggestions and questions to Ben.</footer>
 
 <script src="picks-data.js"></script>
 <script src="games-data.js"></script>
@@ -1125,14 +1119,20 @@ function updateInteractionWording(){
 function updateTouchMobileScrolling(){
   const isTouchMobile = window.matchMedia("(max-width:820px) and (any-pointer: coarse)").matches;
   document.body.classList.toggle("touch-independent-scroll", isTouchMobile);
+  document.documentElement.classList.toggle("touch-scroll-locked", isTouchMobile);
 
   const grid=document.querySelector(".mobile-grid");
   if(!grid) return;
 
   if(isTouchMobile){
+    // The three columns are the only vertical scrollers on touch phones.
+    // Keep the document itself pinned at the top so their sticky headers
+    // can never slide beneath the overall page header.
+    if(window.scrollY!==0) window.scrollTo(0,0);
     requestAnimationFrame(()=>{
       const top=grid.getBoundingClientRect().top;
-      const available=Math.max(240, window.innerHeight-top-8);
+      const viewportHeight=window.visualViewport ? window.visualViewport.height : window.innerHeight;
+      const available=Math.max(240, viewportHeight-top-8);
       grid.style.setProperty("--touch-mobile-height", available+"px");
     });
   }else{
@@ -3512,6 +3512,52 @@ body.advanced-mode .gh-assumed-pct{
     padding-right:8px!important;
   }
 }
+</style>
+
+
+<style>
+/* ===== v9 mobile scroll containment =====
+   On touch phones, the page itself never scrolls vertically. Each pool
+   column remains its own scroll container, so its sticky blue header
+   cannot get trapped behind the overall page header. */
+@media(max-width:820px) and (any-pointer:coarse){
+  html.touch-scroll-locked,
+  html.touch-scroll-locked body{
+    height:100%;
+    overflow:hidden!important;
+    overscroll-behavior:none;
+  }
+
+  html.touch-scroll-locked body{
+    position:fixed;
+    inset:0;
+    width:100%;
+  }
+
+  body.touch-independent-scroll main{
+    overflow:hidden!important;
+  }
+
+  body.touch-independent-scroll .mobile{
+    overflow:hidden!important;
+  }
+
+  body.touch-independent-scroll .mobile-grid{
+    overflow:visible!important;
+  }
+
+  body.touch-independent-scroll .mobile-grid > .mcol{
+    overscroll-behavior-y:contain!important;
+    touch-action:pan-y;
+  }
+}
+</style>
+
+
+<style>
+/* ===== v10 footer removal ===== */
+footer{display:none!important}
+main{padding-bottom:0!important}
 </style>
 
 </body>
