@@ -5,7 +5,7 @@ Update games-data.js from ESPN's NFL scoreboard endpoint and maintain action-sta
 Behavior:
 - Never marks a game final unless ESPN explicitly reports completed=true and post/final state.
 - Learns exact kickoff timestamps from ESPN and stores them in games-data.js.
-- Avoids ESPN requests until an unresolved game is at least RESULT_DELAY_MINUTES past kickoff.
+- Refreshes API-reported game states on each manual run with unresolved games.
 - Logs API checks, final results, and errors to action-status.js.
 - Keeps only the newest MAX_HISTORY activity entries.
 """
@@ -25,7 +25,6 @@ GAMES_PATH = Path("games-data.js")
 PICKS_PATH = Path("picks-data.js")
 STATUS_PATH = Path("action-status.js")
 
-RESULT_DELAY_MINUTES = int(os.environ.get("RESULT_DELAY_MINUTES", "150"))
 CHECK_INTERVAL_MINUTES = int(os.environ.get("CHECK_INTERVAL_MINUTES", "15"))
 MAX_HISTORY = int(os.environ.get("MAX_HISTORY", "100"))
 
@@ -211,26 +210,32 @@ def determine_winner(info: dict) -> str:
     raise RuntimeError("Final game was reported without a safely identifiable winner or tie.")
 
 
+def api_game_status(info: dict) -> str:
+    if info["explicit_final"]:
+        return "final"
+    name = info["status_name"]
+    for marker, label in (("POSTPON", "postponed"), ("CANCEL", "cancelled"),
+                          ("SUSPEND", "suspended"), ("DELAY", "delayed")):
+        if marker in name:
+            return label
+    if info["state"] == "in":
+        return "underway"
+    if info["state"] == "pre":
+        return "pre-game"
+    return "unknown"
+
+
 def compute_next_check(games: list[dict], now: datetime) -> tuple[datetime | None, str]:
-    unresolved = [g for g in games if not g.get("final", False) and g.get("kickoff")]
+    unresolved = [g for g in games if not g.get("final", False)]
     if not unresolved:
         return None, "All games are final."
-
-    future_due = []
-    already_due = False
-    for game in unresolved:
-        due = parse_iso(game["kickoff"]) + timedelta(minutes=RESULT_DELAY_MINUTES)
-        if now >= due:
-            already_due = True
-        else:
-            future_due.append((due, game))
-
-    if already_due:
-        nxt = now + timedelta(minutes=CHECK_INTERVAL_MINUTES)
-        return nxt, "At least one unresolved game is already old enough to check again."
-
-    due, game = min(future_due, key=lambda x: x[0])
-    return due, f"First plausible result window for {game.get('id', 'next game')}."
+    # This is a suggested time only; the workflow remains manual-only.
+    if any(g.get("apiStatus") != "pre-game" or not g.get("kickoff") for g in unresolved):
+        return now + timedelta(minutes=CHECK_INTERVAL_MINUTES), "Suggested manual refresh for unresolved game states."
+    kickoffs = [parse_iso(g["kickoff"]) for g in unresolved]
+    if min(kickoffs) <= now:
+        return now + timedelta(minutes=CHECK_INTERVAL_MINUTES), "Suggested manual refresh; awaiting API-confirmed start."
+    return min(kickoffs), "Suggested manual refresh at the next kickoff; no scheduled run is enabled."
 
 
 def main() -> int:
@@ -263,121 +268,41 @@ def main() -> int:
             print("All games are already final.")
             return 0
 
-        payload = None
-        event_map = None
-        games_changed = False
-
-        # Learn schedule if kickoff timestamps are missing.
-        if any(not g.get("kickoff") for g in unresolved):
-            check_time = utc_now()
-            status["lastApiCheck"] = iso(check_time)
-            try:
-                payload = espn_week_data(season, week, season_type)
-                status["lastApiSuccess"] = iso(utc_now())
-            except Exception as exc:
-                raise RuntimeError(f"ESPN schedule request failed: {exc}") from exc
-
-            event_map = build_event_map(payload)
-            missing = []
-
-            for game in games:
-                info = event_map.get(game_key(game))
-                if not info:
-                    missing.append(game.get("id", "?"))
-                    continue
-                kickoff = info.get("kickoff")
-                if kickoff and game.get("kickoff") != kickoff:
-                    game["kickoff"] = kickoff
-                    games_changed = True
-
-            if missing:
-                raise RuntimeError(
-                    "Could not match these pool games to ESPN's weekly schedule: "
-                    + ", ".join(missing)
-                )
-
-            add_history(status, "schedule", f"Learned/refreshed the Week {week} NFL kickoff schedule.", check_time)
-
-        # See whether any unresolved game is old enough to justify a result request.
-        due_games = []
-        for game in games:
-            if game.get("final", False) or not game.get("kickoff"):
-                continue
-            due_at = parse_iso(game["kickoff"]) + timedelta(minutes=RESULT_DELAY_MINUTES)
-            if now >= due_at:
-                due_games.append(game)
-
-        if not due_games:
-            next_check, reason = compute_next_check(games, now)
-            status["status"] = "waiting"
-            status["nextEligibleCheck"] = iso(next_check)
-            status["nextCheckReason"] = reason
-            if games_changed:
-                write_js_object(GAMES_PATH, game_prefix, games_data, game_suffix)
-            save_status(status_prefix, status, status_suffix)
-            print("No unresolved game is due for a result check yet.")
-            return 0
-
-        # Fetch current scoreboard if we did not already fetch it while learning schedule.
         check_time = utc_now()
-        if payload is None:
-            status["lastApiCheck"] = iso(check_time)
-            try:
-                payload = espn_week_data(season, week, season_type)
-                status["lastApiSuccess"] = iso(utc_now())
-            except Exception as exc:
-                raise RuntimeError(f"ESPN result request failed: {exc}") from exc
-            event_map = build_event_map(payload)
-        else:
-            # The schedule call was also a live scoreboard check.
-            check_time = parse_iso(status["lastApiCheck"])
+        status["lastApiCheck"] = iso(check_time)
+        payload = espn_week_data(season, week, season_type)
+        status["lastApiSuccess"] = iso(utc_now())
+        event_map = build_event_map(payload)
+        missing = [g.get("id", "?") for g in unresolved if game_key(g) not in event_map]
+        if missing:
+            raise RuntimeError("Could not match unresolved pool games to ESPN: " + ", ".join(missing))
 
-        assert event_map is not None
-
+        games_changed = False
         final_count = 0
-        due_ids = ", ".join(g.get("id", "?") for g in due_games)
-
-        # Refresh kickoffs in case of flexes/postponements.
-        for game in games:
-            info = event_map.get(game_key(game))
-            if not info:
-                continue
+        for game in unresolved:
+            info = event_map[game_key(game)]
             kickoff = info.get("kickoff")
-            if kickoff and game.get("kickoff") != kickoff:
+            if kickoff:
+                parse_iso(kickoff)  # Reject invalid API dates before writing data.
                 game["kickoff"] = kickoff
-                games_changed = True
-
-        due_keys = {game_key(g) for g in due_games}
-
-        for game in games:
-            if game.get("final", False) or game_key(game) not in due_keys:
-                continue
-
-            info = event_map.get(game_key(game))
-            if not info:
-                raise RuntimeError(f"Due game {game.get('id')} was not found in ESPN's scoreboard.")
-
-            if not info["explicit_final"]:
-                print(f"{game.get('id')}: not final yet.")
-                continue
-
-            winner = determine_winner(info)
-            game["final"] = True
-            game["winner"] = winner
+            api_status = api_game_status(info)
+            previous_status = game.get("apiStatus")
+            game["apiStatus"] = api_status
+            game["apiStatusCheckedAt"] = iso(check_time)
             games_changed = True
-            final_count += 1
+            if info["explicit_final"]:
+                winner = determine_winner(info)
+                game["final"] = True
+                game["winner"] = winner
+                final_count += 1
+                result_text = "TIE" if winner == "TIE" else f"{winner} won"
+                add_history(status, "final", f"{game.get('id')}: FINAL — {result_text}.", check_time)
+            elif api_status != previous_status:
+                add_history(status, "state", f"{game.get('id')}: API status {api_status}.", check_time)
 
-            result_text = "TIE" if winner == "TIE" else f"{winner} won"
-            add_history(status, "final", f"{game.get('id')}: FINAL — {result_text}.", check_time)
-            print(f"{game.get('id')}: FINAL — {result_text}")
-
-        add_history(
-            status,
-            "check",
-            f"Checked ESPN for {len(due_games)} due game(s): {due_ids}. "
-            f"{final_count} newly final.",
-            check_time,
-        )
+        add_history(status, "check",
+                    f"Checked ESPN states/results for {len(unresolved)} unresolved game(s); "
+                    f"{final_count} newly final.", check_time)
 
         if games_changed:
             write_js_object(GAMES_PATH, game_prefix, games_data, game_suffix)
