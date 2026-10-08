@@ -3,211 +3,106 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
 <title>Pool Action Monitor</title>
 <style>
-:root{
-  --navy:#0c2038; --page:#eef3f7; --paper:#fff; --ink:#18283a;
-  --muted:#657487; --line:#dfe6ed; --green:#177245; --red:#a53c3c;
-}
+:root{--page:#0c1015;--ink:#d6dee7;--muted:#8997a7;--line:#26313e;--green:#88e5b0;--amber:#efc979;--red:#ff9393}
 *{box-sizing:border-box}
-body{
-  margin:0;padding:18px;
-  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:var(--page);color:var(--ink)
+body{margin:0;padding:16px;background:var(--page);color:var(--ink);font:12px/1.4 ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;font-variant-numeric:tabular-nums}
+main{max-width:640px;margin:auto}
+header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding-bottom:8px}
+h1{font-size:15px;letter-spacing:-.03em;margin:0;font-weight:700}h1::before{content:"> ";color:var(--green)}
+.sub{color:var(--muted);font-size:11px}
+.summary{margin:10px 0 0;display:grid;grid-template-columns:max-content minmax(0,1fr);column-gap:16px;row-gap:3px}
+.summary dt{color:var(--muted)}.summary dd{margin:0;text-align:right;white-space:nowrap}
+.ok,.winner{color:var(--green);font-weight:700}.error{color:var(--red)}
+.message{color:var(--muted);font-size:11px;margin:5px 0 0}.message:empty{display:none}
+h2{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:13px 0 4px;padding-bottom:4px;border-bottom:1px solid var(--line);font-weight:500}
+.count{letter-spacing:0}
+.game-list{list-style:none;padding:0;margin:0}
+.game-row{display:grid;grid-template-columns:105px minmax(0,1fr) 76px;gap:10px;align-items:baseline;padding:4px 0;border-bottom:1px solid #18212b}
+.game-matchup{white-space:nowrap}.at{color:var(--muted);font-size:10px}.loser{color:var(--muted)}.winner{text-decoration:underline;text-underline-offset:3px}
+.game-time{color:var(--muted);font-size:11px;white-space:nowrap}.game-status{text-align:right;white-space:nowrap;font-size:10px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.game-status.live{color:var(--amber);font-weight:800}.game-status.final{color:var(--green);font-weight:800}
+.schedule-note{font-size:10px;color:var(--muted);margin:5px 0 0;white-space:nowrap}
+.activity{list-style:none;margin:0;padding:0}.activity li{display:grid;grid-template-columns:145px 62px minmax(0,1fr);gap:10px;padding:5px 0;border-bottom:1px solid #18212b;align-items:baseline}.activity time{color:var(--muted);font-size:10px}.type{color:var(--muted);font-size:10px;text-transform:uppercase}.type.final{color:var(--green);font-weight:700}.type.error{color:var(--red)}.detail{overflow-wrap:anywhere}.empty{color:var(--muted);padding:6px 0;font-size:11px}
+@media(max-width:620px){body{padding:10px;font-size:11px}header{gap:6px}h1{font-size:13px}.sub{font-size:10px}.summary{column-gap:8px;row-gap:2px;font-size:10px}.game-row{grid-template-columns:92px minmax(0,1fr) 72px;gap:6px;padding:3px 0}.game-time{font-size:10px}.game-status{font-size:9px}.activity li{grid-template-columns:115px 48px minmax(0,1fr);gap:6px;font-size:10px}h2{margin-top:10px}}
+@media(max-width:360px){.summary dt{font-size:10px}.game-row{grid-template-columns:86px minmax(0,1fr) 72px;gap:4px}.activity li{grid-template-columns:105px 44px minmax(0,1fr);gap:4px}}
+/* Keep the activity log in the remaining phone viewport space. */
+@media(max-width:620px){
+  main{height:calc(100vh - 20px);height:calc(100dvh - 20px);display:flex;flex-direction:column}
+  main > *{flex-shrink:0}
+  #history{flex:1 1 auto;min-height:72px;overflow-y:auto;overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch}
 }
-main{max-width:920px;margin:auto}
-h1{font-size:22px;margin:0 0 4px}
-.sub{color:var(--muted);font-size:12px;margin-bottom:16px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px}
-.label{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:800}
-.value{font-size:17px;font-weight:850;margin-top:4px}
-.value.ok{color:var(--green)} .value.error{color:var(--red)}
-.message{font-size:13px;line-height:1.4;margin-top:7px;color:#405166}
-h2{font-size:15px;margin:18px 0 8px}
-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line)}
-th,td{padding:8px 9px;border-bottom:1px solid var(--line);font-size:12px;text-align:left;vertical-align:top}
-th{font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);background:#f8fafc}
-tr:last-child td{border-bottom:0}
-.type{font-weight:850}
-.type.final{color:var(--green)} .type.error{color:var(--red)}
-.empty{padding:18px;background:#fff;border:1px solid var(--line);border-radius:10px;color:var(--muted);font-size:13px}
-
-.game-list{
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-}
-.game-row{
-  display:grid;
-  grid-template-columns:minmax(0,1fr) auto;
-  gap:10px;
-  align-items:center;
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:10px;
-  padding:9px 10px;
-}
-.game-main{min-width:0}
-.game-matchup{font-size:13px;font-weight:850}
-.game-time{font-size:11px;color:var(--muted);margin-top:2px}
-.game-result{font-size:11px;color:#425267;margin-top:3px;font-weight:700}
-.status-pill{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-width:76px;
-  padding:5px 8px;
-  border-radius:999px;
-  font-size:10px;
-  font-weight:900;
-  letter-spacing:.03em;
-  text-transform:uppercase;
-  white-space:nowrap;
-}
-.status-pill.pre{
-  background:#eef2f6;
-  color:#536274;
-}
-.status-pill.live{
-  background:#fff4cf;
-  color:#7a5b00;
-}
-.status-pill.final{
-  background:#e6f3eb;
-  color:#176b3b;
-}
-
-@media(max-width:620px){body{padding:10px}.grid{grid-template-columns:1fr}.value{font-size:15px}th,td{font-size:11px;padding:7px 6px}}
+.demo-note{color:var(--amber);font-size:10px;margin:0;padding:4px 0 6px;border-bottom:1px solid var(--line)}
 </style>
 </head>
 <body>
 <main>
-  <h1>Pool Action Monitor</h1>
-  <div class="sub" id="weekLabel">NFL result updater</div>
-
-  <div class="grid">
-    <div class="card">
-      <div class="label">Status</div>
-      <div class="value" id="statusValue">—</div>
-      <div class="message" id="statusMessage"></div>
-    </div>
-    <div class="card">
-      <div class="label">Last API check</div>
-      <div class="value" id="lastCheck">—</div>
-    </div>
-    <div class="card">
-      <div class="label">Last successful API contact</div>
-      <div class="value" id="lastSuccess">—</div>
-    </div>
-    <div class="card">
-      <div class="label">Next eligible result check</div>
-      <div class="value" id="nextCheck">—</div>
-      <div class="message" id="nextReason"></div>
-    </div>
-  </div>
-
-  <h2>Week games</h2>
-  <div id="games"></div>
-
-  <h2>Recent activity</h2>
-  <div id="history"></div>
+<header><h1>Pool Action Monitor</h1><span class="sub" id="weekLabel">NFL updater</span></header>
+<dl class="summary">
+<dt>Status</dt><dd id="statusValue">—</dd>
+<dt>Last results check</dt><dd id="lastCheck">—</dd>
+<dt>Last successful API contact</dt><dd id="lastSuccess">—</dd>
+<dt>Next scheduled results check</dt><dd id="nextCheck">—</dd>
+</dl>
+<p class="message" id="statusMessage"></p>
+<p class="message" id="nextReason"></p>
+<p class="schedule-note">Manual runs only</p>
+<h2>Week games <span class="count" id="gameCount"></span></h2>
+<div id="games"></div>
+<h2 id="activityHeading">Recent activity <span class="count" id="historyCount"></span></h2>
+<div id="history" role="region" aria-labelledby="activityHeading" tabindex="0"></div>
 </main>
-
 <script src="games-data.js"></script>
 <script src="action-status.js"></script>
 <script>
 const s=(typeof ACTION_STATUS!=="undefined" && ACTION_STATUS) ? ACTION_STATUS : {};
+const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 function dt(v){
   if(!v) return "—";
   const d=new Date(v);
-  if(Number.isNaN(d.getTime())) return v;
-  return new Intl.DateTimeFormat(undefined,{
-    weekday:"short",month:"short",day:"numeric",
-    hour:"numeric",minute:"2-digit",second:"2-digit"
-  }).format(d);
+  if(Number.isNaN(d.getTime())) return String(v);
+  return new Intl.DateTimeFormat(undefined,{month:"numeric",day:"numeric",hour:"numeric",minute:"2-digit"}).format(d);
 }
-document.getElementById("weekLabel").textContent =
-  s.week ? `NFL result updater • ${s.season||""} Week ${s.week}` : "NFL result updater";
+document.getElementById("weekLabel").textContent=s.week ? `${s.season||"NFL"} / Week ${s.week}` : "NFL updater";
 const statusEl=document.getElementById("statusValue");
-statusEl.textContent=(s.status||"unknown").replaceAll("-"," ");
-statusEl.className="value "+(s.status==="error"?"error":"ok");
-document.getElementById("statusMessage").textContent =
-  s.lastError || (s.status==="not-run" ? "The updater has not run yet." : "Updater status file loaded normally.");
+statusEl.textContent=(s.status||"unknown").replaceAll("-"," ").toUpperCase();
+statusEl.className=s.status==="error"?"error":"ok";
+document.getElementById("statusMessage").textContent=s.lastError || (s.status==="not-run" ? "Updater has not run yet." : "");
 document.getElementById("lastCheck").textContent=dt(s.lastApiCheck);
 document.getElementById("lastSuccess").textContent=dt(s.lastApiSuccess);
 document.getElementById("nextCheck").textContent=dt(s.nextEligibleCheck);
 document.getElementById("nextReason").textContent=s.nextCheckReason||"";
-
-
-const gameData=(typeof GAMES_DATA!=="undefined" && GAMES_DATA && Array.isArray(GAMES_DATA.games))
-  ? GAMES_DATA.games : [];
-
-function kickoffDate(game){
-  if(!game.kickoff) return null;
-  const d=new Date(game.kickoff);
-  return Number.isNaN(d.getTime()) ? null : d;
-}
+const gameData=(typeof GAMES_DATA!=="undefined" && GAMES_DATA && Array.isArray(GAMES_DATA.games))?GAMES_DATA.games:[];
+function kickoffDate(game){if(!game.kickoff)return null;const d=new Date(game.kickoff);return Number.isNaN(d.getTime())?null:d;}
 function gameStatus(game){
-  if(game.final){
-    return {key:"final",label:"Final"};
-  }
-  const ko=kickoffDate(game);
-  if(ko && Date.now() >= ko.getTime()){
-    return {key:"live",label:"Underway"};
-  }
-  return {key:"pre",label:"Pre-game"};
+  if(game.final)return {key:"final",label:"Final"};
+  const states={"underway":{key:"live",label:"Underway"},"pre-game":{key:"pre",label:"Pre-game"},"postponed":{key:"pre",label:"Postponed"},"delayed":{key:"live",label:"Delayed"},"suspended":{key:"live",label:"Suspended"},"cancelled":{key:"pre",label:"Cancelled"}};
+  return states[game.apiStatus]||{key:"pre",label:"Unknown"};
 }
-function kickoffLabel(game){
-  const ko=kickoffDate(game);
-  if(ko){
-    return new Intl.DateTimeFormat(undefined,{
-      weekday:"short",month:"short",day:"numeric",
-      hour:"numeric",minute:"2-digit"
-    }).format(ko);
-  }
-  return game.time || "";
-}
-function finalResult(game){
-  if(!game.final) return "";
-  if(game.winner==="TIE") return "Tie";
-  if(game.winner) return `${game.winner} won`;
-  return "Final";
-}
-
+function kickoffLabel(game){const ko=kickoffDate(game);return ko?new Intl.DateTimeFormat(undefined,{weekday:"short",month:"numeric",day:"numeric",hour:"numeric",minute:"2-digit"}).format(ko):game.time||"—";}
+function teamLabel(game,team){const won=game.final&&game.winner===team;const lost=game.final&&game.winner&&game.winner!=="TIE"&&!won;return `<span class="${won?"winner":lost?"loser":""}">${esc(team)}</span>`;}
 const gamesHost=document.getElementById("games");
-if(!gameData.length){
-  gamesHost.innerHTML='<div class="empty">No games are currently available in games-data.js.</div>';
-}else{
-  gamesHost.innerHTML=`<div class="game-list">${gameData.map(game=>{
-    const st=gameStatus(game);
-    const result=finalResult(game);
-    return `<div class="game-row">
-      <div class="game-main">
-        <div class="game-matchup">${game.away} @ ${game.home}</div>
-        <div class="game-time">${kickoffLabel(game)}</div>
-        ${result ? `<div class="game-result">${result}</div>` : ""}
-      </div>
-      <div class="status-pill ${st.key}">${st.label}</div>
-    </div>`;
-  }).join("")}</div>`;
-}
-
-const history=Array.isArray(s.history)?s.history:[];
-const host=document.getElementById("history");
-if(!history.length){
-  host.innerHTML='<div class="empty">No updater activity has been logged yet.</div>';
-}else{
-  host.innerHTML=`<table>
-    <thead><tr><th>Time</th><th>Type</th><th>Details</th></tr></thead>
-    <tbody>${history.map(item=>`
-      <tr>
-        <td>${dt(item.time)}</td>
-        <td class="type ${item.type||""}">${item.type||""}</td>
-        <td>${item.message||""}</td>
-      </tr>`).join("")}</tbody>
-  </table>`;
-}
+document.getElementById("gameCount").textContent=`${gameData.filter(g=>g.final).length}/${gameData.length} final`;
+gamesHost.innerHTML=gameData.length?`<ul class="game-list">${gameData.map(game=>{const st=gameStatus(game);const label=game.final&&game.winner==="TIE"?"Final · tie":st.label;return `<li class="game-row"><span class="game-matchup">${teamLabel(game,game.away)} <span class="at">at</span> ${teamLabel(game,game.home)}</span><span class="game-time">${esc(kickoffLabel(game))}</span><span class="game-status ${st.key}">${label}</span></li>`;}).join("")}</ul>`:'<div class="empty">No game data available.</div>';
+const realHistory=Array.isArray(s.history)?s.history:[];
+// Presentation-only samples: never saved to the updater's real history.
+const demoEvents=[
+  {type:"final",message:"CLE defeated PIT; final result saved."},
+  {type:"check",message:"Results checked; 1 final, 15 unresolved."},
+  {type:"check",message:"PIT at CLE still underway; no final result."},
+  {type:"schedule",message:"Kickoff times loaded for all 16 games."},
+  {type:"error",message:"Results request timed out; retry pending."},
+  {type:"check",message:"API contact successful; no new finals."}
+];
+const demoAnchor=Date.now();
+const history=realHistory.length?realHistory:Array.from({length:36},(_,i)=>({
+  ...demoEvents[i%demoEvents.length],time:new Date(demoAnchor-i*15*60*1000).toISOString()
+}));
+const isDemo=!realHistory.length;
+document.getElementById("historyCount").textContent=isDemo?"DEMO · 36 sample events":`${history.length} events`;
+document.getElementById("history").innerHTML=`${isDemo?'<p class="demo-note">DEMO DATA · Samples disappear when real activity arrives.</p>':""}<ol class="activity">${history.map(item=>`<li><time>${esc(dt(item.time))}</time><span class="type ${item.type==="final"?"final":item.type==="error"?"error":""}">${esc(item.type)}</span><span class="detail">${esc(item.message)}</span></li>`).join("")}</ol>`;
 </script>
 </body>
 </html>
