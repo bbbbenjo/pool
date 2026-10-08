@@ -1,8 +1,7 @@
 name: Update NFL results
 
 on:
-  # Start in manual-test mode. After we verify it on GitHub, we can add
-  # the scheduled trigger without changing the Python updater.
+  # Manual test mode for now. We will add the recurring schedule after validation.
   workflow_dispatch:
 
 permissions:
@@ -25,22 +24,36 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Check NFL schedule and update final results
-        run: python scripts/update_nfl_results.py
-
-      - name: Show changes
-        run: git diff -- games-data.js
-
-      - name: Commit and push if anything changed
+      - name: Run NFL updater
+        id: updater
         shell: bash
         run: |
-          if git diff --quiet -- games-data.js; then
-            echo "No games-data.js changes to commit."
+          set +e
+          python scripts/update_nfl_results.py
+          CODE=$?
+          echo "code=$CODE" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Show changes
+        run: git diff -- games-data.js action-status.js
+
+      - name: Commit updater status and game results
+        shell: bash
+        run: |
+          if git diff --quiet -- games-data.js action-status.js; then
+            echo "No tracked updater changes to commit."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add games-data.js
-          git commit -m "Update NFL game results"
+          git add games-data.js action-status.js
+          git commit -m "Update NFL game monitor"
           git push
+
+      - name: Mark workflow failed if updater reported an error
+        if: steps.updater.outputs.code != '0'
+        shell: bash
+        run: |
+          echo "The updater reported an error. action-status.js was committed with details."
+          exit 1
