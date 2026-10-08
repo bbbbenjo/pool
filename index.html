@@ -697,7 +697,7 @@ body.simple-mode .pick-conf::before{
     <div class="title-wrap">
       <h1><span class="page-title-desktop" id="pageTitleDesktop"></span><span class="page-title-mobile" id="pageTitleMobile"></span></h1>
       <div class="instructions">Click a player. Gray = default favorite; click a matchup to include that result.</div>
-      <div class="update-status" id="updateStatus"><span class="last-update" id="lastUpdate">Last Update: —</span><span class="next-update" id="nextUpdate">Next Update: —</span></div>
+      <div class="update-status" id="updateStatus"><span class="last-update" id="lastUpdate">Last Update Check: —</span><span class="next-update" id="nextUpdate">Next Update Check: —</span></div>
     </div>
     <div class="view-controls" role="group" aria-label="View mode">
       <button class="mode-btn active" id="pointsBtn" type="button">Points</button>
@@ -766,14 +766,14 @@ const lastUpdateEl=document.getElementById("lastUpdate");
 const nextUpdateEl=document.getElementById("nextUpdate");
 if(lastUpdateEl){
   const when=actionStatus.lastApiCheck || actionStatus.lastUpdate || null;
-  lastUpdateEl.textContent=`Last Update: ${formatActionUpdate(when)}`;
+  lastUpdateEl.textContent=`Last Update Check: ${formatActionUpdate(when)}`;
   if(actionStatus.status==="error"){
     lastUpdateEl.classList.add("has-error");
     lastUpdateEl.title=actionStatus.lastError || "The most recent updater run reported an error.";
   }
 }
 if(nextUpdateEl){
-  nextUpdateEl.textContent=`Next Update: ${formatActionUpdate(actionStatus.nextEligibleCheck || null)}`;
+  nextUpdateEl.textContent=`Next Update Check: ${formatActionUpdate(actionStatus.nextEligibleCheck || null)}`;
   if(actionStatus.nextCheckReason){
     nextUpdateEl.title=actionStatus.nextCheckReason;
   }
