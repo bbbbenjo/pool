@@ -5,7 +5,7 @@ Update games-data.js from ESPN's NFL scoreboard endpoint and maintain action-sta
 Behavior:
 - Never marks a game final unless ESPN explicitly reports completed=true and post/final state.
 - Learns exact kickoff timestamps from ESPN and stores them in games-data.js.
-- Refreshes API-reported game states on each manual run with unresolved games.
+- Scheduled runs check only at kickoff/during play; manual runs can force a refresh.
 - Logs API checks, final results, and errors to action-status.js.
 - Keeps only the newest MAX_HISTORY activity entries.
 """
@@ -25,7 +25,7 @@ GAMES_PATH = Path("games-data.js")
 PICKS_PATH = Path("picks-data.js")
 STATUS_PATH = Path("action-status.js")
 
-CHECK_INTERVAL_MINUTES = int(os.environ.get("CHECK_INTERVAL_MINUTES", "15"))
+CHECK_INTERVAL_MINUTES = 5
 MAX_HISTORY = int(os.environ.get("MAX_HISTORY", "100"))
 
 ESPN_URL = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard"
@@ -99,6 +99,11 @@ def add_history(status: dict, event_type: str, message: str, when: datetime | No
 
 
 def save_status(prefix: str, status: dict, suffix: str) -> None:
+    # Idle wake-ups must not create a new commit or replace the last real check.
+    if STATUS_PATH.exists():
+        _, previous, _ = load_js_object(STATUS_PATH, "ACTION_STATUS")
+        if previous == status:
+            return
     status["lastUpdate"] = iso(utc_now())
     write_js_object(STATUS_PATH, prefix, status, suffix)
 
@@ -225,17 +230,43 @@ def api_game_status(info: dict) -> str:
     return "unknown"
 
 
+def scheduled_slot(at: datetime) -> datetime:
+    """Next nominal cron slot (minutes 02, 07, 12, ...), not a delivery guarantee."""
+    slot = at.replace(second=0, microsecond=0)
+    if slot < at:
+        slot += timedelta(minutes=1)
+    while slot.minute % CHECK_INTERVAL_MINUTES != 2:
+        slot += timedelta(minutes=1)
+    return slot
+
+
 def compute_next_check(games: list[dict], now: datetime) -> tuple[datetime | None, str]:
     unresolved = [g for g in games if not g.get("final", False)]
     if not unresolved:
-        return None, "All games are final."
-    # This is a suggested time only; the workflow remains manual-only.
-    if any(g.get("apiStatus") != "pre-game" or not g.get("kickoff") for g in unresolved):
-        return now + timedelta(minutes=CHECK_INTERVAL_MINUTES), "Suggested manual refresh for unresolved game states."
-    kickoffs = [parse_iso(g["kickoff"]) for g in unresolved]
-    if min(kickoffs) <= now:
-        return now + timedelta(minutes=CHECK_INTERVAL_MINUTES), "Suggested manual refresh; awaiting API-confirmed start."
-    return min(kickoffs), "Suggested manual refresh at the next kickoff; no scheduled run is enabled."
+        return None, "All games are final; waiting for the next week's data."
+    candidates = []
+    for game in unresolved:
+        if not game.get("kickoff"):
+            candidates.append(now + timedelta(minutes=CHECK_INTERVAL_MINUTES))
+        elif game.get("apiStatus") in ("postponed", "suspended", "cancelled"):
+            candidates.append(now + timedelta(hours=1))
+        elif game.get("apiStatus") == "underway" or parse_iso(game["kickoff"]) <= now:
+            candidates.append(now + timedelta(minutes=CHECK_INTERVAL_MINUTES))
+        else:
+            candidates.append(parse_iso(game["kickoff"]))
+    return scheduled_slot(min(candidates)), "Next eligible scheduled check; GitHub may run late."
+
+
+def scheduled_check_due(games: list[dict], status: dict, now: datetime) -> bool:
+    if os.environ.get("GITHUB_EVENT_NAME") != "schedule":
+        return True  # Preserve manual Run workflow as an immediate refresh.
+    if any(not g.get("final", False) and not g.get("kickoff") for g in games):
+        return True  # New weekly data needs one schedule-discovery request.
+    if status.get("nextEligibleCheck"):
+        return now >= parse_iso(status["nextEligibleCheck"])
+    return any(not g.get("final", False) and
+               (g.get("apiStatus") == "underway" or parse_iso(g["kickoff"]) <= now)
+               for g in games)
 
 
 def main() -> int:
@@ -253,9 +284,11 @@ def main() -> int:
         season = int(picks_data.get("season", season_for_today(now)))
         season_type = int(picks_data.get("seasonType", 2))
 
+        if (status.get("season"), status.get("week")) != (season, week):
+            # A new data week must not inherit the previous week's cooldown or checks.
+            status.update(default_status())
         status["season"] = season
         status["week"] = week
-        status["lastError"] = None
 
         games = games_data.get("games") or []
         unresolved = [g for g in games if not g.get("final", False)]
@@ -268,6 +301,17 @@ def main() -> int:
             print("All games are already final.")
             return 0
 
+        if not scheduled_check_due(games, status, now):
+            if not status.get("nextEligibleCheck"):
+                next_check, reason = compute_next_check(games, now)
+                status["status"] = "waiting"
+                status["nextEligibleCheck"] = iso(next_check)
+                status["nextCheckReason"] = reason
+                save_status(status_prefix, status, status_suffix)
+            print("Idle scheduled wake-up: no API request or data changes.")
+            return 0
+
+        status["lastError"] = None
         check_time = utc_now()
         status["lastApiCheck"] = iso(check_time)
         payload = espn_week_data(season, week, season_type)
@@ -320,8 +364,8 @@ def main() -> int:
         status["lastError"] = str(exc)
         add_history(status, "error", str(exc), error_time)
 
-        # On an API failure while games are due, a retry in 15 minutes is appropriate.
-        status["nextEligibleCheck"] = iso(error_time + timedelta(minutes=CHECK_INTERVAL_MINUTES))
+        # Retry at the next eligible five-minute slot after an API failure.
+        status["nextEligibleCheck"] = iso(scheduled_slot(error_time + timedelta(minutes=CHECK_INTERVAL_MINUTES)))
         status["nextCheckReason"] = "Retry after the most recent updater error."
         save_status(status_prefix, status, status_suffix)
 
