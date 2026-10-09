@@ -19,12 +19,7 @@ const GAMES_DATA = {
       "home": "WAS",
       "time": "SUN 9:30 AM",
       "favorite": "IND",
-      "pAway": 0.6409,
-      "kickoff": "2026-10-04T13:30Z",
-      "apiStatus": "final",
-      "apiStatusCheckedAt": "2026-10-08T23:39:33.789708Z",
-      "final": true,
-      "winner": "IND"
+      "pAway": 0.6409
     },
     {
       "id": "BUF-NE",
@@ -32,12 +27,7 @@ const GAMES_DATA = {
       "home": "BUF",
       "time": "SUN 1:00 PM",
       "favorite": "BUF",
-      "pAway": 0.2638,
-      "kickoff": "2026-10-04T17:00Z",
-      "apiStatus": "final",
-      "apiStatusCheckedAt": "2026-10-08T23:39:33.789708Z",
-      "final": true,
-      "winner": "NE"
+      "pAway": 0.2638
     },
     {
       "id": "CHI-NYJ",
@@ -45,12 +35,7 @@ const GAMES_DATA = {
       "home": "CHI",
       "time": "SUN 1:00 PM",
       "favorite": "CHI",
-      "pAway": 0.3721,
-      "kickoff": "2026-10-04T17:00Z",
-      "apiStatus": "final",
-      "apiStatusCheckedAt": "2026-10-08T23:39:33.789708Z",
-      "final": true,
-      "winner": "CHI"
+      "pAway": 0.3721
     },
     {
       "id": "CIN-JAX",
@@ -58,12 +43,7 @@ const GAMES_DATA = {
       "home": "CIN",
       "time": "SUN 1:00 PM",
       "favorite": "CIN",
-      "pAway": 0.438,
-      "kickoff": "2026-10-04T17:00Z",
-      "apiStatus": "final",
-      "apiStatusCheckedAt": "2026-10-08T23:39:33.789708Z",
-      "final": true,
-      "winner": "JAX"
+      "pAway": 0.438
     },
     {
       "id": "ARI-NYG",
@@ -71,12 +51,7 @@ const GAMES_DATA = {
       "home": "NYG",
       "time": "SUN 1:00 PM",
       "favorite": "ARI",
-      "pAway": 0.562,
-      "kickoff": "2026-10-04T17:00Z",
-      "apiStatus": "final",
-      "apiStatusCheckedAt": "2026-10-08T23:39:33.789708Z",
-      "final": true,
-      "winner": "NYG"
+      "pAway": 0.562
     },
     {
       "id": "LAR-PHI",
@@ -84,12 +59,7 @@ const GAMES_DATA = {
       "home": "PHI",
       "time": "SUN 1:00 PM",
       "favorite": "LAR",
-      "pAway": 0.6115,
-      "kickoff": "2026-10-04T17:00Z",
-      "apiStatus": "final",
-      "apiStatusCheckedAt": "2026-10-08T23:39:33.789708Z",
-      "final": true,
-      "winner": "LAR"
+      "pAway": 0.6115
     },
     {
       "id": "GB-TB",
@@ -97,12 +67,7 @@ const GAMES_DATA = {
       "home": "TB",
       "time": "SUN 1:00 PM",
       "favorite": "GB",
-      "pAway": 0.6279,
-      "kickoff": "2026-10-04T17:00Z",
-      "apiStatus": "final",
-      "apiStatusCheckedAt": "2026-10-08T23:39:33.789708Z",
-      "final": true,
-      "winner": "GB"
+      "pAway": 0.6279
     },
     {
       "id": "BAL-TEN",
@@ -110,12 +75,7 @@ const GAMES_DATA = {
       "home": "BAL",
       "time": "SUN 1:00 PM",
       "favorite": "BAL",
-      "pAway": 0.1616,
-      "kickoff": "2026-10-04T17:00Z",
-      "apiStatus": "final",
-      "apiStatusCheckedAt": "2026-10-08T23:39:33.789708Z",
-      "final": true,
-      "winner": "BAL"
+      "pAway": 0.1616
     },
     {
       "id": "HOU-DAL",
@@ -123,12 +83,7 @@ const GAMES_DATA = {
       "home": "HOU",
       "time": "SUN 1:00 PM",
       "favorite": "HOU",
-      "pAway": 0.4037,
-      "kickoff": "2026-10-04T17:00Z",
-      "apiStatus": "final",
-      "apiStatusCheckedAt": "2026-10-08T23:39:33.789708Z",
-      "final": true,
-      "winner": "DAL"
+      "pAway": 0.4037
     },
     {
       "id": "MIN-MIA",
@@ -136,12 +91,7 @@ const GAMES_DATA = {
       "home": "MIN",
       "time": "SUN 4:05 PM",
       "favorite": "MIN",
-      "pAway": 0.1732,
-      "kickoff": "2026-10-04T20:05Z",
-      "apiStatus": "final",
-      "apiStatusCheckedAt": "2026-10-08T23:39:33.789708Z",
-      "final": true,
-      "winner": "MIN"
+      "pAway": 0.1732
     },
     {
       "id": "KC-LV",
@@ -149,12 +99,7 @@ const GAMES_DATA = {
       "home": "LV",
       "time": "SUN 4:25 PM",
       "favorite": "KC",
-      "pAway": 0.6548,
-      "kickoff": "2026-10-04T20:25Z",
-      "apiStatus": "final",
-      "apiStatusCheckedAt": "2026-10-08T23:39:33.789708Z",
-      "final": true,
-      "winner": "KC"
+      "pAway": 0.6548
     },
     {
       "id": "SF-DEN",
@@ -162,12 +107,7 @@ const GAMES_DATA = {
       "home": "SF",
       "time": "SUN 4:25 PM",
       "favorite": "SF",
-      "pAway": 0.4289,
-      "kickoff": "2026-10-04T20:25Z",
-      "apiStatus": "final",
-      "apiStatusCheckedAt": "2026-10-08T23:39:33.789708Z",
-      "final": true,
-      "winner": "SF"
+      "pAway": 0.4289
     },
     {
       "id": "SEA-LAC",
@@ -175,12 +115,7 @@ const GAMES_DATA = {
       "home": "SEA",
       "time": "SUN 4:25 PM",
       "favorite": "SEA",
-      "pAway": 0.2534,
-      "kickoff": "2026-10-04T20:25Z",
-      "apiStatus": "final",
-      "apiStatusCheckedAt": "2026-10-08T23:39:33.789708Z",
-      "final": true,
-      "winner": "SEA"
+      "pAway": 0.2534
     },
     {
       "id": "DET-CAR",
@@ -188,12 +123,7 @@ const GAMES_DATA = {
       "home": "CAR",
       "time": "SUN 8:20 PM",
       "favorite": "DET",
-      "pAway": 0.6345,
-      "kickoff": "2026-10-05T00:20Z",
-      "apiStatus": "final",
-      "apiStatusCheckedAt": "2026-10-08T23:39:33.789708Z",
-      "final": true,
-      "winner": "CAR"
+      "pAway": 0.6345
     },
     {
       "id": "NO-ATL",
@@ -201,12 +131,7 @@ const GAMES_DATA = {
       "home": "NO",
       "time": "MON 8:15 PM",
       "favorite": "NO",
-      "pAway": 0.438,
-      "kickoff": "2026-10-06T00:15Z",
-      "apiStatus": "final",
-      "apiStatusCheckedAt": "2026-10-08T23:39:33.789708Z",
-      "final": true,
-      "winner": "ATL"
+      "pAway": 0.438
     }
   ],
   "colors": {
