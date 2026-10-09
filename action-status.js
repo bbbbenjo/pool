@@ -3,13 +3,23 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 5,
-  "lastUpdate": "2026-10-09T03:16:52.509875Z",
-  "lastApiCheck": "2026-10-09T03:16:52.139229Z",
-  "lastApiSuccess": "2026-10-09T03:16:52.509185Z",
-  "nextEligibleCheck": "2026-10-09T03:22:00Z",
+  "lastUpdate": "2026-10-09T03:40:44.612993Z",
+  "lastApiCheck": "2026-10-09T03:40:44.495281Z",
+  "lastApiSuccess": "2026-10-09T03:40:44.612121Z",
+  "nextEligibleCheck": "2026-10-11T13:32:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-10-09T03:40:44.495281Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 15 unresolved game(s); 1 newly final."
+    },
+    {
+      "time": "2026-10-09T03:40:44.495281Z",
+      "type": "final",
+      "message": "TB-DAL: FINAL — TB won."
+    },
     {
       "time": "2026-10-09T03:16:52.139229Z",
       "type": "check",
