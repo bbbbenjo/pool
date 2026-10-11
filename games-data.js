@@ -127,11 +127,11 @@ const GAMES_DATA = {
       "time": "SUN 1:00 PM",
       "favorite": "WAS",
       "pAway": 0.363887,
-      "final": false,
-      "winner": null,
+      "final": true,
+      "winner": "TIE",
       "kickoff": "2026-10-11T17:00Z",
-      "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-11T20:43:05.045734Z"
+      "apiStatus": "final",
+      "apiStatusCheckedAt": "2026-10-11T20:49:12.331657Z"
     },
     {
       "id": "DEN-LAC",
@@ -144,7 +144,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-11T20:05Z",
       "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-11T20:43:05.045734Z"
+      "apiStatusCheckedAt": "2026-10-11T20:49:12.331657Z"
     },
     {
       "id": "DET-ARI",
@@ -157,7 +157,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-11T20:25Z",
       "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-11T20:43:05.045734Z"
+      "apiStatusCheckedAt": "2026-10-11T20:49:12.331657Z"
     },
     {
       "id": "SF-SEA",
@@ -170,7 +170,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-11T20:25Z",
       "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-11T20:43:05.045734Z"
+      "apiStatusCheckedAt": "2026-10-11T20:49:12.331657Z"
     },
     {
       "id": "BAL-ATL",
@@ -183,7 +183,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-12T00:20Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-11T20:43:05.045734Z"
+      "apiStatusCheckedAt": "2026-10-11T20:49:12.331657Z"
     },
     {
       "id": "BUF-LAR",
@@ -196,7 +196,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-13T00:15Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-11T20:43:05.045734Z"
+      "apiStatusCheckedAt": "2026-10-11T20:49:12.331657Z"
     }
   ],
   "colors": {

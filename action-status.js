@@ -3,13 +3,23 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 5,
-  "lastUpdate": "2026-10-11T20:43:05.169297Z",
-  "lastApiCheck": "2026-10-11T20:43:05.045734Z",
-  "lastApiSuccess": "2026-10-11T20:43:05.168490Z",
-  "nextEligibleCheck": "2026-10-11T20:52:00Z",
+  "lastUpdate": "2026-10-11T20:49:12.462943Z",
+  "lastApiCheck": "2026-10-11T20:49:12.331657Z",
+  "lastApiSuccess": "2026-10-11T20:49:12.462113Z",
+  "nextEligibleCheck": "2026-10-11T20:57:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-10-11T20:49:12.331657Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 6 unresolved game(s); 1 newly final."
+    },
+    {
+      "time": "2026-10-11T20:49:12.331657Z",
+      "type": "final",
+      "message": "NYG-WAS: FINAL — TIE."
+    },
     {
       "time": "2026-10-11T20:43:05.045734Z",
       "type": "check",
