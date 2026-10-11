@@ -3,13 +3,63 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 5,
-  "lastUpdate": "2026-10-11T16:58:05.901429Z",
-  "lastApiCheck": "2026-10-11T16:58:05.773376Z",
-  "lastApiSuccess": "2026-10-11T16:58:05.900506Z",
-  "nextEligibleCheck": "2026-10-11T17:02:00Z",
+  "lastUpdate": "2026-10-11T17:19:57.293309Z",
+  "lastApiCheck": "2026-10-11T17:19:57.134302Z",
+  "lastApiSuccess": "2026-10-11T17:19:57.292714Z",
+  "nextEligibleCheck": "2026-10-11T17:27:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-10-11T17:19:57.134302Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 14 unresolved game(s); 1 newly final."
+    },
+    {
+      "time": "2026-10-11T17:19:57.134302Z",
+      "type": "state",
+      "message": "NYG-WAS: API status underway."
+    },
+    {
+      "time": "2026-10-11T17:19:57.134302Z",
+      "type": "state",
+      "message": "IND-PIT: API status underway."
+    },
+    {
+      "time": "2026-10-11T17:19:57.134302Z",
+      "type": "state",
+      "message": "CLE-NYJ: API status underway."
+    },
+    {
+      "time": "2026-10-11T17:19:57.134302Z",
+      "type": "state",
+      "message": "MIN-NO: API status underway."
+    },
+    {
+      "time": "2026-10-11T17:19:57.134302Z",
+      "type": "state",
+      "message": "LV-NE: API status underway."
+    },
+    {
+      "time": "2026-10-11T17:19:57.134302Z",
+      "type": "state",
+      "message": "CIN-MIA: API status underway."
+    },
+    {
+      "time": "2026-10-11T17:19:57.134302Z",
+      "type": "state",
+      "message": "HOU-TEN: API status underway."
+    },
+    {
+      "time": "2026-10-11T17:19:57.134302Z",
+      "type": "state",
+      "message": "CHI-GB: API status underway."
+    },
+    {
+      "time": "2026-10-11T17:19:57.134302Z",
+      "type": "final",
+      "message": "PHI-JAX: FINAL — JAX won."
+    },
     {
       "time": "2026-10-11T16:58:05.773376Z",
       "type": "check",
