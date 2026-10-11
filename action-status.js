@@ -3,13 +3,48 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 5,
-  "lastUpdate": "2026-10-11T19:59:19.571221Z",
-  "lastApiCheck": "2026-10-11T19:59:19.422062Z",
-  "lastApiSuccess": "2026-10-11T19:59:19.570343Z",
-  "nextEligibleCheck": "2026-10-11T20:07:00Z",
+  "lastUpdate": "2026-10-11T20:21:43.101224Z",
+  "lastApiCheck": "2026-10-11T20:21:42.924981Z",
+  "lastApiSuccess": "2026-10-11T20:21:43.100355Z",
+  "nextEligibleCheck": "2026-10-11T20:27:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-10-11T20:21:42.924981Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 11 unresolved game(s); 5 newly final."
+    },
+    {
+      "time": "2026-10-11T20:21:42.924981Z",
+      "type": "state",
+      "message": "DEN-LAC: API status underway."
+    },
+    {
+      "time": "2026-10-11T20:21:42.924981Z",
+      "type": "final",
+      "message": "IND-PIT: FINAL — PIT won."
+    },
+    {
+      "time": "2026-10-11T20:21:42.924981Z",
+      "type": "final",
+      "message": "CLE-NYJ: FINAL — NYJ won."
+    },
+    {
+      "time": "2026-10-11T20:21:42.924981Z",
+      "type": "final",
+      "message": "LV-NE: FINAL — NE won."
+    },
+    {
+      "time": "2026-10-11T20:21:42.924981Z",
+      "type": "final",
+      "message": "CIN-MIA: FINAL — CIN won."
+    },
+    {
+      "time": "2026-10-11T20:21:42.924981Z",
+      "type": "final",
+      "message": "CHI-GB: FINAL — GB won."
+    },
     {
       "time": "2026-10-11T19:59:19.422062Z",
       "type": "check",

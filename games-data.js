@@ -36,11 +36,11 @@ const GAMES_DATA = {
       "time": "SUN 1:00 PM",
       "favorite": "CHI",
       "pAway": 0.533347,
-      "final": false,
-      "winner": null,
+      "final": true,
+      "winner": "GB",
       "kickoff": "2026-10-11T17:00Z",
-      "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-11T19:59:19.422062Z"
+      "apiStatus": "final",
+      "apiStatusCheckedAt": "2026-10-11T20:21:42.924981Z"
     },
     {
       "id": "HOU-TEN",
@@ -62,11 +62,11 @@ const GAMES_DATA = {
       "time": "SUN 1:00 PM",
       "favorite": "CIN",
       "pAway": 0.734084,
-      "final": false,
-      "winner": null,
+      "final": true,
+      "winner": "CIN",
       "kickoff": "2026-10-11T17:00Z",
-      "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-11T19:59:19.422062Z"
+      "apiStatus": "final",
+      "apiStatusCheckedAt": "2026-10-11T20:21:42.924981Z"
     },
     {
       "id": "LV-NE",
@@ -75,11 +75,11 @@ const GAMES_DATA = {
       "time": "SUN 1:00 PM",
       "favorite": "NE",
       "pAway": 0.364368,
-      "final": false,
-      "winner": null,
+      "final": true,
+      "winner": "NE",
       "kickoff": "2026-10-11T17:00Z",
-      "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-11T19:59:19.422062Z"
+      "apiStatus": "final",
+      "apiStatusCheckedAt": "2026-10-11T20:21:42.924981Z"
     },
     {
       "id": "MIN-NO",
@@ -101,11 +101,11 @@ const GAMES_DATA = {
       "time": "SUN 1:00 PM",
       "favorite": "NYJ",
       "pAway": 0.443216,
-      "final": false,
-      "winner": null,
+      "final": true,
+      "winner": "NYJ",
       "kickoff": "2026-10-11T17:00Z",
-      "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-11T19:59:19.422062Z"
+      "apiStatus": "final",
+      "apiStatusCheckedAt": "2026-10-11T20:21:42.924981Z"
     },
     {
       "id": "IND-PIT",
@@ -114,11 +114,11 @@ const GAMES_DATA = {
       "time": "SUN 1:00 PM",
       "favorite": "PIT",
       "pAway": 0.433978,
-      "final": false,
-      "winner": null,
+      "final": true,
+      "winner": "PIT",
       "kickoff": "2026-10-11T17:00Z",
-      "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-11T19:59:19.422062Z"
+      "apiStatus": "final",
+      "apiStatusCheckedAt": "2026-10-11T20:21:42.924981Z"
     },
     {
       "id": "NYG-WAS",
@@ -131,7 +131,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-11T17:00Z",
       "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-11T19:59:19.422062Z"
+      "apiStatusCheckedAt": "2026-10-11T20:21:42.924981Z"
     },
     {
       "id": "DEN-LAC",
@@ -143,8 +143,8 @@ const GAMES_DATA = {
       "final": false,
       "winner": null,
       "kickoff": "2026-10-11T20:05Z",
-      "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-11T19:59:19.422062Z"
+      "apiStatus": "underway",
+      "apiStatusCheckedAt": "2026-10-11T20:21:42.924981Z"
     },
     {
       "id": "DET-ARI",
@@ -157,7 +157,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-11T20:25Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-11T19:59:19.422062Z"
+      "apiStatusCheckedAt": "2026-10-11T20:21:42.924981Z"
     },
     {
       "id": "SF-SEA",
@@ -170,7 +170,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-11T20:25Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-11T19:59:19.422062Z"
+      "apiStatusCheckedAt": "2026-10-11T20:21:42.924981Z"
     },
     {
       "id": "BAL-ATL",
@@ -183,7 +183,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-12T00:20Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-11T19:59:19.422062Z"
+      "apiStatusCheckedAt": "2026-10-11T20:21:42.924981Z"
     },
     {
       "id": "BUF-LAR",
@@ -196,7 +196,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-13T00:15Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-11T19:59:19.422062Z"
+      "apiStatusCheckedAt": "2026-10-11T20:21:42.924981Z"
     }
   ],
   "colors": {
