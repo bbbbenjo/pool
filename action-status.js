@@ -3,13 +3,23 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 5,
-  "lastUpdate": "2026-10-11T23:58:37.059775Z",
-  "lastApiCheck": "2026-10-11T23:58:36.737105Z",
-  "lastApiSuccess": "2026-10-11T23:58:37.059036Z",
-  "nextEligibleCheck": "2026-10-12T00:22:00Z",
+  "lastUpdate": "2026-10-12T00:33:54.953840Z",
+  "lastApiCheck": "2026-10-12T00:33:54.186135Z",
+  "lastApiSuccess": "2026-10-12T00:33:54.953003Z",
+  "nextEligibleCheck": "2026-10-12T00:42:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-10-12T00:33:54.186135Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 2 unresolved game(s); 0 newly final."
+    },
+    {
+      "time": "2026-10-12T00:33:54.186135Z",
+      "type": "state",
+      "message": "BAL-ATL: API status underway."
+    },
     {
       "time": "2026-10-11T23:58:36.737105Z",
       "type": "check",
