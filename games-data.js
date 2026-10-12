@@ -179,11 +179,11 @@ const GAMES_DATA = {
       "time": "SUN 8:20 PM",
       "favorite": "ATL",
       "pAway": 0.391763,
-      "final": false,
-      "winner": null,
+      "final": true,
+      "winner": "BAL",
       "kickoff": "2026-10-12T00:20Z",
-      "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-12T03:27:32.252111Z"
+      "apiStatus": "final",
+      "apiStatusCheckedAt": "2026-10-12T03:55:12.534924Z"
     },
     {
       "id": "BUF-LAR",
@@ -196,7 +196,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-13T00:15Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-12T03:27:32.252111Z"
+      "apiStatusCheckedAt": "2026-10-12T03:55:12.534924Z"
     }
   ],
   "colors": {
