@@ -183,7 +183,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-12T00:20Z",
       "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-12T01:04:08.746682Z"
+      "apiStatusCheckedAt": "2026-10-12T01:29:22.580428Z"
     },
     {
       "id": "BUF-LAR",
@@ -196,7 +196,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-13T00:15Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-12T01:04:08.746682Z"
+      "apiStatusCheckedAt": "2026-10-12T01:29:22.580428Z"
     }
   ],
   "colors": {
