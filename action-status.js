@@ -3,13 +3,18 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 5,
-  "lastUpdate": "2026-10-12T02:40:27.951018Z",
-  "lastApiCheck": "2026-10-12T02:40:27.776576Z",
-  "lastApiSuccess": "2026-10-12T02:40:27.950222Z",
-  "nextEligibleCheck": "2026-10-12T02:47:00Z",
+  "lastUpdate": "2026-10-12T03:01:30.971400Z",
+  "lastApiCheck": "2026-10-12T03:01:30.659135Z",
+  "lastApiSuccess": "2026-10-12T03:01:30.970701Z",
+  "nextEligibleCheck": "2026-10-12T03:07:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-10-12T03:01:30.659135Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 2 unresolved game(s); 0 newly final."
+    },
     {
       "time": "2026-10-12T02:40:27.776576Z",
       "type": "check",
