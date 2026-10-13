@@ -3,13 +3,18 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 5,
-  "lastUpdate": "2026-10-13T02:42:57.068511Z",
-  "lastApiCheck": "2026-10-13T02:42:56.985444Z",
-  "lastApiSuccess": "2026-10-13T02:42:57.067869Z",
-  "nextEligibleCheck": "2026-10-13T02:52:00Z",
+  "lastUpdate": "2026-10-13T03:02:45.815453Z",
+  "lastApiCheck": "2026-10-13T03:02:45.586572Z",
+  "lastApiSuccess": "2026-10-13T03:02:45.813785Z",
+  "nextEligibleCheck": "2026-10-13T03:12:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-10-13T03:02:45.586572Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 1 unresolved game(s); 0 newly final."
+    },
     {
       "time": "2026-10-13T02:42:56.985444Z",
       "type": "check",
@@ -504,11 +509,6 @@ const ACTION_STATUS = {
       "time": "2026-10-09T00:36:15.635627Z",
       "type": "state",
       "message": "PHI-JAX: API status pre-game."
-    },
-    {
-      "time": "2026-10-09T00:36:15.635627Z",
-      "type": "state",
-      "message": "TB-DAL: API status underway."
     }
   ]
 };
