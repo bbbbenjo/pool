@@ -192,11 +192,11 @@ const GAMES_DATA = {
       "time": "MON 8:15 PM",
       "favorite": "LAR",
       "pAway": 0.389303,
-      "final": false,
-      "winner": null,
+      "final": true,
+      "winner": "BUF",
       "kickoff": "2026-10-13T00:15Z",
-      "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-13T03:28:01.572159Z"
+      "apiStatus": "final",
+      "apiStatusCheckedAt": "2026-10-13T03:54:38.831699Z"
     }
   ],
   "colors": {

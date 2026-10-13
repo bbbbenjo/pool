@@ -1,15 +1,25 @@
 const ACTION_STATUS = {
   "version": 1,
-  "status": "ok",
+  "status": "complete",
   "season": 2026,
   "week": 5,
-  "lastUpdate": "2026-10-13T03:28:01.866453Z",
-  "lastApiCheck": "2026-10-13T03:28:01.572159Z",
-  "lastApiSuccess": "2026-10-13T03:28:01.865670Z",
-  "nextEligibleCheck": "2026-10-13T03:37:00Z",
-  "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
+  "lastUpdate": "2026-10-13T03:54:38.990359Z",
+  "lastApiCheck": "2026-10-13T03:54:38.831699Z",
+  "lastApiSuccess": "2026-10-13T03:54:38.989685Z",
+  "nextEligibleCheck": null,
+  "nextCheckReason": "All games are final; waiting for the next week's data.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-10-13T03:54:38.831699Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 1 unresolved game(s); 1 newly final."
+    },
+    {
+      "time": "2026-10-13T03:54:38.831699Z",
+      "type": "final",
+      "message": "BUF-LAR: FINAL — BUF won."
+    },
     {
       "time": "2026-10-13T03:28:01.572159Z",
       "type": "check",
@@ -499,16 +509,6 @@ const ACTION_STATUS = {
       "time": "2026-10-09T00:36:15.635627Z",
       "type": "state",
       "message": "CIN-MIA: API status pre-game."
-    },
-    {
-      "time": "2026-10-09T00:36:15.635627Z",
-      "type": "state",
-      "message": "HOU-TEN: API status pre-game."
-    },
-    {
-      "time": "2026-10-09T00:36:15.635627Z",
-      "type": "state",
-      "message": "CHI-GB: API status pre-game."
     }
   ]
 };
