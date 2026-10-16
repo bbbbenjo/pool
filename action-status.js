@@ -3,14 +3,24 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 6,
-  "lastUpdate": "2026-10-16T03:01:47.721142Z",
-  "lastGameUpdate": "2026-10-16T00:36:45.776233Z",
-  "lastApiCheck": "2026-10-16T03:01:47.490941Z",
-  "lastApiSuccess": "2026-10-16T03:01:47.720664Z",
-  "nextEligibleCheck": "2026-10-16T03:07:00Z",
+  "lastUpdate": "2026-10-16T03:35:42.195731Z",
+  "lastGameUpdate": "2026-10-16T03:35:42.001992Z",
+  "lastApiCheck": "2026-10-16T03:35:42.001992Z",
+  "lastApiSuccess": "2026-10-16T03:35:42.194925Z",
+  "nextEligibleCheck": "2026-10-18T13:32:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-10-16T03:35:42.001992Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 14 unresolved game(s); 1 newly final."
+    },
+    {
+      "time": "2026-10-16T03:35:42.001992Z",
+      "type": "final",
+      "message": "SEA-DEN: FINAL — DEN won."
+    },
     {
       "time": "2026-10-16T03:01:47.490941Z",
       "type": "check",
