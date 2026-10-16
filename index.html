@@ -978,7 +978,7 @@ function renderDesktop(model){
         : state.viewMode==="advanced" && assumed
           ? `<div class="gh-assumed-pct">%</div>`
           : (state.viewMode==="simple" || state.viewMode==="winpct")
-            ? `<div class="gh-simple-time ${g.apiStatus==="underway"?"underway":""}">${g.apiStatus==="underway"?"Underway":displayTime(g.time)}</div>`
+            ? `<div class="gh-simple-time ${g.apiStatus==="underway"?"underway":""}">${g.apiStatus==="underway"?"UNDERWAY":displayTime(g.time)}</div>`
             : ""}
       <div class="gh-teams">${teamButton(g,favorite,"team-mini")}${teamButton(g,underdog,"team-mini")}</div>
     </th>`;
