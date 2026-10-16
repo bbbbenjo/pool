@@ -7,6 +7,7 @@ Behavior:
 - Learns exact kickoff timestamps from ESPN and stores them in games-data.js.
 - Scheduled runs check only at kickoff/during play; manual runs can force a refresh.
 - Logs API checks, final results, and errors to action-status.js.
+- Records lastGameUpdate only when API game information changes.
 - Keeps only the newest MAX_HISTORY activity entries.
 """
 
@@ -73,6 +74,7 @@ def default_status() -> dict:
         "season": None,
         "week": None,
         "lastUpdate": None,
+        "lastGameUpdate": None,
         "lastApiCheck": None,
         "lastApiSuccess": None,
         "nextEligibleCheck": None,
@@ -280,6 +282,11 @@ def main() -> int:
         game_prefix, games_data, game_suffix = load_js_object(GAMES_PATH, "GAMES_DATA")
         _, picks_data, _ = load_js_object(PICKS_PATH, "PICKS_DATA")
 
+        # Historical snapshots must survive scheduled and manual workflow runs.
+        if games_data.get("snapshot", {}).get("enabled") is True:
+            print("Historical snapshot enabled; live results update skipped.")
+            return 0
+
         week = int(picks_data["week"])
         season = int(picks_data.get("season", season_for_today(now)))
         season_type = int(picks_data.get("seasonType", 2))
@@ -322,8 +329,11 @@ def main() -> int:
             raise RuntimeError("Could not match unresolved pool games to ESPN: " + ", ".join(missing))
 
         games_changed = False
+        meaningful_change = False
         final_count = 0
         for game in unresolved:
+            previous_info = (game.get("kickoff"), game.get("apiStatus"),
+                             bool(game.get("final", False)), game.get("winner"))
             info = event_map[game_key(game)]
             kickoff = info.get("kickoff")
             if kickoff:
@@ -343,6 +353,9 @@ def main() -> int:
                 add_history(status, "final", f"{game.get('id')}: FINAL — {result_text}.", check_time)
             elif api_status != previous_status:
                 add_history(status, "state", f"{game.get('id')}: API status {api_status}.", check_time)
+            current_info = (game.get("kickoff"), game.get("apiStatus"),
+                            bool(game.get("final", False)), game.get("winner"))
+            meaningful_change = meaningful_change or current_info != previous_info
 
         add_history(status, "check",
                     f"Checked ESPN states/results for {len(unresolved)} unresolved game(s); "
@@ -350,6 +363,8 @@ def main() -> int:
 
         if games_changed:
             write_js_object(GAMES_PATH, game_prefix, games_data, game_suffix)
+        if meaningful_change:
+            status["lastGameUpdate"] = iso(check_time)
 
         next_check, reason = compute_next_check(games, utc_now())
         status["status"] = "complete" if next_check is None else "ok"
