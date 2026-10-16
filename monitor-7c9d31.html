@@ -36,7 +36,6 @@ h2{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.12e
 <dt>Status</dt><dd id="statusValue">—</dd>
 <dt>Last results check</dt><dd id="lastCheck">—</dd>
 <dt>Last successful API contact</dt><dd id="lastSuccess">—</dd>
-<dt>Next scheduled results check</dt><dd id="nextCheck">—</dd>
 </dl>
 <h2>Week games</h2>
 <div id="games"></div>
@@ -61,7 +60,6 @@ statusEl.className=s.status==="error"?"error":"ok";
 statusEl.title=s.lastError||"";
 document.getElementById("lastCheck").textContent=dt(s.lastApiCheck);
 document.getElementById("lastSuccess").textContent=dt(s.lastApiSuccess);
-document.getElementById("nextCheck").textContent=dt(s.nextEligibleCheck);
 const gameData=(typeof GAMES_DATA!=="undefined" && GAMES_DATA && Array.isArray(GAMES_DATA.games))?GAMES_DATA.games:[];
 function kickoffDate(game){if(!game.kickoff)return null;const d=new Date(game.kickoff);return Number.isNaN(d.getTime())?null:d;}
 function gameStatus(game){
