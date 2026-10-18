@@ -130,12 +130,12 @@ const GAMES_DATA = {
       "time": "SUN 1:00 PM",
       "favorite": "PIT",
       "pAway": 0.561651,
-      "final": false,
-      "winner": null,
+      "final": true,
+      "winner": "PIT",
       "kickoff": "2026-10-18T17:00Z",
-      "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-18T20:27:38.775915Z",
-      "awayScore": 19,
+      "apiStatus": "final",
+      "apiStatusCheckedAt": "2026-10-18T20:45:10.803283Z",
+      "awayScore": 26,
       "homeScore": 19
     },
     {
@@ -149,8 +149,8 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-18T20:05Z",
       "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-18T20:27:38.775915Z",
-      "awayScore": 3,
+      "apiStatusCheckedAt": "2026-10-18T20:45:10.803283Z",
+      "awayScore": 6,
       "homeScore": 3
     },
     {
@@ -164,9 +164,9 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-18T20:25Z",
       "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-18T20:27:38.775915Z",
+      "apiStatusCheckedAt": "2026-10-18T20:45:10.803283Z",
       "awayScore": 0,
-      "homeScore": 0
+      "homeScore": 9
     },
     {
       "id": "BUF-LV",
@@ -179,9 +179,9 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-18T20:25Z",
       "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-18T20:27:38.775915Z",
-      "awayScore": 0,
-      "homeScore": 0
+      "apiStatusCheckedAt": "2026-10-18T20:45:10.803283Z",
+      "awayScore": 3,
+      "homeScore": 7
     },
     {
       "id": "DAL-GB",
@@ -194,7 +194,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-19T00:20Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-18T20:27:38.775915Z"
+      "apiStatusCheckedAt": "2026-10-18T20:45:10.803283Z"
     },
     {
       "id": "WAS-SF",
@@ -207,7 +207,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-20T00:15Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-18T20:27:38.775915Z"
+      "apiStatusCheckedAt": "2026-10-18T20:45:10.803283Z"
     }
   ],
   "colors": {
