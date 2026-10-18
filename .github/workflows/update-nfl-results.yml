@@ -1,9 +1,9 @@
 name: Update NFL results
 
 on:
-  # Wake every five minutes; Python skips ESPN between game windows.
+  # Wake every fifteen minutes; Python skips ESPN between game windows.
   schedule:
-    - cron: "2-59/5 * * * *"
+    - cron: "2-59/15 * * * *"
   workflow_dispatch:
 
 permissions:
