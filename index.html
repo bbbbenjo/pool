@@ -4,6 +4,33 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Football Pool Simulator</title>
+<!-- Landscape preview: fit the full desktop canvas onto a touch screen. -->
+<script>
+(function () {
+  const viewport = document.querySelector('meta[name="viewport"]');
+  const landscape = window.matchMedia('(orientation: landscape)');
+  const touch = window.matchMedia('(any-pointer: coarse)');
+  function updateLandscapeViewport() {
+    const useDesktop = landscape.matches && touch.matches;
+    // A fixed desktop canvas keeps every pick column visible at once. Allow
+    // normal pinch zoom; returning to portrait restores the original viewport.
+    const width = Math.max(window.screen.width, window.screen.height);
+    const scale = Math.min(1, width / 1900);
+    viewport.setAttribute('content', useDesktop
+      ? 'width=1900,initial-scale=' + scale
+      : 'width=device-width,initial-scale=1');
+    document.documentElement.classList.toggle('landscape-desktop-preview', useDesktop);
+  }
+  landscape.addEventListener('change', updateLandscapeViewport);
+  touch.addEventListener('change', updateLandscapeViewport);
+  window.addEventListener('pageshow', updateLandscapeViewport);
+  updateLandscapeViewport();
+})();
+</script>
+<style>
+/* Keep the desktop typography consistent when mobile browsers enlarge text. */
+html.landscape-desktop-preview { -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+</style>
 
 <style>
 :root{
@@ -957,7 +984,7 @@ function renderDesktop(model){
       ? [...model.weekly].sort((a,b)=>b.prob-a.prob || b.week-a.week || a.name.localeCompare(b.name))
       : model.weekly;
 
-  let h=`<thead><tr><th class="player-head"><div class="player-head-inner">
+  let h=`<colgroup><col class="weekly-column">${DATA.games.map(()=>'<col>').join('')}</colgroup><thead><tr><th class="player-head"><div class="player-head-inner">
     <div class="player-head-title">${DATA.weekLabel}</div>
     ${state.viewMode==="advanced" ? `<div class="week-sort-block">
       <div class="week-sort-label">Sort by:</div>
@@ -1212,6 +1239,32 @@ function syncDesktopScrollbars(){
   const overallHead=document.querySelector(".overall-panel h2");
   if(!top || !inner || !wrap || !table) return;
 
+  // Measure names in their rendered font so extra table width goes to games.
+  // Recompute after fonts load and on mode/viewport changes.
+  if(window.matchMedia('(min-width:821px)').matches){
+    const names=[...table.querySelectorAll('.player-cell .player-name')];
+    const canvas=document.createElement('canvas');
+    const context=canvas.getContext('2d');
+    let longestName=0;
+    for(const name of names){
+      const style=getComputedStyle(name);
+      context.font=style.font;
+      // Ignoring the slightly negative letter spacing leaves a small cushion.
+      longestName=Math.max(longestName, context.measureText(name.textContent).width);
+    }
+    const scores=[...table.querySelectorAll('.week-score')];
+    let scoreWidth=28;
+    for(const score of scores){
+      context.font=getComputedStyle(score).font;
+      scoreWidth=Math.max(scoreWidth, context.measureText(score.textContent).width);
+    }
+    const winpct=document.body.classList.contains('winpct-mode');
+    const advanced=document.body.classList.contains('advanced-mode');
+    const weeklyWidth=Math.ceil(Math.max(advanced ? 216 : 100,
+      longestName + (winpct ? 16+9+145 : 16+26+14+scoreWidth)) + 4);
+    table.style.setProperty('--weekly-column-width', weeklyWidth+'px');
+    table.style.setProperty('--matrix-min-width', (weeklyWidth+DATA.games.length*70+(DATA.games.length+2)*2)+'px');
+  }
   const needsScroll=table.scrollWidth > wrap.clientWidth + 2;
   top.classList.toggle("is-hidden", !needsScroll);
 
@@ -3575,5 +3628,22 @@ body.advanced-mode .gh-assumed-pct{
 }
 </style>
 
+<style>
+/* Fix the standings column; distribute all spare desktop space among games. */
+@media(min-width:821px){
+  body .desktop .matrix{
+    table-layout:fixed!important;
+    width:max(100%, var(--matrix-min-width, 1400px))!important;
+    min-width:var(--matrix-min-width, 1400px)!important;
+  }
+  body .desktop .matrix .weekly-column,
+  body .desktop .matrix .player-head,
+  body .desktop .matrix .player-cell{
+    width:var(--weekly-column-width, 260px)!important;
+    min-width:var(--weekly-column-width, 260px)!important;
+    max-width:var(--weekly-column-width, 260px)!important;
+  }
+}
+</style>
 </body>
 </html>
