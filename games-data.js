@@ -149,9 +149,9 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-18T20:05Z",
       "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-18T20:45:10.803283Z",
+      "apiStatusCheckedAt": "2026-10-18T21:15:50.773617Z",
       "awayScore": 6,
-      "homeScore": 3
+      "homeScore": 9
     },
     {
       "id": "LAC-KC",
@@ -164,8 +164,8 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-18T20:25Z",
       "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-18T20:45:10.803283Z",
-      "awayScore": 0,
+      "apiStatusCheckedAt": "2026-10-18T21:15:50.773617Z",
+      "awayScore": 3,
       "homeScore": 9
     },
     {
@@ -179,8 +179,8 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-18T20:25Z",
       "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-18T20:45:10.803283Z",
-      "awayScore": 3,
+      "apiStatusCheckedAt": "2026-10-18T21:15:50.773617Z",
+      "awayScore": 13,
       "homeScore": 7
     },
     {
@@ -194,7 +194,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-19T00:20Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-18T20:45:10.803283Z"
+      "apiStatusCheckedAt": "2026-10-18T21:15:50.773617Z"
     },
     {
       "id": "WAS-SF",
@@ -207,7 +207,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-20T00:15Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-18T20:45:10.803283Z"
+      "apiStatusCheckedAt": "2026-10-18T21:15:50.773617Z"
     }
   ],
   "colors": {
