@@ -3,14 +3,44 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 6,
-  "lastUpdate": "2026-10-18T20:14:11.333319Z",
-  "lastGameUpdate": "2026-10-18T20:14:11.064907Z",
-  "lastApiCheck": "2026-10-18T20:14:11.064907Z",
-  "lastApiSuccess": "2026-10-18T20:14:11.332600Z",
-  "nextEligibleCheck": "2026-10-18T20:32:00Z",
+  "lastUpdate": "2026-10-18T20:27:38.854046Z",
+  "lastGameUpdate": "2026-10-18T20:27:38.775915Z",
+  "lastApiCheck": "2026-10-18T20:27:38.775915Z",
+  "lastApiSuccess": "2026-10-18T20:27:38.853185Z",
+  "nextEligibleCheck": "2026-10-18T20:47:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-10-18T20:27:38.775915Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 9 unresolved game(s); 3 newly final."
+    },
+    {
+      "time": "2026-10-18T20:27:38.775915Z",
+      "type": "state",
+      "message": "BUF-LV: API status underway."
+    },
+    {
+      "time": "2026-10-18T20:27:38.775915Z",
+      "type": "state",
+      "message": "LAC-KC: API status underway."
+    },
+    {
+      "time": "2026-10-18T20:27:38.775915Z",
+      "type": "final",
+      "message": "CAR-PHI: FINAL — CAR won."
+    },
+    {
+      "time": "2026-10-18T20:27:38.775915Z",
+      "type": "final",
+      "message": "NO-NYG: FINAL — NO won."
+    },
+    {
+      "time": "2026-10-18T20:27:38.775915Z",
+      "type": "final",
+      "message": "CHI-ATL: FINAL — CHI won."
+    },
     {
       "time": "2026-10-18T20:14:11.064907Z",
       "type": "check",
