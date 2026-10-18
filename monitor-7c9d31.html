@@ -9,7 +9,7 @@
 :root{--page:#0c1015;--ink:#d6dee7;--muted:#8997a7;--line:#26313e;--green:#88e5b0;--amber:#efc979;--red:#ff9393}
 *{box-sizing:border-box}
 body{margin:0;padding:16px;background:var(--page);color:var(--ink);font:12px/1.4 ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;font-variant-numeric:tabular-nums}
-main{max-width:480px;margin:auto}
+main{max-width:680px;margin:auto}
 header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding-bottom:8px}
 h1{font-size:15px;letter-spacing:-.03em;margin:0;font-weight:700}h1::before{content:"> ";color:var(--green)}
 .sub{color:var(--muted);font-size:11px}
@@ -19,13 +19,14 @@ h1{font-size:15px;letter-spacing:-.03em;margin:0;font-weight:700}h1::before{cont
 h2{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:13px 0 4px;padding-bottom:4px;border-bottom:1px solid var(--line);font-weight:500}
 .count{letter-spacing:0}
 .game-list{list-style:none;padding:0;margin:0}
-.game-row{display:grid;grid-template-columns:105px minmax(0,1fr) 76px;gap:10px;align-items:baseline;padding:4px 0;border-bottom:1px solid #18212b}
+.game-row{display:grid;grid-template-columns:105px minmax(0,1fr) max-content;gap:10px;align-items:baseline;padding:4px 0;border-bottom:1px solid #18212b}
 .game-matchup{white-space:nowrap}.at{color:var(--muted);font-size:10px}.loser{color:var(--muted)}.winner{text-decoration:underline;text-underline-offset:3px}
-.game-time{color:var(--muted);font-size:11px;white-space:nowrap}.game-status{text-align:right;white-space:nowrap;font-size:10px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.game-score{display:inline;margin-left:8px;color:inherit;font-size:inherit;letter-spacing:0;text-transform:none}.game-time{color:var(--muted);font-size:11px;white-space:nowrap}.game-status{text-align:right;white-space:nowrap;font-size:10px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
 .game-status.live{color:var(--amber);font-weight:800}.game-status.final{color:var(--green);font-weight:800}
 .activity{list-style:none;margin:0;padding:0}.activity li{display:grid;grid-template-columns:112px 56px minmax(0,1fr);gap:6px;padding:5px 0;border-bottom:1px solid #18212b;align-items:baseline}.activity time{color:var(--muted);font-size:10px}.type{color:var(--muted);font-size:10px;text-transform:uppercase}.type.final{color:var(--green);font-weight:700}.type.error{color:var(--red)}.detail{overflow-wrap:anywhere}.empty{color:var(--muted);padding:6px 0;font-size:11px}
-@media(max-width:620px){body{padding:10px;font-size:11px}header{gap:6px}h1{font-size:13px}.sub{font-size:10px}.summary{column-gap:8px;row-gap:2px;font-size:10px}.game-row{grid-template-columns:92px minmax(0,1fr) 72px;gap:6px;padding:3px 0}.game-time{font-size:10px}.game-status{font-size:9px}.activity li{grid-template-columns:100px 48px minmax(0,1fr);gap:5px;font-size:10px}h2{margin-top:10px}}
-@media(max-width:360px){.summary dt{font-size:10px}.game-row{grid-template-columns:86px minmax(0,1fr) 72px;gap:4px}.activity li{grid-template-columns:100px 44px minmax(0,1fr);gap:4px}}
+@media(max-width:620px){body{padding:10px;font-size:11px}header{gap:6px}h1{font-size:13px}.sub{font-size:10px}.summary{column-gap:8px;row-gap:2px;font-size:10px}.game-row{grid-template-columns:92px minmax(0,1fr) max-content;gap:6px;padding:3px 0}.game-time{font-size:10px;white-space:normal}.game-score{font-size:inherit}.game-status{font-size:9px}.activity li{grid-template-columns:100px 48px minmax(0,1fr);gap:5px;font-size:10px}h2{margin-top:10px}}
+@media(max-width:360px){.summary dt{font-size:10px}.game-row{grid-template-columns:86px minmax(0,1fr) max-content;gap:4px}.activity li{grid-template-columns:100px 44px minmax(0,1fr);gap:4px}}
+@media(max-width:360px){.game-time{grid-column:1 / -1;grid-row:2}.game-status{grid-column:2 / -1;grid-row:1}}
 .demo-note{color:var(--amber);font-size:10px;margin:0;padding:4px 0 6px;border-bottom:1px solid var(--line)}
 </style>
 </head>
@@ -71,8 +72,14 @@ function gameStatus(game){
 }
 function kickoffLabel(game){const ko=kickoffDate(game);return ko?new Intl.DateTimeFormat(undefined,{weekday:"short",month:"numeric",day:"numeric",hour:"numeric",minute:"2-digit"}).format(ko):game.time||"—";}
 function teamLabel(game,team){const won=game.final&&game.winner===team;const lost=game.final&&game.winner&&game.winner!=="TIE"&&!won;return `<span class="${won?"winner":lost?"loser":""}">${esc(team)}</span>`;}
+function scoreLabel(game){
+  const show=game.final || ["underway","suspended","delayed"].includes(game.apiStatus);
+  const valid=value=>typeof value==="number" && Number.isInteger(value) && value>=0;
+  if(!show || !valid(game.awayScore) || !valid(game.homeScore))return "";
+  return `<span class="game-score">${esc(game.away)} ${game.awayScore} – ${esc(game.home)} ${game.homeScore}</span>`;
+}
 const gamesHost=document.getElementById("games");
-gamesHost.innerHTML=gameData.length?`<ul class="game-list">${gameData.map(game=>{const st=gameStatus(game);const label=game.final&&game.winner==="TIE"?"Final · tie":st.label;return `<li class="game-row"><span class="game-matchup">${teamLabel(game,game.away)} <span class="at">at</span> ${teamLabel(game,game.home)}</span><span class="game-time">${esc(kickoffLabel(game))}</span><span class="game-status ${st.key}">${label}</span></li>`;}).join("")}</ul>`:'<div class="empty">No game data available.</div>';
+gamesHost.innerHTML=gameData.length?`<ul class="game-list">${gameData.map(game=>{const st=gameStatus(game);const label=game.final&&game.winner==="TIE"?"Final · tie":st.label;return `<li class="game-row"><span class="game-matchup">${teamLabel(game,game.away)} <span class="at">at</span> ${teamLabel(game,game.home)}</span><span class="game-time">${esc(kickoffLabel(game))}</span><span class="game-status ${st.key}">${label}${scoreLabel(game)}</span></li>`;}).join("")}</ul>`:'<div class="empty">No game data available.</div>';
 const realHistory=Array.isArray(s.history)?s.history:[];
 // Presentation-only samples: never saved to the updater's real history.
 const demoEvents=[

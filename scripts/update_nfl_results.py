@@ -7,7 +7,7 @@ Behavior:
 - Learns exact kickoff timestamps from ESPN and stores them in games-data.js.
 - Scheduled runs check only at kickoff/during play; manual runs can force a refresh.
 - Logs API checks, final results, and errors to action-status.js.
-- Records lastGameUpdate only when API game information changes.
+- Records lastGameUpdate only when a game status or final result changes.
 - Keeps only the newest MAX_HISTORY activity entries.
 """
 
@@ -26,7 +26,7 @@ GAMES_PATH = Path("games-data.js")
 PICKS_PATH = Path("picks-data.js")
 STATUS_PATH = Path("action-status.js")
 
-CHECK_INTERVAL_MINUTES = 5
+CHECK_INTERVAL_MINUTES = 15
 MAX_HISTORY = int(os.environ.get("MAX_HISTORY", "100"))
 
 ESPN_URL = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard"
@@ -232,8 +232,27 @@ def api_game_status(info: dict) -> str:
     return "unknown"
 
 
+def update_scores(game: dict, info: dict) -> bool:
+    """Store a complete away/home score pair without discarding prior scores."""
+    if api_game_status(info) not in ("final", "underway", "suspended", "delayed"):
+        return False
+    scores = {}
+    for side in ("away", "home"):
+        competitor = info["teams"].get(normalize_team(game.get(side, "")), {})
+        raw = competitor.get("score")
+        try:
+            score = int(str(raw))
+        except (TypeError, ValueError):
+            return False
+        if score < 0:
+            return False
+        scores[side + "Score"] = score
+    changed = any(game.get(key) != value for key, value in scores.items())
+    game.update(scores)
+    return changed
+
 def scheduled_slot(at: datetime) -> datetime:
-    """Next nominal cron slot (minutes 02, 07, 12, ...), not a delivery guarantee."""
+    """Next nominal cron slot (minutes 02, 17, 32, 47), not a delivery guarantee."""
     slot = at.replace(second=0, microsecond=0)
     if slot < at:
         slot += timedelta(minutes=1)
@@ -300,7 +319,7 @@ def main() -> int:
         games = games_data.get("games") or []
         unresolved = [g for g in games if not g.get("final", False)]
 
-        if not unresolved:
+        if not unresolved and all(g.get("awayScore") is not None and g.get("homeScore") is not None for g in games):
             status["status"] = "complete"
             status["nextEligibleCheck"] = None
             status["nextCheckReason"] = "All games are final."
@@ -308,7 +327,7 @@ def main() -> int:
             print("All games are already final.")
             return 0
 
-        if not scheduled_check_due(games, status, now):
+        if unresolved and not scheduled_check_due(games, status, now):
             if not status.get("nextEligibleCheck"):
                 next_check, reason = compute_next_check(games, now)
                 status["status"] = "waiting"
@@ -330,9 +349,16 @@ def main() -> int:
 
         games_changed = False
         meaningful_change = False
+        # Refresh scores for matched games, including finals saved before scores
+        # were supported. Team identity, never API competitor order, sets sides.
+        for game in games:
+            info = event_map.get(game_key(game))
+            if info and update_scores(game, info):
+                games_changed = True
+                meaningful_change = True
         final_count = 0
         for game in unresolved:
-            previous_info = (game.get("kickoff"), game.get("apiStatus"),
+            previous_info = (game.get("apiStatus"),
                              bool(game.get("final", False)), game.get("winner"))
             info = event_map[game_key(game)]
             kickoff = info.get("kickoff")
@@ -353,7 +379,7 @@ def main() -> int:
                 add_history(status, "final", f"{game.get('id')}: FINAL — {result_text}.", check_time)
             elif api_status != previous_status:
                 add_history(status, "state", f"{game.get('id')}: API status {api_status}.", check_time)
-            current_info = (game.get("kickoff"), game.get("apiStatus"),
+            current_info = (game.get("apiStatus"),
                             bool(game.get("final", False)), game.get("winner"))
             meaningful_change = meaningful_change or current_info != previous_info
 
@@ -379,7 +405,7 @@ def main() -> int:
         status["lastError"] = str(exc)
         add_history(status, "error", str(exc), error_time)
 
-        # Retry at the next eligible five-minute slot after an API failure.
+        # Retry at the next eligible fifteen-minute slot after an API failure.
         status["nextEligibleCheck"] = iso(scheduled_slot(error_time + timedelta(minutes=CHECK_INTERVAL_MINUTES)))
         status["nextCheckReason"] = "Retry after the most recent updater error."
         save_status(status_prefix, status, status_suffix)
