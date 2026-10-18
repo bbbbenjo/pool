@@ -3,14 +3,24 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 6,
-  "lastUpdate": "2026-10-16T03:35:42.195731Z",
-  "lastGameUpdate": "2026-10-16T03:35:42.001992Z",
-  "lastApiCheck": "2026-10-16T03:35:42.001992Z",
-  "lastApiSuccess": "2026-10-16T03:35:42.194925Z",
-  "nextEligibleCheck": "2026-10-18T13:32:00Z",
+  "lastUpdate": "2026-10-18T13:43:01.539459Z",
+  "lastGameUpdate": "2026-10-18T13:43:01.435744Z",
+  "lastApiCheck": "2026-10-18T13:43:01.435744Z",
+  "lastApiSuccess": "2026-10-18T13:43:01.538695Z",
+  "nextEligibleCheck": "2026-10-18T13:52:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-10-18T13:43:01.435744Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 13 unresolved game(s); 0 newly final."
+    },
+    {
+      "time": "2026-10-18T13:43:01.435744Z",
+      "type": "state",
+      "message": "HOU-JAX: API status underway."
+    },
     {
       "time": "2026-10-16T03:35:42.001992Z",
       "type": "check",
