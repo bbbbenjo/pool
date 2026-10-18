@@ -3,14 +3,39 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 6,
-  "lastUpdate": "2026-10-18T19:34:20.936862Z",
-  "lastGameUpdate": "2026-10-18T19:34:20.544864Z",
-  "lastApiCheck": "2026-10-18T19:34:20.544864Z",
-  "lastApiSuccess": "2026-10-18T19:34:20.935918Z",
-  "nextEligibleCheck": "2026-10-18T20:02:00Z",
+  "lastUpdate": "2026-10-18T20:14:11.333319Z",
+  "lastGameUpdate": "2026-10-18T20:14:11.064907Z",
+  "lastApiCheck": "2026-10-18T20:14:11.064907Z",
+  "lastApiSuccess": "2026-10-18T20:14:11.332600Z",
+  "nextEligibleCheck": "2026-10-18T20:32:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-10-18T20:14:11.064907Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 12 unresolved game(s); 3 newly final."
+    },
+    {
+      "time": "2026-10-18T20:14:11.064907Z",
+      "type": "state",
+      "message": "ARI-LAR: API status underway."
+    },
+    {
+      "time": "2026-10-18T20:14:11.064907Z",
+      "type": "final",
+      "message": "NYJ-NE: FINAL — NE won."
+    },
+    {
+      "time": "2026-10-18T20:14:11.064907Z",
+      "type": "final",
+      "message": "TEN-IND: FINAL — TEN won."
+    },
+    {
+      "time": "2026-10-18T20:14:11.064907Z",
+      "type": "final",
+      "message": "BAL-CLE: FINAL — CLE won."
+    },
     {
       "time": "2026-10-18T19:34:20.544864Z",
       "type": "check",
