@@ -3,14 +3,24 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 6,
-  "lastUpdate": "2026-10-18T16:17:42.057561Z",
-  "lastGameUpdate": "2026-10-18T16:17:41.946023Z",
-  "lastApiCheck": "2026-10-18T16:17:41.946023Z",
-  "lastApiSuccess": "2026-10-18T16:17:42.056830Z",
-  "nextEligibleCheck": "2026-10-18T16:47:00Z",
+  "lastUpdate": "2026-10-18T16:53:50.719044Z",
+  "lastGameUpdate": "2026-10-18T16:53:50.615344Z",
+  "lastApiCheck": "2026-10-18T16:53:50.615344Z",
+  "lastApiSuccess": "2026-10-18T16:53:50.717811Z",
+  "nextEligibleCheck": "2026-10-18T17:02:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-10-18T16:53:50.615344Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 13 unresolved game(s); 1 newly final."
+    },
+    {
+      "time": "2026-10-18T16:53:50.615344Z",
+      "type": "final",
+      "message": "HOU-JAX: FINAL — HOU won."
+    },
     {
       "time": "2026-10-18T16:17:41.946023Z",
       "type": "check",
