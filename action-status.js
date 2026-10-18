@@ -3,14 +3,54 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 6,
-  "lastUpdate": "2026-10-18T16:53:50.719044Z",
-  "lastGameUpdate": "2026-10-18T16:53:50.615344Z",
-  "lastApiCheck": "2026-10-18T16:53:50.615344Z",
-  "lastApiSuccess": "2026-10-18T16:53:50.717811Z",
-  "nextEligibleCheck": "2026-10-18T17:02:00Z",
+  "lastUpdate": "2026-10-18T17:17:18.303092Z",
+  "lastGameUpdate": "2026-10-18T17:17:18.087701Z",
+  "lastApiCheck": "2026-10-18T17:17:18.087701Z",
+  "lastApiSuccess": "2026-10-18T17:17:18.302007Z",
+  "nextEligibleCheck": "2026-10-18T17:47:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-10-18T17:17:18.087701Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 12 unresolved game(s); 0 newly final."
+    },
+    {
+      "time": "2026-10-18T17:17:18.087701Z",
+      "type": "state",
+      "message": "PIT-TB: API status underway."
+    },
+    {
+      "time": "2026-10-18T17:17:18.087701Z",
+      "type": "state",
+      "message": "CAR-PHI: API status underway."
+    },
+    {
+      "time": "2026-10-18T17:17:18.087701Z",
+      "type": "state",
+      "message": "NO-NYG: API status underway."
+    },
+    {
+      "time": "2026-10-18T17:17:18.087701Z",
+      "type": "state",
+      "message": "NYJ-NE: API status underway."
+    },
+    {
+      "time": "2026-10-18T17:17:18.087701Z",
+      "type": "state",
+      "message": "TEN-IND: API status underway."
+    },
+    {
+      "time": "2026-10-18T17:17:18.087701Z",
+      "type": "state",
+      "message": "BAL-CLE: API status underway."
+    },
+    {
+      "time": "2026-10-18T17:17:18.087701Z",
+      "type": "state",
+      "message": "CHI-ATL: API status underway."
+    },
     {
       "time": "2026-10-18T16:53:50.615344Z",
       "type": "check",

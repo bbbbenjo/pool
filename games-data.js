@@ -43,8 +43,10 @@ const GAMES_DATA = {
       "final": false,
       "winner": null,
       "kickoff": "2026-10-18T17:00Z",
-      "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-18T16:53:50.615344Z"
+      "apiStatus": "underway",
+      "apiStatusCheckedAt": "2026-10-18T17:17:18.087701Z",
+      "awayScore": 7,
+      "homeScore": 0
     },
     {
       "id": "BAL-CLE",
@@ -56,8 +58,10 @@ const GAMES_DATA = {
       "final": false,
       "winner": null,
       "kickoff": "2026-10-18T17:00Z",
-      "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-18T16:53:50.615344Z"
+      "apiStatus": "underway",
+      "apiStatusCheckedAt": "2026-10-18T17:17:18.087701Z",
+      "awayScore": 7,
+      "homeScore": 0
     },
     {
       "id": "TEN-IND",
@@ -69,8 +73,10 @@ const GAMES_DATA = {
       "final": false,
       "winner": null,
       "kickoff": "2026-10-18T17:00Z",
-      "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-18T16:53:50.615344Z"
+      "apiStatus": "underway",
+      "apiStatusCheckedAt": "2026-10-18T17:17:18.087701Z",
+      "awayScore": 0,
+      "homeScore": 0
     },
     {
       "id": "NYJ-NE",
@@ -82,8 +88,10 @@ const GAMES_DATA = {
       "final": false,
       "winner": null,
       "kickoff": "2026-10-18T17:00Z",
-      "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-18T16:53:50.615344Z"
+      "apiStatus": "underway",
+      "apiStatusCheckedAt": "2026-10-18T17:17:18.087701Z",
+      "awayScore": 3,
+      "homeScore": 0
     },
     {
       "id": "NO-NYG",
@@ -95,8 +103,10 @@ const GAMES_DATA = {
       "final": false,
       "winner": null,
       "kickoff": "2026-10-18T17:00Z",
-      "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-18T16:53:50.615344Z"
+      "apiStatus": "underway",
+      "apiStatusCheckedAt": "2026-10-18T17:17:18.087701Z",
+      "awayScore": 0,
+      "homeScore": 0
     },
     {
       "id": "CAR-PHI",
@@ -108,8 +118,10 @@ const GAMES_DATA = {
       "final": false,
       "winner": null,
       "kickoff": "2026-10-18T17:00Z",
-      "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-18T16:53:50.615344Z"
+      "apiStatus": "underway",
+      "apiStatusCheckedAt": "2026-10-18T17:17:18.087701Z",
+      "awayScore": 3,
+      "homeScore": 0
     },
     {
       "id": "PIT-TB",
@@ -121,8 +133,10 @@ const GAMES_DATA = {
       "final": false,
       "winner": null,
       "kickoff": "2026-10-18T17:00Z",
-      "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-18T16:53:50.615344Z"
+      "apiStatus": "underway",
+      "apiStatusCheckedAt": "2026-10-18T17:17:18.087701Z",
+      "awayScore": 0,
+      "homeScore": 0
     },
     {
       "id": "ARI-LAR",
@@ -135,7 +149,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-18T20:05Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-18T16:53:50.615344Z"
+      "apiStatusCheckedAt": "2026-10-18T17:17:18.087701Z"
     },
     {
       "id": "LAC-KC",
@@ -148,7 +162,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-18T20:25Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-18T16:53:50.615344Z"
+      "apiStatusCheckedAt": "2026-10-18T17:17:18.087701Z"
     },
     {
       "id": "BUF-LV",
@@ -161,7 +175,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-18T20:25Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-18T16:53:50.615344Z"
+      "apiStatusCheckedAt": "2026-10-18T17:17:18.087701Z"
     },
     {
       "id": "DAL-GB",
@@ -174,7 +188,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-19T00:20Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-18T16:53:50.615344Z"
+      "apiStatusCheckedAt": "2026-10-18T17:17:18.087701Z"
     },
     {
       "id": "WAS-SF",
@@ -187,7 +201,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-20T00:15Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-18T16:53:50.615344Z"
+      "apiStatusCheckedAt": "2026-10-18T17:17:18.087701Z"
     }
   ],
   "colors": {
