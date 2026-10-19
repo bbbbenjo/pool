@@ -3,14 +3,24 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 6,
-  "lastUpdate": "2026-10-19T03:43:47.088289Z",
-  "lastGameUpdate": "2026-10-19T03:43:46.989860Z",
-  "lastApiCheck": "2026-10-19T03:43:46.989860Z",
-  "lastApiSuccess": "2026-10-19T03:43:47.087373Z",
-  "nextEligibleCheck": "2026-10-19T04:02:00Z",
+  "lastUpdate": "2026-10-19T04:16:51.036660Z",
+  "lastGameUpdate": "2026-10-19T04:16:50.859525Z",
+  "lastApiCheck": "2026-10-19T04:16:50.859525Z",
+  "lastApiSuccess": "2026-10-19T04:16:51.035904Z",
+  "nextEligibleCheck": "2026-10-20T00:17:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-10-19T04:16:50.859525Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 2 unresolved game(s); 1 newly final."
+    },
+    {
+      "time": "2026-10-19T04:16:50.859525Z",
+      "type": "final",
+      "message": "DAL-GB: FINAL — GB won."
+    },
     {
       "time": "2026-10-19T03:43:46.989860Z",
       "type": "check",

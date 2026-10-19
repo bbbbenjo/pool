@@ -190,11 +190,11 @@ const GAMES_DATA = {
       "time": "SUN 8:20 PM",
       "favorite": "GB",
       "pAway": 0.479212,
-      "final": false,
-      "winner": null,
+      "final": true,
+      "winner": "GB",
       "kickoff": "2026-10-19T00:20Z",
-      "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-19T03:43:46.989860Z",
+      "apiStatus": "final",
+      "apiStatusCheckedAt": "2026-10-19T04:16:50.859525Z",
       "awayScore": 13,
       "homeScore": 23
     },
@@ -209,7 +209,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-20T00:15Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-19T03:43:46.989860Z"
+      "apiStatusCheckedAt": "2026-10-19T04:16:50.859525Z"
     }
   ],
   "colors": {
