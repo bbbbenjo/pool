@@ -193,8 +193,10 @@ const GAMES_DATA = {
       "final": false,
       "winner": null,
       "kickoff": "2026-10-19T00:20Z",
-      "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-19T00:00:10.038346Z"
+      "apiStatus": "underway",
+      "apiStatusCheckedAt": "2026-10-19T00:53:46.858310Z",
+      "awayScore": 0,
+      "homeScore": 7
     },
     {
       "id": "WAS-SF",
@@ -207,7 +209,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-20T00:15Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-19T00:00:10.038346Z"
+      "apiStatusCheckedAt": "2026-10-19T00:53:46.858310Z"
     }
   ],
   "colors": {
