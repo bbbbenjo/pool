@@ -1,16 +1,26 @@
 const ACTION_STATUS = {
   "version": 1,
-  "status": "ok",
+  "status": "complete",
   "season": 2026,
   "week": 6,
-  "lastUpdate": "2026-10-20T03:01:52.411492Z",
-  "lastGameUpdate": "2026-10-20T03:01:52.109615Z",
-  "lastApiCheck": "2026-10-20T03:01:52.109615Z",
-  "lastApiSuccess": "2026-10-20T03:01:52.353233Z",
-  "nextEligibleCheck": "2026-10-20T03:17:00Z",
-  "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
+  "lastUpdate": "2026-10-20T03:30:39.193255Z",
+  "lastGameUpdate": "2026-10-20T03:30:38.990848Z",
+  "lastApiCheck": "2026-10-20T03:30:38.990848Z",
+  "lastApiSuccess": "2026-10-20T03:30:39.192436Z",
+  "nextEligibleCheck": null,
+  "nextCheckReason": "All games are final; waiting for the next week's data.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-10-20T03:30:38.990848Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 1 unresolved game(s); 1 newly final."
+    },
+    {
+      "time": "2026-10-20T03:30:38.990848Z",
+      "type": "final",
+      "message": "WAS-SF: FINAL — SF won."
+    },
     {
       "time": "2026-10-20T03:01:52.109615Z",
       "type": "check",
