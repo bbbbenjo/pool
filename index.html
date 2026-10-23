@@ -1035,7 +1035,7 @@ function renderDesktop(model){
 
     for(const g of DATA.games){
       const p=pickFor(r.player,g.id);
-      if(!p){
+      if(!p || p.confidence===0){
         h+=`<td class="pickcell na ${g.final?"final-col":""}">N/A</td>`;
         continue;
       }
@@ -1112,7 +1112,7 @@ function renderMobile(model){
     };
     return `<div class="game-card ${gap?"slot-gap":""} ${g.final?"final-game":"toggle-zone"} ${assumed?"assumed":""}" data-toggle-game="${g.final?"":g.id}">
       <div class="pick-stack">
-        <div class="pick-row">${p && p.team===favorite ? mark(favorite) : ""}</div>
+        <div class="pick-row">${p && p.confidence===0 ? '<span class="pick-mark">N/A</span>' : p && p.team===favorite ? mark(favorite) : ""}</div>
         <div class="pick-row">${p && p.team===underdog ? mark(underdog) : ""}</div>
       </div>
       <div class="matchup-stack">
