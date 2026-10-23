@@ -14,9 +14,9 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-23T00:15Z",
       "awayScore": 0,
-      "homeScore": 0,
+      "homeScore": 10,
       "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-23T00:19:37.020097Z"
+      "apiStatusCheckedAt": "2026-10-23T00:56:05.582021Z"
     },
     {
       "id": "PIT-NO",
@@ -29,7 +29,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-25T13:30Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-23T00:19:37.020097Z"
+      "apiStatusCheckedAt": "2026-10-23T00:56:05.582021Z"
     },
     {
       "id": "SF-ATL",
@@ -42,7 +42,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-25T17:00Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-23T00:19:37.020097Z"
+      "apiStatusCheckedAt": "2026-10-23T00:56:05.582021Z"
     },
     {
       "id": "CLE-TEN",
@@ -55,7 +55,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-25T17:00Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-23T00:19:37.020097Z"
+      "apiStatusCheckedAt": "2026-10-23T00:56:05.582021Z"
     },
     {
       "id": "IND-MIN",
@@ -68,7 +68,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-25T17:00Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-23T00:19:37.020097Z"
+      "apiStatusCheckedAt": "2026-10-23T00:56:05.582021Z"
     },
     {
       "id": "MIA-NYJ",
@@ -81,7 +81,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-25T17:00Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-23T00:19:37.020097Z"
+      "apiStatusCheckedAt": "2026-10-23T00:56:05.582021Z"
     },
     {
       "id": "TB-CAR",
@@ -94,7 +94,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-25T17:00Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-23T00:19:37.020097Z"
+      "apiStatusCheckedAt": "2026-10-23T00:56:05.582021Z"
     },
     {
       "id": "CIN-BAL",
@@ -107,7 +107,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-25T17:00Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-23T00:19:37.020097Z"
+      "apiStatusCheckedAt": "2026-10-23T00:56:05.582021Z"
     },
     {
       "id": "NYG-HOU",
@@ -120,7 +120,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-25T17:00Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-23T00:19:37.020097Z"
+      "apiStatusCheckedAt": "2026-10-23T00:56:05.582021Z"
     },
     {
       "id": "DEN-ARI",
@@ -133,7 +133,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-25T20:05Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-23T00:19:37.020097Z"
+      "apiStatusCheckedAt": "2026-10-23T00:56:05.582021Z"
     },
     {
       "id": "GB-DET",
@@ -146,7 +146,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-25T20:25Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-23T00:19:37.020097Z"
+      "apiStatusCheckedAt": "2026-10-23T00:56:05.582021Z"
     },
     {
       "id": "LAR-LV",
@@ -159,7 +159,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-25T20:25Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-23T00:19:37.020097Z"
+      "apiStatusCheckedAt": "2026-10-23T00:56:05.582021Z"
     },
     {
       "id": "KC-SEA",
@@ -172,7 +172,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-26T00:20Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-23T00:19:37.020097Z"
+      "apiStatusCheckedAt": "2026-10-23T00:56:05.582021Z"
     },
     {
       "id": "DAL-PHI",
@@ -185,7 +185,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-27T00:15Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-23T00:19:37.020097Z"
+      "apiStatusCheckedAt": "2026-10-23T00:56:05.582021Z"
     }
   ],
   "colors": {
