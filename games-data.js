@@ -145,11 +145,11 @@ const GAMES_DATA = {
       "time": "SUN 4:05 PM",
       "favorite": "DEN",
       "pAway": 0.651529,
-      "final": false,
-      "winner": null,
+      "final": true,
+      "winner": "DEN",
       "kickoff": "2026-10-25T20:05Z",
-      "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-25T23:03:00.470495Z",
+      "apiStatus": "final",
+      "apiStatusCheckedAt": "2026-10-25T23:35:28.278599Z",
       "awayScore": 30,
       "homeScore": 16
     },
@@ -160,13 +160,13 @@ const GAMES_DATA = {
       "time": "SUN 4:25 PM",
       "favorite": "DET",
       "pAway": 0.387379,
-      "final": false,
-      "winner": null,
+      "final": true,
+      "winner": "DET",
       "kickoff": "2026-10-25T20:25Z",
-      "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-25T23:03:00.470495Z",
-      "awayScore": 14,
-      "homeScore": 17
+      "apiStatus": "final",
+      "apiStatusCheckedAt": "2026-10-25T23:35:28.278599Z",
+      "awayScore": 17,
+      "homeScore": 20
     },
     {
       "id": "LAR-LV",
@@ -179,9 +179,9 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-25T20:25Z",
       "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-25T23:03:00.470495Z",
-      "awayScore": 28,
-      "homeScore": 18
+      "apiStatusCheckedAt": "2026-10-25T23:35:28.278599Z",
+      "awayScore": 35,
+      "homeScore": 21
     },
     {
       "id": "KC-SEA",
@@ -194,7 +194,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-26T00:20Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-25T23:03:00.470495Z"
+      "apiStatusCheckedAt": "2026-10-25T23:35:28.278599Z"
     },
     {
       "id": "DAL-PHI",
@@ -207,7 +207,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-27T00:15Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-25T23:03:00.470495Z"
+      "apiStatusCheckedAt": "2026-10-25T23:35:28.278599Z"
     }
   ],
   "colors": {
