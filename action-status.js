@@ -3,14 +3,34 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 7,
-  "lastUpdate": "2026-10-25T20:20:37.745005Z",
-  "lastGameUpdate": "2026-10-25T20:20:37.375253Z",
-  "lastApiCheck": "2026-10-25T20:20:37.375253Z",
-  "lastApiSuccess": "2026-10-25T20:20:37.744086Z",
-  "nextEligibleCheck": "2026-10-25T20:32:00Z",
+  "lastUpdate": "2026-10-25T20:53:19.462763Z",
+  "lastGameUpdate": "2026-10-25T20:53:19.322410Z",
+  "lastApiCheck": "2026-10-25T20:53:19.322410Z",
+  "lastApiSuccess": "2026-10-25T20:53:19.462058Z",
+  "nextEligibleCheck": "2026-10-25T21:17:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-10-25T20:53:19.322410Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 6 unresolved game(s); 1 newly final."
+    },
+    {
+      "time": "2026-10-25T20:53:19.322410Z",
+      "type": "state",
+      "message": "LAR-LV: API status underway."
+    },
+    {
+      "time": "2026-10-25T20:53:19.322410Z",
+      "type": "state",
+      "message": "GB-DET: API status underway."
+    },
+    {
+      "time": "2026-10-25T20:53:19.322410Z",
+      "type": "final",
+      "message": "NYG-HOU: FINAL — NYG won."
+    },
     {
       "time": "2026-10-25T20:20:37.375253Z",
       "type": "check",

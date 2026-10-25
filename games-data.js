@@ -130,12 +130,12 @@ const GAMES_DATA = {
       "time": "SUN 1:00 PM",
       "favorite": "HOU",
       "pAway": 0.188133,
-      "final": false,
-      "winner": null,
+      "final": true,
+      "winner": "NYG",
       "kickoff": "2026-10-25T17:00Z",
-      "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-25T20:20:37.375253Z",
-      "awayScore": 21,
+      "apiStatus": "final",
+      "apiStatusCheckedAt": "2026-10-25T20:53:19.322410Z",
+      "awayScore": 27,
       "homeScore": 21
     },
     {
@@ -149,8 +149,8 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-25T20:05Z",
       "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-25T20:20:37.375253Z",
-      "awayScore": 3,
+      "apiStatusCheckedAt": "2026-10-25T20:53:19.322410Z",
+      "awayScore": 6,
       "homeScore": 0
     },
     {
@@ -163,8 +163,10 @@ const GAMES_DATA = {
       "final": false,
       "winner": null,
       "kickoff": "2026-10-25T20:25Z",
-      "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-25T20:20:37.375253Z"
+      "apiStatus": "underway",
+      "apiStatusCheckedAt": "2026-10-25T20:53:19.322410Z",
+      "awayScore": 0,
+      "homeScore": 7
     },
     {
       "id": "LAR-LV",
@@ -176,8 +178,10 @@ const GAMES_DATA = {
       "final": false,
       "winner": null,
       "kickoff": "2026-10-25T20:25Z",
-      "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-25T20:20:37.375253Z"
+      "apiStatus": "underway",
+      "apiStatusCheckedAt": "2026-10-25T20:53:19.322410Z",
+      "awayScore": 7,
+      "homeScore": 0
     },
     {
       "id": "KC-SEA",
@@ -190,7 +194,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-26T00:20Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-25T20:20:37.375253Z"
+      "apiStatusCheckedAt": "2026-10-25T20:53:19.322410Z"
     },
     {
       "id": "DAL-PHI",
@@ -203,7 +207,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-27T00:15Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-25T20:20:37.375253Z"
+      "apiStatusCheckedAt": "2026-10-25T20:53:19.322410Z"
     }
   ],
   "colors": {
