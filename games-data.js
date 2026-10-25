@@ -149,9 +149,9 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-25T20:05Z",
       "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-25T21:17:12.843744Z",
-      "awayScore": 6,
-      "homeScore": 3
+      "apiStatusCheckedAt": "2026-10-25T21:51:52.702425Z",
+      "awayScore": 13,
+      "homeScore": 6
     },
     {
       "id": "GB-DET",
@@ -164,7 +164,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-25T20:25Z",
       "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-25T21:17:12.843744Z",
+      "apiStatusCheckedAt": "2026-10-25T21:51:52.702425Z",
       "awayScore": 7,
       "homeScore": 10
     },
@@ -179,8 +179,8 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-25T20:25Z",
       "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-25T21:17:12.843744Z",
-      "awayScore": 14,
+      "apiStatusCheckedAt": "2026-10-25T21:51:52.702425Z",
+      "awayScore": 28,
       "homeScore": 3
     },
     {
@@ -194,7 +194,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-26T00:20Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-25T21:17:12.843744Z"
+      "apiStatusCheckedAt": "2026-10-25T21:51:52.702425Z"
     },
     {
       "id": "DAL-PHI",
@@ -207,7 +207,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-27T00:15Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-25T21:17:12.843744Z"
+      "apiStatusCheckedAt": "2026-10-25T21:51:52.702425Z"
     }
   ],
   "colors": {
