@@ -3,14 +3,24 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 7,
-  "lastUpdate": "2026-10-26T02:44:26.429019Z",
-  "lastGameUpdate": "2026-10-26T02:44:26.121972Z",
-  "lastApiCheck": "2026-10-26T02:44:26.121972Z",
-  "lastApiSuccess": "2026-10-26T02:44:26.428310Z",
-  "nextEligibleCheck": "2026-10-26T03:02:00Z",
+  "lastUpdate": "2026-10-26T03:16:59.511916Z",
+  "lastGameUpdate": "2026-10-26T03:16:59.351669Z",
+  "lastApiCheck": "2026-10-26T03:16:59.351669Z",
+  "lastApiSuccess": "2026-10-26T03:16:59.511145Z",
+  "nextEligibleCheck": "2026-10-27T00:17:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-10-26T03:16:59.351669Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 2 unresolved game(s); 1 newly final."
+    },
+    {
+      "time": "2026-10-26T03:16:59.351669Z",
+      "type": "final",
+      "message": "KC-SEA: FINAL — SEA won."
+    },
     {
       "time": "2026-10-26T02:44:26.121972Z",
       "type": "check",

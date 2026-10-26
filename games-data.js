@@ -190,13 +190,13 @@ const GAMES_DATA = {
       "time": "SUN 8:20 PM",
       "favorite": "SEA",
       "pAway": 0.43287,
-      "final": false,
-      "winner": null,
+      "final": true,
+      "winner": "SEA",
       "kickoff": "2026-10-26T00:20Z",
-      "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-26T02:44:26.121972Z",
+      "apiStatus": "final",
+      "apiStatusCheckedAt": "2026-10-26T03:16:59.351669Z",
       "awayScore": 3,
-      "homeScore": 13
+      "homeScore": 20
     },
     {
       "id": "DAL-PHI",
@@ -209,7 +209,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-27T00:15Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-26T02:44:26.121972Z"
+      "apiStatusCheckedAt": "2026-10-26T03:16:59.351669Z"
     }
   ],
   "colors": {
