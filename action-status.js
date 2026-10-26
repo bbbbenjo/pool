@@ -3,14 +3,29 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 7,
-  "lastUpdate": "2026-10-25T23:35:28.507038Z",
-  "lastGameUpdate": "2026-10-25T23:35:28.278599Z",
-  "lastApiCheck": "2026-10-25T23:35:28.278599Z",
-  "lastApiSuccess": "2026-10-25T23:35:28.506342Z",
-  "nextEligibleCheck": "2026-10-26T00:02:00Z",
+  "lastUpdate": "2026-10-26T00:41:14.670386Z",
+  "lastGameUpdate": "2026-10-26T00:41:14.380166Z",
+  "lastApiCheck": "2026-10-26T00:41:14.380166Z",
+  "lastApiSuccess": "2026-10-26T00:41:14.669855Z",
+  "nextEligibleCheck": "2026-10-26T01:02:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-10-26T00:41:14.380166Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 3 unresolved game(s); 1 newly final."
+    },
+    {
+      "time": "2026-10-26T00:41:14.380166Z",
+      "type": "state",
+      "message": "KC-SEA: API status underway."
+    },
+    {
+      "time": "2026-10-26T00:41:14.380166Z",
+      "type": "final",
+      "message": "LAR-LV: FINAL — LAR won."
+    },
     {
       "time": "2026-10-25T23:35:28.278599Z",
       "type": "check",

@@ -175,11 +175,11 @@ const GAMES_DATA = {
       "time": "SUN 4:25 PM",
       "favorite": "LAR",
       "pAway": 0.641148,
-      "final": false,
-      "winner": null,
+      "final": true,
+      "winner": "LAR",
       "kickoff": "2026-10-25T20:25Z",
-      "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-25T23:35:28.278599Z",
+      "apiStatus": "final",
+      "apiStatusCheckedAt": "2026-10-26T00:41:14.380166Z",
       "awayScore": 35,
       "homeScore": 21
     },
@@ -193,8 +193,10 @@ const GAMES_DATA = {
       "final": false,
       "winner": null,
       "kickoff": "2026-10-26T00:20Z",
-      "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-25T23:35:28.278599Z"
+      "apiStatus": "underway",
+      "apiStatusCheckedAt": "2026-10-26T00:41:14.380166Z",
+      "awayScore": 0,
+      "homeScore": 0
     },
     {
       "id": "DAL-PHI",
@@ -207,7 +209,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-27T00:15Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-25T23:35:28.278599Z"
+      "apiStatusCheckedAt": "2026-10-26T00:41:14.380166Z"
     }
   ],
   "colors": {
