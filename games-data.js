@@ -194,9 +194,9 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-26T00:20Z",
       "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-26T01:27:55.698243Z",
+      "apiStatusCheckedAt": "2026-10-26T02:08:19.523141Z",
       "awayScore": 0,
-      "homeScore": 9
+      "homeScore": 10
     },
     {
       "id": "DAL-PHI",
@@ -209,7 +209,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-27T00:15Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-10-26T01:27:55.698243Z"
+      "apiStatusCheckedAt": "2026-10-26T02:08:19.523141Z"
     }
   ],
   "colors": {
