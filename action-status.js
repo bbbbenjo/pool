@@ -1,16 +1,26 @@
 const ACTION_STATUS = {
   "version": 1,
-  "status": "ok",
+  "status": "complete",
   "season": 2026,
   "week": 7,
-  "lastUpdate": "2026-10-27T02:49:20.765653Z",
-  "lastGameUpdate": "2026-10-27T02:49:20.379459Z",
-  "lastApiCheck": "2026-10-27T02:49:20.379459Z",
-  "lastApiSuccess": "2026-10-27T02:49:20.764836Z",
-  "nextEligibleCheck": "2026-10-27T03:17:00Z",
-  "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
+  "lastUpdate": "2026-10-27T03:24:44.995303Z",
+  "lastGameUpdate": "2026-10-27T03:24:44.752674Z",
+  "lastApiCheck": "2026-10-27T03:24:44.752674Z",
+  "lastApiSuccess": "2026-10-27T03:24:44.994459Z",
+  "nextEligibleCheck": null,
+  "nextCheckReason": "All games are final; waiting for the next week's data.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-10-27T03:24:44.752674Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 1 unresolved game(s); 1 newly final."
+    },
+    {
+      "time": "2026-10-27T03:24:44.752674Z",
+      "type": "final",
+      "message": "DAL-PHI: FINAL — DAL won."
+    },
     {
       "time": "2026-10-27T02:49:20.379459Z",
       "type": "check",

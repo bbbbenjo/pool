@@ -205,12 +205,12 @@ const GAMES_DATA = {
       "time": "MON 8:15 PM",
       "favorite": "DAL",
       "pAway": 0.636113,
-      "final": false,
-      "winner": null,
+      "final": true,
+      "winner": "DAL",
       "kickoff": "2026-10-27T00:15Z",
-      "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-27T02:49:20.379459Z",
-      "awayScore": 31,
+      "apiStatus": "final",
+      "apiStatusCheckedAt": "2026-10-27T03:24:44.752674Z",
+      "awayScore": 38,
       "homeScore": 21
     }
   ],
