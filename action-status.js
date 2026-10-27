@@ -3,14 +3,24 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 7,
-  "lastUpdate": "2026-10-26T03:16:59.511916Z",
-  "lastGameUpdate": "2026-10-26T03:16:59.351669Z",
-  "lastApiCheck": "2026-10-26T03:16:59.351669Z",
-  "lastApiSuccess": "2026-10-26T03:16:59.511145Z",
-  "nextEligibleCheck": "2026-10-27T00:17:00Z",
+  "lastUpdate": "2026-10-27T00:56:10.122073Z",
+  "lastGameUpdate": "2026-10-27T00:56:10.020027Z",
+  "lastApiCheck": "2026-10-27T00:56:10.020027Z",
+  "lastApiSuccess": "2026-10-27T00:56:10.121160Z",
+  "nextEligibleCheck": "2026-10-27T01:17:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-10-27T00:56:10.020027Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 1 unresolved game(s); 0 newly final."
+    },
+    {
+      "time": "2026-10-27T00:56:10.020027Z",
+      "type": "state",
+      "message": "DAL-PHI: API status underway."
+    },
     {
       "time": "2026-10-26T03:16:59.351669Z",
       "type": "check",
