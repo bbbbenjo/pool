@@ -3,12 +3,12 @@ const ACTION_STATUS = {
   "status": "complete",
   "season": 2026,
   "week": 7,
-  "lastUpdate": "2026-10-27T03:24:44.995303Z",
+  "lastUpdate": "2026-10-27T04:02:58.283722Z",
   "lastGameUpdate": "2026-10-27T03:24:44.752674Z",
   "lastApiCheck": "2026-10-27T03:24:44.752674Z",
   "lastApiSuccess": "2026-10-27T03:24:44.994459Z",
   "nextEligibleCheck": null,
-  "nextCheckReason": "All games are final; waiting for the next week's data.",
+  "nextCheckReason": "All games are final.",
   "lastError": null,
   "history": [
     {
