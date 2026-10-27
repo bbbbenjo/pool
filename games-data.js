@@ -209,8 +209,8 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-10-27T00:15Z",
       "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-10-27T02:15:47.103829Z",
-      "awayScore": 20,
+      "apiStatusCheckedAt": "2026-10-27T02:49:20.379459Z",
+      "awayScore": 31,
       "homeScore": 21
     }
   ],
