@@ -3,14 +3,24 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 8,
-  "lastUpdate": "2026-10-30T03:12:57.798870Z",
-  "lastGameUpdate": "2026-10-30T03:12:57.676001Z",
-  "lastApiCheck": "2026-10-30T03:12:57.676001Z",
-  "lastApiSuccess": "2026-10-30T03:12:57.798106Z",
-  "nextEligibleCheck": "2026-10-30T03:32:00Z",
+  "lastUpdate": "2026-10-30T03:56:39.794138Z",
+  "lastGameUpdate": "2026-10-30T03:56:39.636719Z",
+  "lastApiCheck": "2026-10-30T03:56:39.636719Z",
+  "lastApiSuccess": "2026-10-30T03:56:39.793301Z",
+  "nextEligibleCheck": "2026-11-01T18:02:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-10-30T03:56:39.636719Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 14 unresolved game(s); 1 newly final."
+    },
+    {
+      "time": "2026-10-30T03:56:39.636719Z",
+      "type": "final",
+      "message": "CAR-GB: FINAL — GB won."
+    },
     {
       "time": "2026-10-30T03:12:57.676001Z",
       "type": "check",
