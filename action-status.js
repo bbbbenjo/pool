@@ -3,14 +3,29 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 8,
-  "lastUpdate": "2026-11-01T21:32:22.901655Z",
-  "lastGameUpdate": "2026-11-01T21:32:22.608587Z",
-  "lastApiCheck": "2026-11-01T21:32:22.608587Z",
-  "lastApiSuccess": "2026-11-01T21:32:22.900935Z",
-  "nextEligibleCheck": "2026-11-01T22:02:00Z",
+  "lastUpdate": "2026-11-01T22:15:04.946832Z",
+  "lastGameUpdate": "2026-11-01T22:15:04.677876Z",
+  "lastApiCheck": "2026-11-01T22:15:04.677876Z",
+  "lastApiSuccess": "2026-11-01T22:15:04.946000Z",
+  "nextEligibleCheck": "2026-11-01T22:32:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-11-01T22:15:04.677876Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 7 unresolved game(s); 2 newly final."
+    },
+    {
+      "time": "2026-11-01T22:15:04.677876Z",
+      "type": "final",
+      "message": "ARI-DAL: FINAL — ARI won."
+    },
+    {
+      "time": "2026-11-01T22:15:04.677876Z",
+      "type": "final",
+      "message": "TEN-CIN: FINAL — CIN won."
+    },
     {
       "time": "2026-11-01T21:32:22.608587Z",
       "type": "check",
