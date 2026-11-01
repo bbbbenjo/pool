@@ -3,14 +3,59 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 8,
-  "lastUpdate": "2026-11-01T21:00:33.172981Z",
-  "lastGameUpdate": "2026-11-01T21:00:33.094174Z",
-  "lastApiCheck": "2026-11-01T21:00:33.094174Z",
-  "lastApiSuccess": "2026-11-01T21:00:33.172078Z",
-  "nextEligibleCheck": "2026-11-01T21:17:00Z",
+  "lastUpdate": "2026-11-01T21:32:22.901655Z",
+  "lastGameUpdate": "2026-11-01T21:32:22.608587Z",
+  "lastApiCheck": "2026-11-01T21:32:22.608587Z",
+  "lastApiSuccess": "2026-11-01T21:32:22.900935Z",
+  "nextEligibleCheck": "2026-11-01T22:02:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-11-01T21:32:22.608587Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 12 unresolved game(s); 5 newly final."
+    },
+    {
+      "time": "2026-11-01T21:32:22.608587Z",
+      "type": "state",
+      "message": "NE-MIA: API status underway."
+    },
+    {
+      "time": "2026-11-01T21:32:22.608587Z",
+      "type": "state",
+      "message": "KC-DEN: API status underway."
+    },
+    {
+      "time": "2026-11-01T21:32:22.608587Z",
+      "type": "state",
+      "message": "LAC-LAR: API status underway."
+    },
+    {
+      "time": "2026-11-01T21:32:22.608587Z",
+      "type": "final",
+      "message": "IND-JAX: FINAL — JAX won."
+    },
+    {
+      "time": "2026-11-01T21:32:22.608587Z",
+      "type": "final",
+      "message": "CLE-PIT: FINAL — PIT won."
+    },
+    {
+      "time": "2026-11-01T21:32:22.608587Z",
+      "type": "final",
+      "message": "LV-NYJ: FINAL — LV won."
+    },
+    {
+      "time": "2026-11-01T21:32:22.608587Z",
+      "type": "final",
+      "message": "MIN-DET: FINAL — DET won."
+    },
+    {
+      "time": "2026-11-01T21:32:22.608587Z",
+      "type": "final",
+      "message": "BAL-BUF: FINAL — BUF won."
+    },
     {
       "time": "2026-11-01T21:00:33.094174Z",
       "type": "check",
