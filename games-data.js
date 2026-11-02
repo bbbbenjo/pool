@@ -194,9 +194,9 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-11-02T01:20Z",
       "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-11-02T01:46:42.932181Z",
-      "awayScore": 0,
-      "homeScore": 0
+      "apiStatusCheckedAt": "2026-11-02T02:33:28.414996Z",
+      "awayScore": 10,
+      "homeScore": 10
     },
     {
       "id": "CHI-SEA",
@@ -209,7 +209,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-11-03T01:15Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-11-02T01:46:42.932181Z"
+      "apiStatusCheckedAt": "2026-11-02T02:33:28.414996Z"
     }
   ],
   "colors": {
