@@ -160,13 +160,13 @@ const GAMES_DATA = {
       "time": "SUN 4:25 PM",
       "favorite": "KC",
       "pAway": 0.519824,
-      "final": false,
-      "winner": null,
+      "final": true,
+      "winner": "DEN",
       "kickoff": "2026-11-01T21:25Z",
-      "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-11-01T23:57:35.987148Z",
+      "apiStatus": "final",
+      "apiStatusCheckedAt": "2026-11-02T00:41:29.494603Z",
       "awayScore": 24,
-      "homeScore": 13
+      "homeScore": 28
     },
     {
       "id": "NE-MIA",
@@ -175,13 +175,13 @@ const GAMES_DATA = {
       "time": "SUN 4:25 PM",
       "favorite": "NE",
       "pAway": 0.725753,
-      "final": false,
-      "winner": null,
+      "final": true,
+      "winner": "NE",
       "kickoff": "2026-11-01T21:25Z",
-      "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-11-01T23:57:35.987148Z",
+      "apiStatus": "final",
+      "apiStatusCheckedAt": "2026-11-02T00:41:29.494603Z",
       "awayScore": 24,
-      "homeScore": 13
+      "homeScore": 19
     },
     {
       "id": "PHI-WAS",
@@ -194,7 +194,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-11-02T01:20Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-11-01T23:57:35.987148Z"
+      "apiStatusCheckedAt": "2026-11-02T00:41:29.494603Z"
     },
     {
       "id": "CHI-SEA",
@@ -207,7 +207,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-11-03T01:15Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-11-01T23:57:35.987148Z"
+      "apiStatusCheckedAt": "2026-11-02T00:41:29.494603Z"
     }
   ],
   "colors": {
