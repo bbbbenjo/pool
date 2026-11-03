@@ -1,16 +1,26 @@
 const ACTION_STATUS = {
   "version": 1,
-  "status": "ok",
+  "status": "complete",
   "season": 2026,
   "week": 8,
-  "lastUpdate": "2026-11-03T04:20:54.332287Z",
-  "lastGameUpdate": "2026-11-03T04:20:54.013555Z",
-  "lastApiCheck": "2026-11-03T04:20:54.013555Z",
-  "lastApiSuccess": "2026-11-03T04:20:54.331487Z",
-  "nextEligibleCheck": "2026-11-03T04:47:00Z",
-  "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
+  "lastUpdate": "2026-11-03T05:23:05.612137Z",
+  "lastGameUpdate": "2026-11-03T05:23:05.473623Z",
+  "lastApiCheck": "2026-11-03T05:23:05.473623Z",
+  "lastApiSuccess": "2026-11-03T05:23:05.611374Z",
+  "nextEligibleCheck": null,
+  "nextCheckReason": "All games are final; waiting for the next week's data.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-11-03T05:23:05.473623Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 1 unresolved game(s); 1 newly final."
+    },
+    {
+      "time": "2026-11-03T05:23:05.473623Z",
+      "type": "final",
+      "message": "CHI-SEA: FINAL — CHI won."
+    },
     {
       "time": "2026-11-03T04:20:54.013555Z",
       "type": "check",

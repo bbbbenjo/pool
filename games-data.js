@@ -205,11 +205,11 @@ const GAMES_DATA = {
       "time": "MON 8:15 PM",
       "favorite": "SEA",
       "pAway": 0.397296,
-      "final": false,
-      "winner": null,
+      "final": true,
+      "winner": "CHI",
       "kickoff": "2026-11-03T01:15Z",
-      "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-11-03T04:20:54.013555Z",
+      "apiStatus": "final",
+      "apiStatusCheckedAt": "2026-11-03T05:23:05.473623Z",
       "awayScore": 34,
       "homeScore": 17
     }
