@@ -208,8 +208,10 @@ const GAMES_DATA = {
       "final": false,
       "winner": null,
       "kickoff": "2026-11-03T01:15Z",
-      "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-11-02T04:31:33.565923Z"
+      "apiStatus": "underway",
+      "apiStatusCheckedAt": "2026-11-03T01:44:58.777514Z",
+      "awayScore": 7,
+      "homeScore": 0
     }
   ],
   "colors": {

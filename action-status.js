@@ -3,14 +3,24 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 8,
-  "lastUpdate": "2026-11-02T04:31:33.696103Z",
-  "lastGameUpdate": "2026-11-02T04:31:33.565923Z",
-  "lastApiCheck": "2026-11-02T04:31:33.565923Z",
-  "lastApiSuccess": "2026-11-02T04:31:33.695293Z",
-  "nextEligibleCheck": "2026-11-03T01:17:00Z",
+  "lastUpdate": "2026-11-03T01:44:58.868499Z",
+  "lastGameUpdate": "2026-11-03T01:44:58.777514Z",
+  "lastApiCheck": "2026-11-03T01:44:58.777514Z",
+  "lastApiSuccess": "2026-11-03T01:44:58.867622Z",
+  "nextEligibleCheck": "2026-11-03T02:02:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-11-03T01:44:58.777514Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 1 unresolved game(s); 0 newly final."
+    },
+    {
+      "time": "2026-11-03T01:44:58.777514Z",
+      "type": "state",
+      "message": "CHI-SEA: API status underway."
+    },
     {
       "time": "2026-11-02T04:31:33.565923Z",
       "type": "check",
