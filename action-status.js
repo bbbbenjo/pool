@@ -3,14 +3,24 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 9,
-  "lastUpdate": "2026-11-06T01:23:17.686275Z",
-  "lastGameUpdate": "2026-11-06T01:23:17.550149Z",
-  "lastApiCheck": "2026-11-06T01:23:17.550149Z",
-  "lastApiSuccess": "2026-11-06T01:23:17.685583Z",
-  "nextEligibleCheck": "2026-11-06T01:47:00Z",
+  "lastUpdate": "2026-11-06T07:09:50.667866Z",
+  "lastGameUpdate": "2026-11-06T07:09:50.509370Z",
+  "lastApiCheck": "2026-11-06T07:09:50.509370Z",
+  "lastApiSuccess": "2026-11-06T07:09:50.666878Z",
+  "nextEligibleCheck": "2026-11-08T14:32:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-11-06T07:09:50.509370Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 15 unresolved game(s); 1 newly final."
+    },
+    {
+      "time": "2026-11-06T07:09:50.509370Z",
+      "type": "final",
+      "message": "JAX-BAL: FINAL — JAX won."
+    },
     {
       "time": "2026-11-06T01:23:17.550149Z",
       "type": "check",
