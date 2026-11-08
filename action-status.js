@@ -3,14 +3,74 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 9,
-  "lastUpdate": "2026-11-08T19:09:50.293676Z",
-  "lastGameUpdate": "2026-11-08T19:09:50.069565Z",
-  "lastApiCheck": "2026-11-08T19:09:50.069565Z",
-  "lastApiSuccess": "2026-11-08T19:09:50.292809Z",
-  "nextEligibleCheck": "2026-11-08T19:32:00Z",
+  "lastUpdate": "2026-11-08T22:27:03.782065Z",
+  "lastGameUpdate": "2026-11-08T22:27:03.602395Z",
+  "lastApiCheck": "2026-11-08T22:27:03.602395Z",
+  "lastApiSuccess": "2026-11-08T22:27:03.781224Z",
+  "nextEligibleCheck": "2026-11-08T22:47:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-11-08T22:27:03.602395Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 13 unresolved game(s); 7 newly final."
+    },
+    {
+      "time": "2026-11-08T22:27:03.602395Z",
+      "type": "state",
+      "message": "ARI-SEA: API status underway."
+    },
+    {
+      "time": "2026-11-08T22:27:03.602395Z",
+      "type": "state",
+      "message": "LV-SF: API status underway."
+    },
+    {
+      "time": "2026-11-08T22:27:03.602395Z",
+      "type": "state",
+      "message": "GB-NE: API status underway."
+    },
+    {
+      "time": "2026-11-08T22:27:03.602395Z",
+      "type": "state",
+      "message": "HOU-LAC: API status underway."
+    },
+    {
+      "time": "2026-11-08T22:27:03.602395Z",
+      "type": "final",
+      "message": "DEN-CAR: FINAL — DEN won."
+    },
+    {
+      "time": "2026-11-08T22:27:03.602395Z",
+      "type": "final",
+      "message": "LAR-WAS: FINAL — LAR won."
+    },
+    {
+      "time": "2026-11-08T22:27:03.602395Z",
+      "type": "final",
+      "message": "NYG-PHI: FINAL — NYG won."
+    },
+    {
+      "time": "2026-11-08T22:27:03.602395Z",
+      "type": "final",
+      "message": "CLE-NO: FINAL — NO won."
+    },
+    {
+      "time": "2026-11-08T22:27:03.602395Z",
+      "type": "final",
+      "message": "DET-MIA: FINAL — DET won."
+    },
+    {
+      "time": "2026-11-08T22:27:03.602395Z",
+      "type": "final",
+      "message": "NYJ-KC: FINAL — KC won."
+    },
+    {
+      "time": "2026-11-08T22:27:03.602395Z",
+      "type": "final",
+      "message": "DAL-IND: FINAL — DAL won."
+    },
     {
       "time": "2026-11-08T19:09:50.069565Z",
       "type": "check",
