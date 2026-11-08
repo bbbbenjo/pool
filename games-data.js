@@ -149,8 +149,8 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-11-08T21:05Z",
       "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-11-08T22:27:03.602395Z",
-      "awayScore": 17,
+      "apiStatusCheckedAt": "2026-11-08T22:53:15.541202Z",
+      "awayScore": 24,
       "homeScore": 9
     },
     {
@@ -164,9 +164,9 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-11-08T21:25Z",
       "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-11-08T22:27:03.602395Z",
-      "awayScore": 17,
-      "homeScore": 7
+      "apiStatusCheckedAt": "2026-11-08T22:53:15.541202Z",
+      "awayScore": 24,
+      "homeScore": 14
     },
     {
       "id": "LV-SF",
@@ -179,9 +179,9 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-11-08T21:25Z",
       "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-11-08T22:27:03.602395Z",
-      "awayScore": 7,
-      "homeScore": 21
+      "apiStatusCheckedAt": "2026-11-08T22:53:15.541202Z",
+      "awayScore": 10,
+      "homeScore": 28
     },
     {
       "id": "ARI-SEA",
@@ -194,9 +194,9 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-11-08T21:25Z",
       "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-11-08T22:27:03.602395Z",
+      "apiStatusCheckedAt": "2026-11-08T22:53:15.541202Z",
       "awayScore": 3,
-      "homeScore": 7
+      "homeScore": 14
     },
     {
       "id": "TB-CHI",
@@ -209,7 +209,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-11-09T01:20Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-11-08T22:27:03.602395Z"
+      "apiStatusCheckedAt": "2026-11-08T22:53:15.541202Z"
     },
     {
       "id": "BUF-MIN",
@@ -222,7 +222,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-11-10T01:15Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-11-08T22:27:03.602395Z"
+      "apiStatusCheckedAt": "2026-11-08T22:53:15.541202Z"
     }
   ],
   "oddsSource": {
