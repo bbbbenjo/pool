@@ -3,14 +3,44 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 9,
-  "lastUpdate": "2026-11-08T22:53:15.768992Z",
-  "lastGameUpdate": "2026-11-08T22:53:15.541202Z",
-  "lastApiCheck": "2026-11-08T22:53:15.541202Z",
-  "lastApiSuccess": "2026-11-08T22:53:15.768507Z",
-  "nextEligibleCheck": "2026-11-08T23:17:00Z",
+  "lastUpdate": "2026-11-09T02:21:46.867898Z",
+  "lastGameUpdate": "2026-11-09T02:21:46.320421Z",
+  "lastApiCheck": "2026-11-09T02:21:46.320421Z",
+  "lastApiSuccess": "2026-11-09T02:21:46.867051Z",
+  "nextEligibleCheck": "2026-11-09T02:47:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-11-09T02:21:46.320421Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 6 unresolved game(s); 4 newly final."
+    },
+    {
+      "time": "2026-11-09T02:21:46.320421Z",
+      "type": "state",
+      "message": "TB-CHI: API status underway."
+    },
+    {
+      "time": "2026-11-09T02:21:46.320421Z",
+      "type": "final",
+      "message": "ARI-SEA: FINAL — SEA won."
+    },
+    {
+      "time": "2026-11-09T02:21:46.320421Z",
+      "type": "final",
+      "message": "LV-SF: FINAL — SF won."
+    },
+    {
+      "time": "2026-11-09T02:21:46.320421Z",
+      "type": "final",
+      "message": "GB-NE: FINAL — GB won."
+    },
+    {
+      "time": "2026-11-09T02:21:46.320421Z",
+      "type": "final",
+      "message": "HOU-LAC: FINAL — HOU won."
+    },
     {
       "time": "2026-11-08T22:53:15.541202Z",
       "type": "check",
