@@ -205,13 +205,13 @@ const GAMES_DATA = {
       "time": "SUN 8:20 PM",
       "favorite": "CHI",
       "pAway": 0.299838,
-      "final": false,
-      "winner": null,
+      "final": true,
+      "winner": "CHI",
       "kickoff": "2026-11-09T01:20Z",
-      "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-11-09T02:21:46.320421Z",
-      "awayScore": 3,
-      "homeScore": 14
+      "apiStatus": "final",
+      "apiStatusCheckedAt": "2026-11-09T10:03:43.053416Z",
+      "awayScore": 24,
+      "homeScore": 27
     },
     {
       "id": "BUF-MIN",
@@ -224,7 +224,7 @@ const GAMES_DATA = {
       "winner": null,
       "kickoff": "2026-11-10T01:15Z",
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-11-09T02:21:46.320421Z"
+      "apiStatusCheckedAt": "2026-11-09T10:03:43.053416Z"
     }
   ],
   "oddsSource": {
