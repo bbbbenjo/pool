@@ -220,12 +220,12 @@ const GAMES_DATA = {
       "time": "MON 8:15 PM",
       "favorite": "BUF",
       "pAway": 0.610674,
-      "final": false,
-      "winner": null,
+      "final": true,
+      "winner": "BUF",
       "kickoff": "2026-11-10T01:15Z",
-      "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-11-10T02:56:08.562792Z",
-      "awayScore": 10,
+      "apiStatus": "final",
+      "apiStatusCheckedAt": "2026-11-10T10:45:22.713389Z",
+      "awayScore": 23,
       "homeScore": 6
     }
   ],

@@ -1,16 +1,26 @@
 const ACTION_STATUS = {
   "version": 1,
-  "status": "ok",
+  "status": "complete",
   "season": 2026,
   "week": 9,
-  "lastUpdate": "2026-11-10T02:56:08.720249Z",
-  "lastGameUpdate": "2026-11-10T02:56:08.562792Z",
-  "lastApiCheck": "2026-11-10T02:56:08.562792Z",
-  "lastApiSuccess": "2026-11-10T02:56:08.719564Z",
-  "nextEligibleCheck": "2026-11-10T03:17:00Z",
-  "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
+  "lastUpdate": "2026-11-10T10:45:22.863353Z",
+  "lastGameUpdate": "2026-11-10T10:45:22.713389Z",
+  "lastApiCheck": "2026-11-10T10:45:22.713389Z",
+  "lastApiSuccess": "2026-11-10T10:45:22.862515Z",
+  "nextEligibleCheck": null,
+  "nextCheckReason": "All games are final; waiting for the next week's data.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-11-10T10:45:22.713389Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 1 unresolved game(s); 1 newly final."
+    },
+    {
+      "time": "2026-11-10T10:45:22.713389Z",
+      "type": "final",
+      "message": "BUF-MIN: FINAL — BUF won."
+    },
     {
       "time": "2026-11-10T02:56:08.562792Z",
       "type": "check",
