@@ -223,8 +223,10 @@ const GAMES_DATA = {
       "final": false,
       "winner": null,
       "kickoff": "2026-11-10T01:15Z",
-      "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-11-09T10:03:43.053416Z"
+      "apiStatus": "underway",
+      "apiStatusCheckedAt": "2026-11-10T02:56:08.562792Z",
+      "awayScore": 10,
+      "homeScore": 6
     }
   ],
   "oddsSource": {
