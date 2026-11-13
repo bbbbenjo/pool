@@ -4,314 +4,163 @@
 const GAMES_DATA = {
   "games": [
     {
-      "id": "JAX-BAL",
-      "away": "JAX",
-      "home": "BAL",
+      "id": "WAS-NYG",
+      "away": "WAS",
+      "home": "NYG",
       "time": "THU 8:15 PM",
-      "favorite": "JAX",
-      "pAway": 0.786408,
+      "kickoff": "2026-11-13T01:15:00Z",
+      "favorite": "NYG",
+      "pAway": 0.467212,
       "final": true,
-      "winner": "JAX",
-      "kickoff": "2026-11-06T01:15Z",
-      "awayScore": 33,
-      "homeScore": 10,
-      "apiStatus": "final",
-      "apiStatusCheckedAt": "2026-11-06T07:09:50.509370Z"
+      "winner": "WAS",
+      "awayScore": 24,
+      "homeScore": 21,
+      "apiStatus": "final"
     },
     {
-      "id": "CIN-ATL",
-      "away": "CIN",
-      "home": "ATL",
+      "id": "NE-DET",
+      "away": "NE",
+      "home": "DET",
       "time": "SUN 9:30 AM",
-      "favorite": "CIN",
-      "pAway": 0.599092,
-      "final": true,
-      "winner": "CIN",
-      "kickoff": "2026-11-08T14:30Z",
-      "apiStatus": "final",
-      "apiStatusCheckedAt": "2026-11-08T19:09:50.069565Z",
-      "awayScore": 34,
-      "homeScore": 17
+      "kickoff": "2026-11-15T14:30:00Z",
+      "favorite": "DET",
+      "pAway": 0.42101,
+      "final": false,
+      "winner": null
     },
     {
-      "id": "DAL-IND",
-      "away": "DAL",
+      "id": "KC-ATL",
+      "away": "KC",
+      "home": "ATL",
+      "time": "SUN 1:00 PM",
+      "kickoff": "2026-11-15T18:00:00Z",
+      "favorite": "KC",
+      "pAway": 0.609709,
+      "final": false,
+      "winner": null
+    },
+    {
+      "id": "HOU-CLE",
+      "away": "HOU",
+      "home": "CLE",
+      "time": "SUN 1:00 PM",
+      "kickoff": "2026-11-15T18:00:00Z",
+      "favorite": "HOU",
+      "pAway": 0.673457,
+      "final": false,
+      "winner": null
+    },
+    {
+      "id": "MIN-GB",
+      "away": "MIN",
+      "home": "GB",
+      "time": "SUN 1:00 PM",
+      "kickoff": "2026-11-15T18:00:00Z",
+      "favorite": "GB",
+      "pAway": 0.403472,
+      "final": false,
+      "winner": null
+    },
+    {
+      "id": "JAX-TEN",
+      "away": "JAX",
+      "home": "TEN",
+      "time": "SUN 1:00 PM",
+      "kickoff": "2026-11-15T18:00:00Z",
+      "favorite": "JAX",
+      "pAway": 0.84,
+      "final": false,
+      "winner": null
+    },
+    {
+      "id": "MIA-IND",
+      "away": "MIA",
       "home": "IND",
       "time": "SUN 1:00 PM",
-      "favorite": "DAL",
-      "pAway": 0.69577,
-      "final": true,
-      "winner": "DAL",
-      "kickoff": "2026-11-08T18:00Z",
-      "apiStatus": "final",
-      "apiStatusCheckedAt": "2026-11-08T22:27:03.602395Z",
-      "awayScore": 27,
-      "homeScore": 23
+      "kickoff": "2026-11-15T18:00:00Z",
+      "favorite": "IND",
+      "pAway": 0.358852,
+      "final": false,
+      "winner": null
     },
     {
-      "id": "NYJ-KC",
-      "away": "NYJ",
-      "home": "KC",
-      "time": "SUN 1:00 PM",
-      "favorite": "KC",
-      "pAway": 0.195465,
-      "final": true,
-      "winner": "KC",
-      "kickoff": "2026-11-08T18:00Z",
-      "apiStatus": "final",
-      "apiStatusCheckedAt": "2026-11-08T22:27:03.602395Z",
-      "awayScore": 12,
-      "homeScore": 35
-    },
-    {
-      "id": "DET-MIA",
-      "away": "DET",
-      "home": "MIA",
-      "time": "SUN 1:00 PM",
-      "favorite": "DET",
-      "pAway": 0.744681,
-      "final": true,
-      "winner": "DET",
-      "kickoff": "2026-11-08T18:00Z",
-      "apiStatus": "final",
-      "apiStatusCheckedAt": "2026-11-08T22:27:03.602395Z",
-      "awayScore": 19,
-      "homeScore": 9
-    },
-    {
-      "id": "CLE-NO",
-      "away": "CLE",
+      "id": "CAR-NO",
+      "away": "CAR",
       "home": "NO",
       "time": "SUN 1:00 PM",
+      "kickoff": "2026-11-15T18:00:00Z",
       "favorite": "NO",
-      "pAway": 0.423925,
-      "final": true,
-      "winner": "NO",
-      "kickoff": "2026-11-08T18:00Z",
-      "apiStatus": "final",
-      "apiStatusCheckedAt": "2026-11-08T22:27:03.602395Z",
-      "awayScore": 22,
-      "homeScore": 23
+      "pAway": 0.44169,
+      "final": false,
+      "winner": null
     },
     {
-      "id": "NYG-PHI",
-      "away": "NYG",
-      "home": "PHI",
-      "time": "SUN 1:00 PM",
-      "favorite": "NYG",
-      "pAway": 0.599092,
-      "final": true,
-      "winner": "NYG",
-      "kickoff": "2026-11-08T18:00Z",
-      "apiStatus": "final",
-      "apiStatusCheckedAt": "2026-11-08T22:27:03.602395Z",
-      "awayScore": 19,
-      "homeScore": 11
-    },
-    {
-      "id": "LAR-WAS",
-      "away": "LAR",
-      "home": "WAS",
-      "time": "SUN 1:00 PM",
-      "favorite": "LAR",
-      "pAway": 0.680556,
-      "final": true,
-      "winner": "LAR",
-      "kickoff": "2026-11-08T18:00Z",
-      "apiStatus": "final",
-      "apiStatusCheckedAt": "2026-11-08T22:27:03.602395Z",
-      "awayScore": 20,
-      "homeScore": 13
-    },
-    {
-      "id": "DEN-CAR",
-      "away": "DEN",
-      "home": "CAR",
-      "time": "SUN 1:00 PM",
-      "favorite": "DEN",
-      "pAway": 0.577918,
-      "final": true,
-      "winner": "DEN",
-      "kickoff": "2026-11-08T18:00Z",
-      "apiStatus": "final",
-      "apiStatusCheckedAt": "2026-11-08T22:27:03.602395Z",
-      "awayScore": 26,
-      "homeScore": 21
-    },
-    {
-      "id": "HOU-LAC",
-      "away": "HOU",
-      "home": "LAC",
-      "time": "SUN 4:05 PM",
-      "favorite": "HOU",
-      "pAway": 0.65812,
-      "final": true,
-      "winner": "HOU",
-      "kickoff": "2026-11-08T21:05Z",
-      "apiStatus": "final",
-      "apiStatusCheckedAt": "2026-11-09T02:21:46.320421Z",
-      "awayScore": 44,
-      "homeScore": 22
-    },
-    {
-      "id": "GB-NE",
-      "away": "GB",
-      "home": "NE",
-      "time": "SUN 4:25 PM",
-      "favorite": "NE",
-      "pAway": 0.410421,
-      "final": true,
-      "winner": "GB",
-      "kickoff": "2026-11-08T21:25Z",
-      "apiStatus": "final",
-      "apiStatusCheckedAt": "2026-11-09T02:21:46.320421Z",
-      "awayScore": 45,
-      "homeScore": 27
-    },
-    {
-      "id": "LV-SF",
-      "away": "LV",
-      "home": "SF",
-      "time": "SUN 4:25 PM",
-      "favorite": "SF",
-      "pAway": 0.201681,
-      "final": true,
-      "winner": "SF",
-      "kickoff": "2026-11-08T21:25Z",
-      "apiStatus": "final",
-      "apiStatusCheckedAt": "2026-11-09T02:21:46.320421Z",
-      "awayScore": 17,
-      "homeScore": 38
-    },
-    {
-      "id": "ARI-SEA",
-      "away": "ARI",
-      "home": "SEA",
-      "time": "SUN 4:25 PM",
-      "favorite": "SEA",
-      "pAway": 0.154589,
-      "final": true,
-      "winner": "SEA",
-      "kickoff": "2026-11-08T21:25Z",
-      "apiStatus": "final",
-      "apiStatusCheckedAt": "2026-11-09T02:21:46.320421Z",
-      "awayScore": 3,
-      "homeScore": 17
-    },
-    {
-      "id": "TB-CHI",
-      "away": "TB",
-      "home": "CHI",
-      "time": "SUN 8:20 PM",
-      "favorite": "CHI",
-      "pAway": 0.299838,
-      "final": true,
-      "winner": "CHI",
-      "kickoff": "2026-11-09T01:20Z",
-      "apiStatus": "final",
-      "apiStatusCheckedAt": "2026-11-09T10:03:43.053416Z",
-      "awayScore": 24,
-      "homeScore": 27
-    },
-    {
-      "id": "BUF-MIN",
+      "id": "BUF-NYJ",
       "away": "BUF",
-      "home": "MIN",
-      "time": "MON 8:15 PM",
+      "home": "NYJ",
+      "time": "SUN 1:00 PM",
+      "kickoff": "2026-11-15T18:00:00Z",
       "favorite": "BUF",
-      "pAway": 0.610674,
-      "final": true,
-      "winner": "BUF",
-      "kickoff": "2026-11-10T01:15Z",
-      "apiStatus": "final",
-      "apiStatusCheckedAt": "2026-11-10T10:45:22.713389Z",
-      "awayScore": 23,
-      "homeScore": 6
+      "pAway": 0.772329,
+      "final": false,
+      "winner": null
+    },
+    {
+      "id": "SEA-LV",
+      "away": "SEA",
+      "home": "LV",
+      "time": "SUN 4:05 PM",
+      "kickoff": "2026-11-15T21:05:00Z",
+      "favorite": "SEA",
+      "pAway": 0.721254,
+      "final": false,
+      "winner": null
+    },
+    {
+      "id": "LAR-ARI",
+      "away": "LAR",
+      "home": "ARI",
+      "time": "SUN 4:05 PM",
+      "kickoff": "2026-11-15T21:05:00Z",
+      "favorite": "LAR",
+      "pAway": 0.803795,
+      "final": false,
+      "winner": null
+    },
+    {
+      "id": "SF-DAL",
+      "away": "SF",
+      "home": "DAL",
+      "time": "SUN 4:25 PM",
+      "kickoff": "2026-11-15T21:25:00Z",
+      "favorite": "SF",
+      "pAway": 0.651529,
+      "final": false,
+      "winner": null
+    },
+    {
+      "id": "PIT-CIN",
+      "away": "PIT",
+      "home": "CIN",
+      "time": "SUN 8:20 PM",
+      "kickoff": "2026-11-16T01:20:00Z",
+      "favorite": "CIN",
+      "pAway": 0.375249,
+      "final": false,
+      "winner": null
+    },
+    {
+      "id": "LAC-BAL",
+      "away": "LAC",
+      "home": "BAL",
+      "time": "MON 8:15 PM",
+      "kickoff": "2026-11-17T01:15:00Z",
+      "favorite": "BAL",
+      "pAway": 0.33557,
+      "final": false,
+      "winner": null
     }
   ],
-  "oddsSource": {
-    "url": "https://www.sportsbookreview.com/picks/nfl/week-9-odds-betting-lines-2026/",
-    "scheduleUrl": "https://www.nfl.com/schedules/2026/by-week/week-9",
-    "retrievedAt": "2026-11-06T01:20:46.922Z",
-    "method": "Two-sided bet365 moneylines published by Sportsbook Review, normalized to remove bookmaker margin",
-    "moneylines": [
-      {
-        "id": "JAX-BAL",
-        "awayML": -450,
-        "homeML": 350
-      },
-      {
-        "id": "CIN-ATL",
-        "awayML": -165,
-        "homeML": 140
-      },
-      {
-        "id": "DAL-IND",
-        "awayML": -265,
-        "homeML": 215
-      },
-      {
-        "id": "NYJ-KC",
-        "awayML": 390,
-        "homeML": -525
-      },
-      {
-        "id": "DET-MIA",
-        "awayML": -350,
-        "homeML": 275
-      },
-      {
-        "id": "CLE-NO",
-        "awayML": 123,
-        "homeML": -156
-      },
-      {
-        "id": "NYG-PHI",
-        "awayML": -165,
-        "homeML": 140
-      },
-      {
-        "id": "LAR-WAS",
-        "awayML": -245,
-        "homeML": 200
-      },
-      {
-        "id": "DEN-CAR",
-        "awayML": -152,
-        "homeML": 127
-      },
-      {
-        "id": "HOU-LAC",
-        "awayML": -220,
-        "homeML": 180
-      },
-      {
-        "id": "GB-NE",
-        "awayML": 134,
-        "homeML": -159
-      },
-      {
-        "id": "LV-SF",
-        "awayML": 375,
-        "homeML": -500
-      },
-      {
-        "id": "ARI-SEA",
-        "awayML": 525,
-        "homeML": -700
-      },
-      {
-        "id": "TB-CHI",
-        "awayML": 220,
-        "homeML": -270
-      },
-      {
-        "id": "BUF-MIN",
-        "awayML": -174,
-        "homeML": 147
-      }
-    ]
-  },
   "colors": {
     "ARI": "#97233F",
     "ATL": "#A71930",
@@ -345,5 +194,84 @@ const GAMES_DATA = {
     "TB": "#A71930",
     "TEN": "#0C2340",
     "WAS": "#5A1414"
+  },
+  "oddsSource": {
+    "url": "https://www.fanduel.com/research/nfl-odds-week-10-schedule-betting-odds-for-every-game",
+    "thursdayUrl": "https://getoddy.com/nfl/games/commanders-giants-2026-11-12",
+    "scheduleUrl": "https://www.nfl.com/schedules/2026/by-week/week-10",
+    "retrievedAt": "2026-11-13T11:35:32.958Z",
+    "method": "FanDuel two-sided moneylines normalized to remove bookmaker margin. Thursday uses the archived FanDuel closing line.",
+    "moneylines": [
+      {
+        "id": "WAS-NYG",
+        "awayML": 106,
+        "homeML": -124
+      },
+      {
+        "id": "NE-DET",
+        "awayML": 128,
+        "homeML": -152
+      },
+      {
+        "id": "KC-ATL",
+        "awayML": -174,
+        "homeML": 146
+      },
+      {
+        "id": "HOU-CLE",
+        "awayML": -235,
+        "homeML": 194
+      },
+      {
+        "id": "MIN-GB",
+        "awayML": 138,
+        "homeML": -164
+      },
+      {
+        "id": "JAX-TEN",
+        "awayML": -700,
+        "homeML": 500
+      },
+      {
+        "id": "MIA-IND",
+        "awayML": 168,
+        "homeML": -200
+      },
+      {
+        "id": "CAR-NO",
+        "awayML": 118,
+        "homeML": -138
+      },
+      {
+        "id": "BUF-NYJ",
+        "awayML": -420,
+        "homeML": 320
+      },
+      {
+        "id": "SEA-LV",
+        "awayML": -300,
+        "homeML": 245
+      },
+      {
+        "id": "LAR-ARI",
+        "awayML": -510,
+        "homeML": 390
+      },
+      {
+        "id": "SF-DAL",
+        "awayML": -210,
+        "homeML": 176
+      },
+      {
+        "id": "PIT-CIN",
+        "awayML": 156,
+        "homeML": -186
+      },
+      {
+        "id": "LAC-BAL",
+        "awayML": 188,
+        "homeML": -220
+      }
+    ]
   }
 };
