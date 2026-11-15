@@ -3,14 +3,69 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 10,
-  "lastUpdate": "2026-11-15T19:58:28.411104Z",
-  "lastGameUpdate": "2026-11-15T19:58:28.338320Z",
-  "lastApiCheck": "2026-11-15T19:58:28.338320Z",
-  "lastApiSuccess": "2026-11-15T19:58:28.410220Z",
-  "nextEligibleCheck": "2026-11-15T20:17:00Z",
+  "lastUpdate": "2026-11-15T21:44:11.165668Z",
+  "lastGameUpdate": "2026-11-15T21:44:10.981880Z",
+  "lastApiCheck": "2026-11-15T21:44:10.981880Z",
+  "lastApiSuccess": "2026-11-15T21:44:11.164742Z",
+  "nextEligibleCheck": "2026-11-15T22:02:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-11-15T21:44:10.981880Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 12 unresolved game(s); 7 newly final."
+    },
+    {
+      "time": "2026-11-15T21:44:10.981880Z",
+      "type": "state",
+      "message": "SF-DAL: API status underway."
+    },
+    {
+      "time": "2026-11-15T21:44:10.981880Z",
+      "type": "state",
+      "message": "LAR-ARI: API status underway."
+    },
+    {
+      "time": "2026-11-15T21:44:10.981880Z",
+      "type": "state",
+      "message": "SEA-LV: API status underway."
+    },
+    {
+      "time": "2026-11-15T21:44:10.981880Z",
+      "type": "final",
+      "message": "BUF-NYJ: FINAL — BUF won."
+    },
+    {
+      "time": "2026-11-15T21:44:10.981880Z",
+      "type": "final",
+      "message": "CAR-NO: FINAL — CAR won."
+    },
+    {
+      "time": "2026-11-15T21:44:10.981880Z",
+      "type": "final",
+      "message": "MIA-IND: FINAL — IND won."
+    },
+    {
+      "time": "2026-11-15T21:44:10.981880Z",
+      "type": "final",
+      "message": "JAX-TEN: FINAL — JAX won."
+    },
+    {
+      "time": "2026-11-15T21:44:10.981880Z",
+      "type": "final",
+      "message": "MIN-GB: FINAL — MIN won."
+    },
+    {
+      "time": "2026-11-15T21:44:10.981880Z",
+      "type": "final",
+      "message": "HOU-CLE: FINAL — CLE won."
+    },
+    {
+      "time": "2026-11-15T21:44:10.981880Z",
+      "type": "final",
+      "message": "KC-ATL: FINAL — KC won."
+    },
     {
       "time": "2026-11-15T19:58:28.338320Z",
       "type": "check",
