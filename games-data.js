@@ -145,10 +145,10 @@ const GAMES_DATA = {
       "kickoff": "2026-11-15T21:05Z",
       "favorite": "SEA",
       "pAway": 0.721254,
-      "final": false,
-      "winner": null,
-      "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-11-15T23:47:59.854343Z",
+      "final": true,
+      "winner": "SEA",
+      "apiStatus": "final",
+      "apiStatusCheckedAt": "2026-11-16T01:41:20.977641Z",
       "awayScore": 21,
       "homeScore": 13
     },
@@ -160,10 +160,10 @@ const GAMES_DATA = {
       "kickoff": "2026-11-15T21:05Z",
       "favorite": "LAR",
       "pAway": 0.803795,
-      "final": false,
-      "winner": null,
-      "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-11-15T23:47:59.854343Z",
+      "final": true,
+      "winner": "LAR",
+      "apiStatus": "final",
+      "apiStatusCheckedAt": "2026-11-16T01:41:20.977641Z",
       "awayScore": 34,
       "homeScore": 6
     },
@@ -175,12 +175,12 @@ const GAMES_DATA = {
       "kickoff": "2026-11-15T21:25Z",
       "favorite": "SF",
       "pAway": 0.651529,
-      "final": false,
-      "winner": null,
-      "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-11-15T23:47:59.854343Z",
-      "awayScore": 31,
-      "homeScore": 19
+      "final": true,
+      "winner": "SF",
+      "apiStatus": "final",
+      "apiStatusCheckedAt": "2026-11-16T01:41:20.977641Z",
+      "awayScore": 46,
+      "homeScore": 40
     },
     {
       "id": "PIT-CIN",
@@ -192,8 +192,10 @@ const GAMES_DATA = {
       "pAway": 0.375249,
       "final": false,
       "winner": null,
-      "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-11-15T23:47:59.854343Z"
+      "apiStatus": "underway",
+      "apiStatusCheckedAt": "2026-11-16T01:41:20.977641Z",
+      "awayScore": 0,
+      "homeScore": 3
     },
     {
       "id": "LAC-BAL",
@@ -206,7 +208,7 @@ const GAMES_DATA = {
       "final": false,
       "winner": null,
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-11-15T23:47:59.854343Z"
+      "apiStatusCheckedAt": "2026-11-16T01:41:20.977641Z"
     }
   ],
   "colors": {

@@ -3,14 +3,39 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 10,
-  "lastUpdate": "2026-11-15T23:48:00.042214Z",
-  "lastGameUpdate": "2026-11-15T23:47:59.854343Z",
-  "lastApiCheck": "2026-11-15T23:47:59.854343Z",
-  "lastApiSuccess": "2026-11-15T23:48:00.041489Z",
-  "nextEligibleCheck": "2026-11-16T00:17:00Z",
+  "lastUpdate": "2026-11-16T01:41:21.363860Z",
+  "lastGameUpdate": "2026-11-16T01:41:20.977641Z",
+  "lastApiCheck": "2026-11-16T01:41:20.977641Z",
+  "lastApiSuccess": "2026-11-16T01:41:21.363274Z",
+  "nextEligibleCheck": "2026-11-16T02:02:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-11-16T01:41:20.977641Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 5 unresolved game(s); 3 newly final."
+    },
+    {
+      "time": "2026-11-16T01:41:20.977641Z",
+      "type": "state",
+      "message": "PIT-CIN: API status underway."
+    },
+    {
+      "time": "2026-11-16T01:41:20.977641Z",
+      "type": "final",
+      "message": "SF-DAL: FINAL — SF won."
+    },
+    {
+      "time": "2026-11-16T01:41:20.977641Z",
+      "type": "final",
+      "message": "LAR-ARI: FINAL — LAR won."
+    },
+    {
+      "time": "2026-11-16T01:41:20.977641Z",
+      "type": "final",
+      "message": "SEA-LV: FINAL — SEA won."
+    },
     {
       "time": "2026-11-15T23:47:59.854343Z",
       "type": "check",
