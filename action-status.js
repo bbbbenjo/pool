@@ -3,14 +3,24 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 10,
-  "lastUpdate": "2026-11-16T01:41:21.363860Z",
-  "lastGameUpdate": "2026-11-16T01:41:20.977641Z",
-  "lastApiCheck": "2026-11-16T01:41:20.977641Z",
-  "lastApiSuccess": "2026-11-16T01:41:21.363274Z",
-  "nextEligibleCheck": "2026-11-16T02:02:00Z",
+  "lastUpdate": "2026-11-16T04:42:16.163728Z",
+  "lastGameUpdate": "2026-11-16T04:42:16.030448Z",
+  "lastApiCheck": "2026-11-16T04:42:16.030448Z",
+  "lastApiSuccess": "2026-11-16T04:42:16.162887Z",
+  "nextEligibleCheck": "2026-11-17T01:17:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-11-16T04:42:16.030448Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 2 unresolved game(s); 1 newly final."
+    },
+    {
+      "time": "2026-11-16T04:42:16.030448Z",
+      "type": "final",
+      "message": "PIT-CIN: FINAL — CIN won."
+    },
     {
       "time": "2026-11-16T01:41:20.977641Z",
       "type": "check",

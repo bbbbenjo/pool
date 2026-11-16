@@ -190,12 +190,12 @@ const GAMES_DATA = {
       "kickoff": "2026-11-16T01:20Z",
       "favorite": "CIN",
       "pAway": 0.375249,
-      "final": false,
-      "winner": null,
-      "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-11-16T01:41:20.977641Z",
-      "awayScore": 0,
-      "homeScore": 3
+      "final": true,
+      "winner": "CIN",
+      "apiStatus": "final",
+      "apiStatusCheckedAt": "2026-11-16T04:42:16.030448Z",
+      "awayScore": 18,
+      "homeScore": 38
     },
     {
       "id": "LAC-BAL",
@@ -208,7 +208,7 @@ const GAMES_DATA = {
       "final": false,
       "winner": null,
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-11-16T01:41:20.977641Z"
+      "apiStatusCheckedAt": "2026-11-16T04:42:16.030448Z"
     }
   ],
   "colors": {
