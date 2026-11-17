@@ -1,16 +1,26 @@
 const ACTION_STATUS = {
   "version": 1,
-  "status": "ok",
+  "status": "complete",
   "season": 2026,
   "week": 10,
-  "lastUpdate": "2026-11-16T04:42:16.163728Z",
-  "lastGameUpdate": "2026-11-16T04:42:16.030448Z",
-  "lastApiCheck": "2026-11-16T04:42:16.030448Z",
-  "lastApiSuccess": "2026-11-16T04:42:16.162887Z",
-  "nextEligibleCheck": "2026-11-17T01:17:00Z",
-  "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
+  "lastUpdate": "2026-11-17T04:56:47.220507Z",
+  "lastGameUpdate": "2026-11-17T04:56:47.099797Z",
+  "lastApiCheck": "2026-11-17T04:56:47.099797Z",
+  "lastApiSuccess": "2026-11-17T04:56:47.219737Z",
+  "nextEligibleCheck": null,
+  "nextCheckReason": "All games are final; waiting for the next week's data.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-11-17T04:56:47.099797Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 1 unresolved game(s); 1 newly final."
+    },
+    {
+      "time": "2026-11-17T04:56:47.099797Z",
+      "type": "final",
+      "message": "LAC-BAL: FINAL — LAC won."
+    },
     {
       "time": "2026-11-16T04:42:16.030448Z",
       "type": "check",

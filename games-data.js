@@ -205,10 +205,12 @@ const GAMES_DATA = {
       "kickoff": "2026-11-17T01:15Z",
       "favorite": "BAL",
       "pAway": 0.33557,
-      "final": false,
-      "winner": null,
-      "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-11-16T04:42:16.030448Z"
+      "final": true,
+      "winner": "LAC",
+      "apiStatus": "final",
+      "apiStatusCheckedAt": "2026-11-17T04:56:47.099797Z",
+      "awayScore": 23,
+      "homeScore": 20
     }
   ],
   "colors": {
