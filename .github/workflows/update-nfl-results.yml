@@ -3,7 +3,7 @@ name: Update NFL results
 on:
   # Wake every fifteen minutes; Python skips ESPN between game windows.
   schedule:
-    - cron: "2-59/15 * * * *"
+    - cron: "7,22,37,52 * * * *"
   workflow_dispatch:
 
 permissions:
