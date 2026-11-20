@@ -8,143 +8,171 @@ const GAMES_DATA = {
       "away": "IND",
       "home": "HOU",
       "time": "THU 8:15 PM",
-      "kickoff": "2026-11-20T01:15:00Z",
+      "kickoff": "2026-11-20T01:15Z",
       "favorite": "HOU",
       "pAway": 0.139398,
       "final": false,
-      "winner": null
+      "winner": null,
+      "awayScore": 3,
+      "homeScore": 0,
+      "apiStatus": "underway",
+      "apiStatusCheckedAt": "2026-11-20T01:28:43.455891Z"
     },
     {
       "id": "MIA-BUF",
       "away": "MIA",
       "home": "BUF",
       "time": "SUN 1:00 PM",
-      "kickoff": "2026-11-22T18:00:00Z",
+      "kickoff": "2026-11-22T18:00Z",
       "favorite": "BUF",
       "pAway": 0.096045,
       "final": false,
-      "winner": null
+      "winner": null,
+      "apiStatus": "pre-game",
+      "apiStatusCheckedAt": "2026-11-20T01:28:43.455891Z"
     },
     {
       "id": "NO-CHI",
       "away": "NO",
       "home": "CHI",
       "time": "SUN 1:00 PM",
-      "kickoff": "2026-11-22T18:00:00Z",
+      "kickoff": "2026-11-22T18:00Z",
       "favorite": "CHI",
       "pAway": 0.150052,
       "final": false,
-      "winner": null
+      "winner": null,
+      "apiStatus": "pre-game",
+      "apiStatusCheckedAt": "2026-11-20T01:28:43.455891Z"
     },
     {
       "id": "TEN-DAL",
       "away": "TEN",
       "home": "DAL",
       "time": "SUN 1:00 PM",
-      "kickoff": "2026-11-22T18:00:00Z",
+      "kickoff": "2026-11-22T18:00Z",
       "favorite": "DAL",
       "pAway": 0.213592,
       "final": false,
-      "winner": null
+      "winner": null,
+      "apiStatus": "pre-game",
+      "apiStatusCheckedAt": "2026-11-20T01:28:43.455891Z"
     },
     {
       "id": "TB-DET",
       "away": "TB",
       "home": "DET",
       "time": "SUN 1:00 PM",
-      "kickoff": "2026-11-22T18:00:00Z",
+      "kickoff": "2026-11-22T18:00Z",
       "favorite": "DET",
       "pAway": 0.305344,
       "final": false,
-      "winner": null
+      "winner": null,
+      "apiStatus": "pre-game",
+      "apiStatusCheckedAt": "2026-11-20T01:28:43.455891Z"
     },
     {
       "id": "ARI-KC",
       "away": "ARI",
       "home": "KC",
       "time": "SUN 1:00 PM",
-      "kickoff": "2026-11-22T18:00:00Z",
+      "kickoff": "2026-11-22T18:00Z",
       "favorite": "KC",
       "pAway": 0.099071,
       "final": false,
-      "winner": null
+      "winner": null,
+      "apiStatus": "pre-game",
+      "apiStatusCheckedAt": "2026-11-20T01:28:43.455891Z"
     },
     {
       "id": "PIT-PHI",
       "away": "PIT",
       "home": "PHI",
       "time": "SUN 1:00 PM",
-      "kickoff": "2026-11-22T18:00:00Z",
+      "kickoff": "2026-11-22T18:00Z",
       "favorite": "PIT",
       "pAway": 0.656489,
       "final": false,
-      "winner": null
+      "winner": null,
+      "apiStatus": "pre-game",
+      "apiStatusCheckedAt": "2026-11-20T01:28:43.455891Z"
     },
     {
       "id": "BAL-CAR",
       "away": "BAL",
       "home": "CAR",
       "time": "SUN 1:00 PM",
-      "kickoff": "2026-11-22T18:00:00Z",
+      "kickoff": "2026-11-22T18:00Z",
       "favorite": "CAR",
       "pAway": 0.43287,
       "final": false,
-      "winner": null
+      "winner": null,
+      "apiStatus": "pre-game",
+      "apiStatusCheckedAt": "2026-11-20T01:28:43.455891Z"
     },
     {
       "id": "NYJ-LAC",
       "away": "NYJ",
       "home": "LAC",
       "time": "SUN 4:05 PM",
-      "kickoff": "2026-11-22T21:05:00Z",
+      "kickoff": "2026-11-22T21:05Z",
       "favorite": "LAC",
       "pAway": 0.411011,
       "final": false,
-      "winner": null
+      "winner": null,
+      "apiStatus": "pre-game",
+      "apiStatusCheckedAt": "2026-11-20T01:28:43.455891Z"
     },
     {
       "id": "LV-DEN",
       "away": "LV",
       "home": "DEN",
       "time": "SUN 4:25 PM",
-      "kickoff": "2026-11-22T21:25:00Z",
+      "kickoff": "2026-11-22T21:25Z",
       "favorite": "DEN",
       "pAway": 0.178019,
       "final": false,
-      "winner": null
+      "winner": null,
+      "apiStatus": "pre-game",
+      "apiStatusCheckedAt": "2026-11-20T01:28:43.455891Z"
     },
     {
       "id": "JAX-NYG",
       "away": "JAX",
       "home": "NYG",
       "time": "SUN 4:25 PM",
-      "kickoff": "2026-11-22T21:25:00Z",
+      "kickoff": "2026-11-22T21:25Z",
       "favorite": "JAX",
       "pAway": 0.690092,
       "final": false,
-      "winner": null
+      "winner": null,
+      "apiStatus": "pre-game",
+      "apiStatusCheckedAt": "2026-11-20T01:28:43.455891Z"
     },
     {
       "id": "MIN-SF",
       "away": "MIN",
       "home": "SF",
       "time": "SUN 8:20 PM",
-      "kickoff": "2026-11-23T01:20:00Z",
+      "kickoff": "2026-11-23T01:20Z",
       "favorite": "SF",
       "pAway": 0.393245,
       "final": false,
-      "winner": null
+      "winner": null,
+      "apiStatus": "pre-game",
+      "apiStatusCheckedAt": "2026-11-20T01:28:43.455891Z"
     },
     {
       "id": "CIN-WAS",
       "away": "CIN",
       "home": "WAS",
       "time": "MON 8:15 PM",
-      "kickoff": "2026-11-24T01:15:00Z",
+      "kickoff": "2026-11-24T01:15Z",
       "favorite": "CIN",
       "pAway": 0.700162,
       "final": false,
-      "winner": null
+      "winner": null,
+      "apiStatus": "pre-game",
+      "apiStatusCheckedAt": "2026-11-20T01:28:43.455891Z"
     }
   ],
   "colors": {

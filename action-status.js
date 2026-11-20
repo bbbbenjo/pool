@@ -1,14 +1,85 @@
 const ACTION_STATUS = {
   "version": 1,
-  "status": "waiting",
+  "status": "ok",
   "season": 2026,
   "week": 11,
-  "lastUpdate": "2026-11-20T01:27:16.087Z",
-  "lastGameUpdate": "2026-11-20T01:27:16.087Z",
-  "lastApiCheck": null,
-  "lastApiSuccess": null,
-  "nextEligibleCheck": "2026-11-20T01:17:00Z",
-  "nextCheckReason": "Next scheduled check after Thursday kickoff.",
+  "lastUpdate": "2026-11-20T01:28:43.678168Z",
+  "lastGameUpdate": "2026-11-20T01:28:43.455891Z",
+  "lastApiCheck": "2026-11-20T01:28:43.455891Z",
+  "lastApiSuccess": "2026-11-20T01:28:43.677485Z",
+  "nextEligibleCheck": "2026-11-20T01:47:00Z",
+  "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
-  "history": []
+  "history": [
+    {
+      "time": "2026-11-20T01:28:43.455891Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 13 unresolved game(s); 0 newly final."
+    },
+    {
+      "time": "2026-11-20T01:28:43.455891Z",
+      "type": "state",
+      "message": "CIN-WAS: API status pre-game."
+    },
+    {
+      "time": "2026-11-20T01:28:43.455891Z",
+      "type": "state",
+      "message": "MIN-SF: API status pre-game."
+    },
+    {
+      "time": "2026-11-20T01:28:43.455891Z",
+      "type": "state",
+      "message": "JAX-NYG: API status pre-game."
+    },
+    {
+      "time": "2026-11-20T01:28:43.455891Z",
+      "type": "state",
+      "message": "LV-DEN: API status pre-game."
+    },
+    {
+      "time": "2026-11-20T01:28:43.455891Z",
+      "type": "state",
+      "message": "NYJ-LAC: API status pre-game."
+    },
+    {
+      "time": "2026-11-20T01:28:43.455891Z",
+      "type": "state",
+      "message": "BAL-CAR: API status pre-game."
+    },
+    {
+      "time": "2026-11-20T01:28:43.455891Z",
+      "type": "state",
+      "message": "PIT-PHI: API status pre-game."
+    },
+    {
+      "time": "2026-11-20T01:28:43.455891Z",
+      "type": "state",
+      "message": "ARI-KC: API status pre-game."
+    },
+    {
+      "time": "2026-11-20T01:28:43.455891Z",
+      "type": "state",
+      "message": "TB-DET: API status pre-game."
+    },
+    {
+      "time": "2026-11-20T01:28:43.455891Z",
+      "type": "state",
+      "message": "TEN-DAL: API status pre-game."
+    },
+    {
+      "time": "2026-11-20T01:28:43.455891Z",
+      "type": "state",
+      "message": "NO-CHI: API status pre-game."
+    },
+    {
+      "time": "2026-11-20T01:28:43.455891Z",
+      "type": "state",
+      "message": "MIA-BUF: API status pre-game."
+    },
+    {
+      "time": "2026-11-20T01:28:43.455891Z",
+      "type": "state",
+      "message": "IND-HOU: API status underway."
+    }
+  ]
 };
