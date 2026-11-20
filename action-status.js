@@ -3,14 +3,24 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 11,
-  "lastUpdate": "2026-11-20T01:28:43.678168Z",
-  "lastGameUpdate": "2026-11-20T01:28:43.455891Z",
-  "lastApiCheck": "2026-11-20T01:28:43.455891Z",
-  "lastApiSuccess": "2026-11-20T01:28:43.677485Z",
-  "nextEligibleCheck": "2026-11-20T01:47:00Z",
+  "lastUpdate": "2026-11-20T07:13:12.290504Z",
+  "lastGameUpdate": "2026-11-20T07:13:12.133171Z",
+  "lastApiCheck": "2026-11-20T07:13:12.133171Z",
+  "lastApiSuccess": "2026-11-20T07:13:12.289881Z",
+  "nextEligibleCheck": "2026-11-22T18:02:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-11-20T07:13:12.133171Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 13 unresolved game(s); 1 newly final."
+    },
+    {
+      "time": "2026-11-20T07:13:12.133171Z",
+      "type": "final",
+      "message": "IND-HOU: FINAL — HOU won."
+    },
     {
       "time": "2026-11-20T01:28:43.455891Z",
       "type": "check",
