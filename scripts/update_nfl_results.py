@@ -27,6 +27,7 @@ PICKS_PATH = Path("picks-data.js")
 STATUS_PATH = Path("action-status.js")
 
 CHECK_INTERVAL_MINUTES = 15
+SCHEDULE_OFFSET_MINUTES = 7
 MAX_HISTORY = int(os.environ.get("MAX_HISTORY", "100"))
 
 ESPN_URL = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard"
@@ -252,11 +253,11 @@ def update_scores(game: dict, info: dict) -> bool:
     return changed
 
 def scheduled_slot(at: datetime) -> datetime:
-    """Next nominal cron slot (minutes 02, 17, 32, 47), not a delivery guarantee."""
+    """Next nominal cron slot, matching update-nfl-results.yml."""
     slot = at.replace(second=0, microsecond=0)
     if slot < at:
         slot += timedelta(minutes=1)
-    while slot.minute % CHECK_INTERVAL_MINUTES != 2:
+    while slot.minute % CHECK_INTERVAL_MINUTES != SCHEDULE_OFFSET_MINUTES:
         slot += timedelta(minutes=1)
     return slot
 
