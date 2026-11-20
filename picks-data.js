@@ -5,8 +5,8 @@
 const PICKS_DATA = {
   "season": 2026,
   "seasonType": 2,
-  "week": 10,
-  "weekLabel": "Week 10",
+  "week": 11,
+  "weekLabel": "Week 11",
   "players": [
     {
       "name": "B-B-B-Benny and the Jets",
@@ -19,64 +19,61 @@ const PICKS_DATA = {
         61,
         61,
         74,
-        111
+        111,
+        62
       ],
       "picks": {
-        "WAS-NYG": {
-          "team": "WAS",
-          "confidence": 4
-        },
-        "NE-DET": {
-          "team": "NE",
-          "confidence": 6
-        },
-        "KC-ATL": {
-          "team": "KC",
-          "confidence": 7
-        },
-        "HOU-CLE": {
+        "IND-HOU": {
           "team": "HOU",
-          "confidence": 8
+          "confidence": 13
         },
-        "MIN-GB": {
-          "team": "GB",
-          "confidence": 11
-        },
-        "JAX-TEN": {
-          "team": "JAX",
-          "confidence": 14
-        },
-        "MIA-IND": {
-          "team": "IND",
-          "confidence": 3
-        },
-        "CAR-NO": {
-          "team": "NO",
-          "confidence": 2
-        },
-        "BUF-NYJ": {
+        "MIA-BUF": {
           "team": "BUF",
           "confidence": 12
         },
-        "SEA-LV": {
-          "team": "LV",
-          "confidence": 5
+        "NO-CHI": {
+          "team": "CHI",
+          "confidence": 8
         },
-        "LAR-ARI": {
-          "team": "LAR",
-          "confidence": 13
-        },
-        "SF-DAL": {
+        "TEN-DAL": {
           "team": "DAL",
+          "confidence": 7
+        },
+        "TB-DET": {
+          "team": "DET",
+          "confidence": 3
+        },
+        "ARI-KC": {
+          "team": "KC",
+          "confidence": 10
+        },
+        "PIT-PHI": {
+          "team": "PHI",
           "confidence": 1
         },
-        "PIT-CIN": {
+        "BAL-CAR": {
+          "team": "CAR",
+          "confidence": 2
+        },
+        "NYJ-LAC": {
+          "team": "NYJ",
+          "confidence": 11
+        },
+        "LV-DEN": {
+          "team": "DEN",
+          "confidence": 6
+        },
+        "JAX-NYG": {
+          "team": "JAX",
+          "confidence": 4
+        },
+        "MIN-SF": {
+          "team": "SF",
+          "confidence": 5
+        },
+        "CIN-WAS": {
           "team": "CIN",
           "confidence": 9
-        },
-        "LAC-BAL": {
-          "team": "BAL",
-          "confidence": 10
         }
       }
     },
@@ -91,64 +88,61 @@ const PICKS_DATA = {
         54,
         47,
         91,
-        117
+        117,
+        64
       ],
       "picks": {
-        "WAS-NYG": {
+        "IND-HOU": {
+          "team": "HOU",
+          "confidence": 12
+        },
+        "MIA-BUF": {
+          "team": "BUF",
+          "confidence": 13
+        },
+        "NO-CHI": {
+          "team": "CHI",
+          "confidence": 11
+        },
+        "TEN-DAL": {
+          "team": "DAL",
+          "confidence": 5
+        },
+        "TB-DET": {
+          "team": "DET",
+          "confidence": 6
+        },
+        "ARI-KC": {
+          "team": "KC",
+          "confidence": 9
+        },
+        "PIT-PHI": {
+          "team": "PIT",
+          "confidence": 4
+        },
+        "BAL-CAR": {
+          "team": "BAL",
+          "confidence": 1
+        },
+        "NYJ-LAC": {
+          "team": "LAC",
+          "confidence": 3
+        },
+        "LV-DEN": {
+          "team": "DEN",
+          "confidence": 10
+        },
+        "JAX-NYG": {
           "team": "NYG",
           "confidence": 7
         },
-        "NE-DET": {
-          "team": "NE",
-          "confidence": 1
-        },
-        "KC-ATL": {
-          "team": "KC",
-          "confidence": 6
-        },
-        "HOU-CLE": {
-          "team": "HOU",
-          "confidence": 10
-        },
-        "MIN-GB": {
-          "team": "GB",
-          "confidence": 5
-        },
-        "JAX-TEN": {
-          "team": "JAX",
-          "confidence": 14
-        },
-        "MIA-IND": {
-          "team": "MIA",
+        "MIN-SF": {
+          "team": "SF",
           "confidence": 2
         },
-        "CAR-NO": {
-          "team": "NO",
-          "confidence": 4
-        },
-        "BUF-NYJ": {
-          "team": "BUF",
-          "confidence": 12
-        },
-        "SEA-LV": {
-          "team": "SEA",
-          "confidence": 11
-        },
-        "LAR-ARI": {
-          "team": "LAR",
-          "confidence": 13
-        },
-        "SF-DAL": {
-          "team": "SF",
+        "CIN-WAS": {
+          "team": "CIN",
           "confidence": 8
-        },
-        "PIT-CIN": {
-          "team": "PIT",
-          "confidence": 3
-        },
-        "LAC-BAL": {
-          "team": "BAL",
-          "confidence": 9
         }
       }
     },
@@ -163,64 +157,61 @@ const PICKS_DATA = {
         58,
         54,
         79,
-        92
+        92,
+        70
       ],
       "picks": {
-        "WAS-NYG": {
-          "team": "WAS",
-          "confidence": 6
-        },
-        "NE-DET": {
-          "team": "NE",
+        "IND-HOU": {
+          "team": "IND",
           "confidence": 2
         },
-        "KC-ATL": {
-          "team": "KC",
+        "MIA-BUF": {
+          "team": "BUF",
           "confidence": 9
         },
-        "HOU-CLE": {
-          "team": "HOU",
-          "confidence": 8
-        },
-        "MIN-GB": {
-          "team": "GB",
-          "confidence": 7
-        },
-        "JAX-TEN": {
-          "team": "JAX",
-          "confidence": 12
-        },
-        "MIA-IND": {
-          "team": "MIA",
-          "confidence": 1
-        },
-        "CAR-NO": {
-          "team": "NO",
-          "confidence": 10
-        },
-        "BUF-NYJ": {
-          "team": "BUF",
+        "NO-CHI": {
+          "team": "CHI",
           "confidence": 13
         },
-        "SEA-LV": {
-          "team": "SEA",
-          "confidence": 14
-        },
-        "LAR-ARI": {
-          "team": "ARI",
-          "confidence": 4
-        },
-        "SF-DAL": {
+        "TEN-DAL": {
           "team": "DAL",
+          "confidence": 7
+        },
+        "TB-DET": {
+          "team": "DET",
+          "confidence": 6
+        },
+        "ARI-KC": {
+          "team": "KC",
+          "confidence": 8
+        },
+        "PIT-PHI": {
+          "team": "PHI",
           "confidence": 3
         },
-        "PIT-CIN": {
+        "BAL-CAR": {
+          "team": "BAL",
+          "confidence": 4
+        },
+        "NYJ-LAC": {
+          "team": "NYJ",
+          "confidence": 5
+        },
+        "LV-DEN": {
+          "team": "DEN",
+          "confidence": 12
+        },
+        "JAX-NYG": {
+          "team": "JAX",
+          "confidence": 10
+        },
+        "MIN-SF": {
+          "team": "SF",
+          "confidence": 1
+        },
+        "CIN-WAS": {
           "team": "CIN",
           "confidence": 11
-        },
-        "LAC-BAL": {
-          "team": "LAC",
-          "confidence": 5
         }
       }
     },
@@ -235,64 +226,61 @@ const PICKS_DATA = {
         57,
         60,
         79,
-        120
+        120,
+        94
       ],
       "picks": {
-        "WAS-NYG": {
-          "team": "NYG",
-          "confidence": 1
-        },
-        "NE-DET": {
-          "team": "DET",
-          "confidence": 12
-        },
-        "KC-ATL": {
-          "team": "KC",
-          "confidence": 11
-        },
-        "HOU-CLE": {
+        "IND-HOU": {
           "team": "HOU",
-          "confidence": 2
-        },
-        "MIN-GB": {
-          "team": "GB",
-          "confidence": 5
-        },
-        "JAX-TEN": {
-          "team": "JAX",
-          "confidence": 7
-        },
-        "MIA-IND": {
-          "team": "IND",
-          "confidence": 13
-        },
-        "CAR-NO": {
-          "team": "CAR",
-          "confidence": 14
-        },
-        "BUF-NYJ": {
-          "team": "BUF",
-          "confidence": 9
-        },
-        "SEA-LV": {
-          "team": "SEA",
-          "confidence": 10
-        },
-        "LAR-ARI": {
-          "team": "LAR",
-          "confidence": 8
-        },
-        "SF-DAL": {
-          "team": "SF",
           "confidence": 6
         },
-        "PIT-CIN": {
-          "team": "CIN",
+        "MIA-BUF": {
+          "team": "BUF",
+          "confidence": 12
+        },
+        "NO-CHI": {
+          "team": "CHI",
+          "confidence": 11
+        },
+        "TEN-DAL": {
+          "team": "DAL",
+          "confidence": 10
+        },
+        "TB-DET": {
+          "team": "DET",
+          "confidence": 9
+        },
+        "ARI-KC": {
+          "team": "KC",
+          "confidence": 7
+        },
+        "PIT-PHI": {
+          "team": "PIT",
           "confidence": 4
         },
-        "LAC-BAL": {
-          "team": "BAL",
+        "BAL-CAR": {
+          "team": "CAR",
+          "confidence": 8
+        },
+        "NYJ-LAC": {
+          "team": "LAC",
+          "confidence": 13
+        },
+        "LV-DEN": {
+          "team": "DEN",
+          "confidence": 5
+        },
+        "JAX-NYG": {
+          "team": "JAX",
           "confidence": 3
+        },
+        "MIN-SF": {
+          "team": "MIN",
+          "confidence": 2
+        },
+        "CIN-WAS": {
+          "team": "CIN",
+          "confidence": 1
         }
       }
     },
@@ -307,64 +295,61 @@ const PICKS_DATA = {
         56,
         55,
         91,
-        120
+        120,
+        83
       ],
       "picks": {
-        "WAS-NYG": {
-          "team": "NYG",
-          "confidence": 2
-        },
-        "NE-DET": {
-          "team": "DET",
-          "confidence": 6
-        },
-        "KC-ATL": {
-          "team": "KC",
+        "IND-HOU": {
+          "team": "HOU",
           "confidence": 10
         },
-        "HOU-CLE": {
-          "team": "HOU",
-          "confidence": 8
-        },
-        "MIN-GB": {
-          "team": "GB",
-          "confidence": 7
-        },
-        "JAX-TEN": {
-          "team": "JAX",
+        "MIA-BUF": {
+          "team": "BUF",
           "confidence": 13
         },
-        "MIA-IND": {
-          "team": "IND",
-          "confidence": 4
-        },
-        "CAR-NO": {
-          "team": "CAR",
-          "confidence": 3
-        },
-        "BUF-NYJ": {
-          "team": "BUF",
-          "confidence": 14
-        },
-        "SEA-LV": {
-          "team": "SEA",
-          "confidence": 9
-        },
-        "LAR-ARI": {
-          "team": "LAR",
+        "NO-CHI": {
+          "team": "CHI",
           "confidence": 11
         },
-        "SF-DAL": {
+        "TEN-DAL": {
+          "team": "DAL",
+          "confidence": 7
+        },
+        "TB-DET": {
+          "team": "DET",
+          "confidence": 8
+        },
+        "ARI-KC": {
+          "team": "KC",
+          "confidence": 9
+        },
+        "PIT-PHI": {
+          "team": "PIT",
+          "confidence": 4
+        },
+        "BAL-CAR": {
+          "team": "BAL",
+          "confidence": 2
+        },
+        "NYJ-LAC": {
+          "team": "LAC",
+          "confidence": 3
+        },
+        "LV-DEN": {
+          "team": "DEN",
+          "confidence": 1
+        },
+        "JAX-NYG": {
+          "team": "JAX",
+          "confidence": 5
+        },
+        "MIN-SF": {
           "team": "SF",
           "confidence": 12
         },
-        "PIT-CIN": {
+        "CIN-WAS": {
           "team": "CIN",
-          "confidence": 1
-        },
-        "LAC-BAL": {
-          "team": "BAL",
-          "confidence": 5
+          "confidence": 6
         }
       }
     },
@@ -379,64 +364,61 @@ const PICKS_DATA = {
         56,
         56,
         92,
-        117
+        117,
+        85
       ],
       "picks": {
-        "WAS-NYG": {
-          "team": "NYG",
-          "confidence": 3
-        },
-        "NE-DET": {
-          "team": "DET",
-          "confidence": 7
-        },
-        "KC-ATL": {
-          "team": "KC",
-          "confidence": 11
-        },
-        "HOU-CLE": {
+        "IND-HOU": {
           "team": "HOU",
-          "confidence": 8
-        },
-        "MIN-GB": {
-          "team": "GB",
-          "confidence": 5
-        },
-        "JAX-TEN": {
-          "team": "JAX",
-          "confidence": 14
-        },
-        "MIA-IND": {
-          "team": "IND",
-          "confidence": 2
-        },
-        "CAR-NO": {
-          "team": "CAR",
-          "confidence": 1
-        },
-        "BUF-NYJ": {
-          "team": "BUF",
-          "confidence": 12
-        },
-        "SEA-LV": {
-          "team": "SEA",
-          "confidence": 10
-        },
-        "LAR-ARI": {
-          "team": "LAR",
-          "confidence": 9
-        },
-        "SF-DAL": {
-          "team": "SF",
-          "confidence": 13
-        },
-        "PIT-CIN": {
-          "team": "CIN",
           "confidence": 6
         },
-        "LAC-BAL": {
-          "team": "BAL",
+        "MIA-BUF": {
+          "team": "BUF",
+          "confidence": 13
+        },
+        "NO-CHI": {
+          "team": "CHI",
+          "confidence": 11
+        },
+        "TEN-DAL": {
+          "team": "DAL",
+          "confidence": 5
+        },
+        "TB-DET": {
+          "team": "DET",
+          "confidence": 10
+        },
+        "ARI-KC": {
+          "team": "KC",
+          "confidence": 12
+        },
+        "PIT-PHI": {
+          "team": "PIT",
           "confidence": 4
+        },
+        "BAL-CAR": {
+          "team": "CAR",
+          "confidence": 3
+        },
+        "NYJ-LAC": {
+          "team": "NYJ",
+          "confidence": 1
+        },
+        "LV-DEN": {
+          "team": "DEN",
+          "confidence": 7
+        },
+        "JAX-NYG": {
+          "team": "JAX",
+          "confidence": 8
+        },
+        "MIN-SF": {
+          "team": "SF",
+          "confidence": 2
+        },
+        "CIN-WAS": {
+          "team": "CIN",
+          "confidence": 9
         }
       }
     },
@@ -451,64 +433,61 @@ const PICKS_DATA = {
         59,
         62,
         87,
-        120
+        120,
+        85
       ],
       "picks": {
-        "WAS-NYG": {
-          "team": "NYG",
-          "confidence": 2
-        },
-        "NE-DET": {
-          "team": "NE",
-          "confidence": 3
-        },
-        "KC-ATL": {
-          "team": "KC",
-          "confidence": 7
-        },
-        "HOU-CLE": {
+        "IND-HOU": {
           "team": "HOU",
-          "confidence": 10
+          "confidence": 9
         },
-        "MIN-GB": {
-          "team": "GB",
-          "confidence": 4
-        },
-        "JAX-TEN": {
-          "team": "JAX",
-          "confidence": 14
-        },
-        "MIA-IND": {
-          "team": "IND",
-          "confidence": 8
-        },
-        "CAR-NO": {
-          "team": "NO",
-          "confidence": 1
-        },
-        "BUF-NYJ": {
+        "MIA-BUF": {
           "team": "BUF",
           "confidence": 13
         },
-        "SEA-LV": {
-          "team": "SEA",
+        "NO-CHI": {
+          "team": "CHI",
           "confidence": 11
         },
-        "LAR-ARI": {
-          "team": "LAR",
+        "TEN-DAL": {
+          "team": "DAL",
+          "confidence": 8
+        },
+        "TB-DET": {
+          "team": "DET",
+          "confidence": 4
+        },
+        "ARI-KC": {
+          "team": "KC",
           "confidence": 12
         },
-        "SF-DAL": {
-          "team": "SF",
-          "confidence": 9
-        },
-        "PIT-CIN": {
-          "team": "CIN",
+        "PIT-PHI": {
+          "team": "PIT",
           "confidence": 5
         },
-        "LAC-BAL": {
+        "BAL-CAR": {
+          "team": "BAL",
+          "confidence": 1
+        },
+        "NYJ-LAC": {
           "team": "LAC",
+          "confidence": 2
+        },
+        "LV-DEN": {
+          "team": "DEN",
+          "confidence": 10
+        },
+        "JAX-NYG": {
+          "team": "JAX",
           "confidence": 6
+        },
+        "MIN-SF": {
+          "team": "MIN",
+          "confidence": 3
+        },
+        "CIN-WAS": {
+          "team": "CIN",
+          "confidence": 7
         }
       }
     },
@@ -523,64 +502,61 @@ const PICKS_DATA = {
         43,
         43,
         82,
-        102
+        102,
+        82
       ],
       "picks": {
-        "WAS-NYG": {
-          "team": "WAS",
+        "IND-HOU": {
+          "team": "IND",
           "confidence": 1
         },
-        "NE-DET": {
-          "team": "DET",
-          "confidence": 13
-        },
-        "KC-ATL": {
-          "team": "KC",
-          "confidence": 14
-        },
-        "HOU-CLE": {
-          "team": "CLE",
-          "confidence": 2
-        },
-        "MIN-GB": {
-          "team": "GB",
-          "confidence": 10
-        },
-        "JAX-TEN": {
-          "team": "JAX",
-          "confidence": 9
-        },
-        "MIA-IND": {
-          "team": "MIA",
-          "confidence": 3
-        },
-        "CAR-NO": {
-          "team": "CAR",
-          "confidence": 8
-        },
-        "BUF-NYJ": {
+        "MIA-BUF": {
           "team": "BUF",
           "confidence": 12
         },
-        "SEA-LV": {
-          "team": "SEA",
-          "confidence": 11
+        "NO-CHI": {
+          "team": "CHI",
+          "confidence": 13
         },
-        "LAR-ARI": {
-          "team": "LAR",
-          "confidence": 5
+        "TEN-DAL": {
+          "team": "DAL",
+          "confidence": 2
         },
-        "SF-DAL": {
-          "team": "SF",
-          "confidence": 7
+        "TB-DET": {
+          "team": "TB",
+          "confidence": 3
         },
-        "PIT-CIN": {
-          "team": "PIT",
+        "ARI-KC": {
+          "team": "KC",
           "confidence": 6
         },
-        "LAC-BAL": {
-          "team": "BAL",
+        "PIT-PHI": {
+          "team": "PIT",
+          "confidence": 7
+        },
+        "BAL-CAR": {
+          "team": "CAR",
+          "confidence": 8
+        },
+        "NYJ-LAC": {
+          "team": "LAC",
+          "confidence": 9
+        },
+        "LV-DEN": {
+          "team": "LV",
+          "confidence": 5
+        },
+        "JAX-NYG": {
+          "team": "NYG",
           "confidence": 4
+        },
+        "MIN-SF": {
+          "team": "MIN",
+          "confidence": 11
+        },
+        "CIN-WAS": {
+          "team": "WAS",
+          "confidence": 10
         }
       }
     },
@@ -595,64 +571,61 @@ const PICKS_DATA = {
         61,
         71,
         96,
-        110
+        110,
+        87
       ],
       "picks": {
-        "WAS-NYG": {
-          "team": "NYG",
-          "confidence": 7
-        },
-        "NE-DET": {
-          "team": "DET",
-          "confidence": 5
-        },
-        "KC-ATL": {
-          "team": "KC",
-          "confidence": 11
-        },
-        "HOU-CLE": {
-          "team": "CLE",
+        "IND-HOU": {
+          "team": "HOU",
           "confidence": 4
         },
-        "MIN-GB": {
-          "team": "GB",
-          "confidence": 8
-        },
-        "JAX-TEN": {
-          "team": "JAX",
+        "MIA-BUF": {
+          "team": "BUF",
           "confidence": 13
         },
-        "MIA-IND": {
-          "team": "IND",
-          "confidence": 9
+        "NO-CHI": {
+          "team": "CHI",
+          "confidence": 11
         },
-        "CAR-NO": {
-          "team": "CAR",
-          "confidence": 1
+        "TEN-DAL": {
+          "team": "DAL",
+          "confidence": 8
         },
-        "BUF-NYJ": {
-          "team": "BUF",
-          "confidence": 14
-        },
-        "SEA-LV": {
-          "team": "LV",
-          "confidence": 3
-        },
-        "LAR-ARI": {
-          "team": "LAR",
-          "confidence": 12
-        },
-        "SF-DAL": {
-          "team": "SF",
+        "TB-DET": {
+          "team": "DET",
           "confidence": 10
         },
-        "PIT-CIN": {
-          "team": "CIN",
+        "ARI-KC": {
+          "team": "KC",
+          "confidence": 12
+        },
+        "PIT-PHI": {
+          "team": "PIT",
+          "confidence": 7
+        },
+        "BAL-CAR": {
+          "team": "BAL",
           "confidence": 2
         },
-        "LAC-BAL": {
+        "NYJ-LAC": {
           "team": "LAC",
+          "confidence": 3
+        },
+        "LV-DEN": {
+          "team": "DEN",
+          "confidence": 5
+        },
+        "JAX-NYG": {
+          "team": "NYG",
           "confidence": 6
+        },
+        "MIN-SF": {
+          "team": "MIN",
+          "confidence": 1
+        },
+        "CIN-WAS": {
+          "team": "CIN",
+          "confidence": 9
         }
       }
     },
@@ -667,64 +640,61 @@ const PICKS_DATA = {
         66,
         58,
         88,
-        117
+        117,
+        80
       ],
       "picks": {
-        "WAS-NYG": {
-          "team": "NYG",
-          "confidence": 1
-        },
-        "NE-DET": {
-          "team": "DET",
-          "confidence": 3
-        },
-        "KC-ATL": {
-          "team": "KC",
-          "confidence": 4
-        },
-        "HOU-CLE": {
+        "IND-HOU": {
           "team": "HOU",
-          "confidence": 10
-        },
-        "MIN-GB": {
-          "team": "GB",
-          "confidence": 7
-        },
-        "JAX-TEN": {
-          "team": "JAX",
-          "confidence": 14
-        },
-        "MIA-IND": {
-          "team": "IND",
-          "confidence": 8
-        },
-        "CAR-NO": {
-          "team": "NO",
-          "confidence": 2
-        },
-        "BUF-NYJ": {
-          "team": "BUF",
-          "confidence": 12
-        },
-        "SEA-LV": {
-          "team": "SEA",
-          "confidence": 11
-        },
-        "LAR-ARI": {
-          "team": "LAR",
-          "confidence": 13
-        },
-        "SF-DAL": {
-          "team": "SF",
           "confidence": 9
         },
-        "PIT-CIN": {
-          "team": "CIN",
+        "MIA-BUF": {
+          "team": "BUF",
+          "confidence": 13
+        },
+        "NO-CHI": {
+          "team": "CHI",
+          "confidence": 10
+        },
+        "TEN-DAL": {
+          "team": "DAL",
+          "confidence": 8
+        },
+        "TB-DET": {
+          "team": "DET",
+          "confidence": 7
+        },
+        "ARI-KC": {
+          "team": "KC",
+          "confidence": 12
+        },
+        "PIT-PHI": {
+          "team": "PIT",
+          "confidence": 5
+        },
+        "BAL-CAR": {
+          "team": "CAR",
+          "confidence": 2
+        },
+        "NYJ-LAC": {
+          "team": "LAC",
+          "confidence": 3
+        },
+        "LV-DEN": {
+          "team": "DEN",
+          "confidence": 11
+        },
+        "JAX-NYG": {
+          "team": "JAX",
           "confidence": 6
         },
-        "LAC-BAL": {
-          "team": "BAL",
-          "confidence": 5
+        "MIN-SF": {
+          "team": "MIN",
+          "confidence": 1
+        },
+        "CIN-WAS": {
+          "team": "CIN",
+          "confidence": 4
         }
       }
     },
@@ -739,64 +709,61 @@ const PICKS_DATA = {
         56,
         43,
         95,
-        119
+        119,
+        86
       ],
       "picks": {
-        "WAS-NYG": {
+        "IND-HOU": {
+          "team": "HOU",
+          "confidence": 11
+        },
+        "MIA-BUF": {
+          "team": "BUF",
+          "confidence": 12
+        },
+        "NO-CHI": {
+          "team": "CHI",
+          "confidence": 7
+        },
+        "TEN-DAL": {
+          "team": "TEN",
+          "confidence": 5
+        },
+        "TB-DET": {
+          "team": "DET",
+          "confidence": 8
+        },
+        "ARI-KC": {
+          "team": "KC",
+          "confidence": 13
+        },
+        "PIT-PHI": {
+          "team": "PIT",
+          "confidence": 4
+        },
+        "BAL-CAR": {
+          "team": "CAR",
+          "confidence": 9
+        },
+        "NYJ-LAC": {
+          "team": "LAC",
+          "confidence": 2
+        },
+        "LV-DEN": {
+          "team": "DEN",
+          "confidence": 10
+        },
+        "JAX-NYG": {
           "team": "NYG",
           "confidence": 1
         },
-        "NE-DET": {
-          "team": "NE",
-          "confidence": 2
-        },
-        "KC-ATL": {
-          "team": "KC",
-          "confidence": 10
-        },
-        "HOU-CLE": {
-          "team": "HOU",
-          "confidence": 9
-        },
-        "MIN-GB": {
-          "team": "GB",
-          "confidence": 3
-        },
-        "JAX-TEN": {
-          "team": "JAX",
-          "confidence": 12
-        },
-        "MIA-IND": {
-          "team": "IND",
-          "confidence": 5
-        },
-        "CAR-NO": {
-          "team": "CAR",
+        "MIN-SF": {
+          "team": "MIN",
           "confidence": 6
         },
-        "BUF-NYJ": {
-          "team": "BUF",
-          "confidence": 14
-        },
-        "SEA-LV": {
-          "team": "SEA",
-          "confidence": 11
-        },
-        "LAR-ARI": {
-          "team": "LAR",
-          "confidence": 8
-        },
-        "SF-DAL": {
-          "team": "SF",
-          "confidence": 13
-        },
-        "PIT-CIN": {
+        "CIN-WAS": {
           "team": "CIN",
-          "confidence": 7
-        },
-        "LAC-BAL": {
-          "team": "BAL",
-          "confidence": 4
+          "confidence": 3
         }
       }
     },
@@ -811,64 +778,61 @@ const PICKS_DATA = {
         60,
         59,
         77,
-        119
+        119,
+        76
       ],
       "picks": {
-        "WAS-NYG": {
-          "team": "NYG",
-          "confidence": 9
-        },
-        "NE-DET": {
-          "team": "DET",
-          "confidence": 5
-        },
-        "KC-ATL": {
-          "team": "KC",
-          "confidence": 13
-        },
-        "HOU-CLE": {
+        "IND-HOU": {
           "team": "HOU",
-          "confidence": 8
-        },
-        "MIN-GB": {
-          "team": "GB",
-          "confidence": 6
-        },
-        "JAX-TEN": {
-          "team": "JAX",
-          "confidence": 12
-        },
-        "MIA-IND": {
-          "team": "MIA",
           "confidence": 3
         },
-        "CAR-NO": {
+        "MIA-BUF": {
+          "team": "BUF",
+          "confidence": 13
+        },
+        "NO-CHI": {
+          "team": "CHI",
+          "confidence": 10
+        },
+        "TEN-DAL": {
+          "team": "TEN",
+          "confidence": 1
+        },
+        "TB-DET": {
+          "team": "DET",
+          "confidence": 7
+        },
+        "ARI-KC": {
+          "team": "KC",
+          "confidence": 12
+        },
+        "PIT-PHI": {
+          "team": "PIT",
+          "confidence": 6
+        },
+        "BAL-CAR": {
           "team": "CAR",
           "confidence": 4
         },
-        "BUF-NYJ": {
-          "team": "BUF",
-          "confidence": 14
-        },
-        "SEA-LV": {
-          "team": "SEA",
-          "confidence": 10
-        },
-        "LAR-ARI": {
-          "team": "LAR",
-          "confidence": 7
-        },
-        "SF-DAL": {
-          "team": "SF",
-          "confidence": 11
-        },
-        "PIT-CIN": {
-          "team": "PIT",
-          "confidence": 1
-        },
-        "LAC-BAL": {
-          "team": "BAL",
+        "NYJ-LAC": {
+          "team": "NYJ",
           "confidence": 2
+        },
+        "LV-DEN": {
+          "team": "DEN",
+          "confidence": 8
+        },
+        "JAX-NYG": {
+          "team": "JAX",
+          "confidence": 5
+        },
+        "MIN-SF": {
+          "team": "SF",
+          "confidence": 9
+        },
+        "CIN-WAS": {
+          "team": "CIN",
+          "confidence": 11
         }
       }
     },
@@ -883,64 +847,61 @@ const PICKS_DATA = {
         54,
         62,
         90,
-        116
+        116,
+        74
       ],
       "picks": {
-        "WAS-NYG": {
-          "team": "NYG",
-          "confidence": 1
-        },
-        "NE-DET": {
-          "team": "NE",
-          "confidence": 4
-        },
-        "KC-ATL": {
-          "team": "KC",
+        "IND-HOU": {
+          "team": "HOU",
           "confidence": 6
         },
-        "HOU-CLE": {
-          "team": "HOU",
-          "confidence": 10
-        },
-        "MIN-GB": {
-          "team": "GB",
-          "confidence": 5
-        },
-        "JAX-TEN": {
-          "team": "JAX",
-          "confidence": 14
-        },
-        "MIA-IND": {
-          "team": "IND",
-          "confidence": 7
-        },
-        "CAR-NO": {
-          "team": "NO",
-          "confidence": 2
-        },
-        "BUF-NYJ": {
+        "MIA-BUF": {
           "team": "BUF",
-          "confidence": 12
-        },
-        "SEA-LV": {
-          "team": "SEA",
-          "confidence": 11
-        },
-        "LAR-ARI": {
-          "team": "LAR",
           "confidence": 13
         },
-        "SF-DAL": {
-          "team": "SF",
-          "confidence": 8
+        "NO-CHI": {
+          "team": "CHI",
+          "confidence": 12
         },
-        "PIT-CIN": {
-          "team": "CIN",
+        "TEN-DAL": {
+          "team": "TEN",
+          "confidence": 2
+        },
+        "TB-DET": {
+          "team": "DET",
+          "confidence": 9
+        },
+        "ARI-KC": {
+          "team": "KC",
+          "confidence": 10
+        },
+        "PIT-PHI": {
+          "team": "PIT",
+          "confidence": 11
+        },
+        "BAL-CAR": {
+          "team": "BAL",
+          "confidence": 4
+        },
+        "NYJ-LAC": {
+          "team": "LAC",
+          "confidence": 5
+        },
+        "LV-DEN": {
+          "team": "DEN",
           "confidence": 3
         },
-        "LAC-BAL": {
-          "team": "BAL",
-          "confidence": 9
+        "JAX-NYG": {
+          "team": "JAX",
+          "confidence": 7
+        },
+        "MIN-SF": {
+          "team": "MIN",
+          "confidence": 1
+        },
+        "CIN-WAS": {
+          "team": "CIN",
+          "confidence": 8
         }
       }
     },
@@ -955,64 +916,61 @@ const PICKS_DATA = {
         47,
         54,
         85,
-        119
+        119,
+        85
       ],
       "picks": {
-        "WAS-NYG": {
-          "team": "NYG",
-          "confidence": 5
-        },
-        "NE-DET": {
-          "team": "DET",
+        "IND-HOU": {
+          "team": "HOU",
           "confidence": 9
         },
-        "KC-ATL": {
-          "team": "KC",
-          "confidence": 11
-        },
-        "HOU-CLE": {
-          "team": "HOU",
-          "confidence": 8
-        },
-        "MIN-GB": {
-          "team": "GB",
-          "confidence": 4
-        },
-        "JAX-TEN": {
-          "team": "JAX",
-          "confidence": 14
-        },
-        "MIA-IND": {
-          "team": "IND",
-          "confidence": 3
-        },
-        "CAR-NO": {
-          "team": "NO",
-          "confidence": 1
-        },
-        "BUF-NYJ": {
+        "MIA-BUF": {
           "team": "BUF",
           "confidence": 13
         },
-        "SEA-LV": {
-          "team": "SEA",
-          "confidence": 7
-        },
-        "LAR-ARI": {
-          "team": "LAR",
-          "confidence": 12
-        },
-        "SF-DAL": {
-          "team": "SF",
+        "NO-CHI": {
+          "team": "CHI",
           "confidence": 10
         },
-        "PIT-CIN": {
-          "team": "CIN",
+        "TEN-DAL": {
+          "team": "DAL",
+          "confidence": 7
+        },
+        "TB-DET": {
+          "team": "DET",
           "confidence": 6
         },
-        "LAC-BAL": {
-          "team": "BAL",
+        "ARI-KC": {
+          "team": "KC",
+          "confidence": 12
+        },
+        "PIT-PHI": {
+          "team": "PHI",
+          "confidence": 4
+        },
+        "BAL-CAR": {
+          "team": "CAR",
           "confidence": 2
+        },
+        "NYJ-LAC": {
+          "team": "LAC",
+          "confidence": 1
+        },
+        "LV-DEN": {
+          "team": "DEN",
+          "confidence": 11
+        },
+        "JAX-NYG": {
+          "team": "JAX",
+          "confidence": 8
+        },
+        "MIN-SF": {
+          "team": "SF",
+          "confidence": 3
+        },
+        "CIN-WAS": {
+          "team": "CIN",
+          "confidence": 5
         }
       }
     },
@@ -1027,64 +985,61 @@ const PICKS_DATA = {
         61,
         59,
         24,
-        70
+        70,
+        1
       ],
       "picks": {
-        "WAS-NYG": {
-          "team": "NYG",
-          "confidence": 14
-        },
-        "NE-DET": {
-          "team": "NE",
-          "confidence": 2
-        },
-        "KC-ATL": {
-          "team": "ATL",
-          "confidence": 12
-        },
-        "HOU-CLE": {
+        "IND-HOU": {
           "team": "HOU",
-          "confidence": 10
-        },
-        "MIN-GB": {
-          "team": "GB",
-          "confidence": 3
-        },
-        "JAX-TEN": {
-          "team": "TEN",
-          "confidence": 7
-        },
-        "MIA-IND": {
-          "team": "IND",
-          "confidence": 1
-        },
-        "CAR-NO": {
-          "team": "NO",
-          "confidence": 9
-        },
-        "BUF-NYJ": {
-          "team": "NYJ",
-          "confidence": 11
-        },
-        "SEA-LV": {
-          "team": "LV",
-          "confidence": 5
-        },
-        "LAR-ARI": {
-          "team": "ARI",
-          "confidence": 6
-        },
-        "SF-DAL": {
-          "team": "DAL",
           "confidence": 13
         },
-        "PIT-CIN": {
-          "team": "PIT",
+        "MIA-BUF": {
+          "team": "MIA",
+          "confidence": 12
+        },
+        "NO-CHI": {
+          "team": "CHI",
+          "confidence": 2
+        },
+        "TEN-DAL": {
+          "team": "TEN",
           "confidence": 4
         },
-        "LAC-BAL": {
-          "team": "BAL",
+        "TB-DET": {
+          "team": "DET",
+          "confidence": 6
+        },
+        "ARI-KC": {
+          "team": "KC",
+          "confidence": 11
+        },
+        "PIT-PHI": {
+          "team": "PIT",
           "confidence": 8
+        },
+        "BAL-CAR": {
+          "team": "CAR",
+          "confidence": 1
+        },
+        "NYJ-LAC": {
+          "team": "NYJ",
+          "confidence": 9
+        },
+        "LV-DEN": {
+          "team": "DEN",
+          "confidence": 10
+        },
+        "JAX-NYG": {
+          "team": "NYG",
+          "confidence": 5
+        },
+        "MIN-SF": {
+          "team": "MIN",
+          "confidence": 7
+        },
+        "CIN-WAS": {
+          "team": "CIN",
+          "confidence": 3
         }
       }
     },
@@ -1099,64 +1054,61 @@ const PICKS_DATA = {
         56,
         45,
         84,
-        110
+        110,
+        78
       ],
       "picks": {
-        "WAS-NYG": {
-          "team": "NYG",
-          "confidence": 9
-        },
-        "NE-DET": {
-          "team": "DET",
-          "confidence": 7
-        },
-        "KC-ATL": {
-          "team": "KC",
+        "IND-HOU": {
+          "team": "HOU",
           "confidence": 6
         },
-        "HOU-CLE": {
-          "team": "HOU",
-          "confidence": 8
-        },
-        "MIN-GB": {
-          "team": "GB",
-          "confidence": 1
-        },
-        "JAX-TEN": {
-          "team": "JAX",
-          "confidence": 14
-        },
-        "MIA-IND": {
-          "team": "IND",
-          "confidence": 2
-        },
-        "CAR-NO": {
-          "team": "NO",
-          "confidence": 5
-        },
-        "BUF-NYJ": {
+        "MIA-BUF": {
           "team": "BUF",
           "confidence": 13
         },
-        "SEA-LV": {
-          "team": "SEA",
-          "confidence": 10
-        },
-        "LAR-ARI": {
-          "team": "LAR",
-          "confidence": 12
-        },
-        "SF-DAL": {
-          "team": "SF",
+        "NO-CHI": {
+          "team": "CHI",
           "confidence": 11
         },
-        "PIT-CIN": {
-          "team": "CIN",
+        "TEN-DAL": {
+          "team": "TEN",
+          "confidence": 2
+        },
+        "TB-DET": {
+          "team": "DET",
+          "confidence": 5
+        },
+        "ARI-KC": {
+          "team": "KC",
+          "confidence": 12
+        },
+        "PIT-PHI": {
+          "team": "PIT",
+          "confidence": 8
+        },
+        "BAL-CAR": {
+          "team": "CAR",
+          "confidence": 7
+        },
+        "NYJ-LAC": {
+          "team": "LAC",
+          "confidence": 4
+        },
+        "LV-DEN": {
+          "team": "DEN",
+          "confidence": 10
+        },
+        "JAX-NYG": {
+          "team": "JAX",
+          "confidence": 9
+        },
+        "MIN-SF": {
+          "team": "SF",
           "confidence": 3
         },
-        "LAC-BAL": {
-          "team": "BAL",
-          "confidence": 4
+        "CIN-WAS": {
+          "team": "WAS",
+          "confidence": 1
         }
       }
     },
@@ -1171,64 +1123,61 @@ const PICKS_DATA = {
         60,
         75,
         68,
-        108
+        108,
+        81
       ],
       "picks": {
-        "WAS-NYG": {
-          "team": "NYG",
-          "confidence": 6
+        "IND-HOU": {
+          "team": "HOU",
+          "confidence": 5
         },
-        "NE-DET": {
+        "MIA-BUF": {
+          "team": "BUF",
+          "confidence": 13
+        },
+        "NO-CHI": {
+          "team": "CHI",
+          "confidence": 12
+        },
+        "TEN-DAL": {
+          "team": "DAL",
+          "confidence": 11
+        },
+        "TB-DET": {
           "team": "DET",
-          "confidence": 7
+          "confidence": 1
         },
-        "KC-ATL": {
+        "ARI-KC": {
           "team": "KC",
           "confidence": 10
         },
-        "HOU-CLE": {
-          "team": "CLE",
-          "confidence": 8
-        },
-        "MIN-GB": {
-          "team": "GB",
-          "confidence": 9
-        },
-        "JAX-TEN": {
-          "team": "JAX",
-          "confidence": 13
-        },
-        "MIA-IND": {
-          "team": "IND",
+        "PIT-PHI": {
+          "team": "PIT",
           "confidence": 4
         },
-        "CAR-NO": {
-          "team": "NO",
-          "confidence": 1
+        "BAL-CAR": {
+          "team": "BAL",
+          "confidence": 8
         },
-        "BUF-NYJ": {
-          "team": "BUF",
-          "confidence": 14
+        "NYJ-LAC": {
+          "team": "LAC",
+          "confidence": 6
         },
-        "SEA-LV": {
-          "team": "SEA",
-          "confidence": 12
+        "LV-DEN": {
+          "team": "DEN",
+          "confidence": 7
         },
-        "LAR-ARI": {
-          "team": "LAR",
-          "confidence": 11
+        "JAX-NYG": {
+          "team": "JAX",
+          "confidence": 3
         },
-        "SF-DAL": {
+        "MIN-SF": {
           "team": "SF",
           "confidence": 2
         },
-        "PIT-CIN": {
-          "team": "PIT",
-          "confidence": 3
-        },
-        "LAC-BAL": {
-          "team": "BAL",
-          "confidence": 5
+        "CIN-WAS": {
+          "team": "CIN",
+          "confidence": 9
         }
       }
     },
@@ -1243,63 +1192,60 @@ const PICKS_DATA = {
         60,
         64,
         90,
-        115
+        115,
+        83
       ],
       "picks": {
-        "WAS-NYG": {
-          "team": "NYG",
-          "confidence": 4
-        },
-        "NE-DET": {
-          "team": "DET",
-          "confidence": 7
-        },
-        "KC-ATL": {
-          "team": "KC",
-          "confidence": 9
-        },
-        "HOU-CLE": {
+        "IND-HOU": {
           "team": "HOU",
-          "confidence": 8
-        },
-        "MIN-GB": {
-          "team": "GB",
-          "confidence": 3
-        },
-        "JAX-TEN": {
-          "team": "JAX",
-          "confidence": 14
-        },
-        "MIA-IND": {
-          "team": "MIA",
-          "confidence": 2
-        },
-        "CAR-NO": {
-          "team": "CAR",
-          "confidence": 1
-        },
-        "BUF-NYJ": {
-          "team": "BUF",
-          "confidence": 13
-        },
-        "SEA-LV": {
-          "team": "SEA",
-          "confidence": 11
-        },
-        "LAR-ARI": {
-          "team": "LAR",
           "confidence": 10
         },
-        "SF-DAL": {
-          "team": "SF",
+        "MIA-BUF": {
+          "team": "BUF",
+          "confidence": 11
+        },
+        "NO-CHI": {
+          "team": "CHI",
           "confidence": 12
         },
-        "PIT-CIN": {
-          "team": "CIN",
+        "TEN-DAL": {
+          "team": "DAL",
+          "confidence": 9
+        },
+        "TB-DET": {
+          "team": "DET",
+          "confidence": 8
+        },
+        "ARI-KC": {
+          "team": "KC",
+          "confidence": 13
+        },
+        "PIT-PHI": {
+          "team": "PIT",
+          "confidence": 4
+        },
+        "BAL-CAR": {
+          "team": "BAL",
+          "confidence": 1
+        },
+        "NYJ-LAC": {
+          "team": "LAC",
+          "confidence": 2
+        },
+        "LV-DEN": {
+          "team": "DEN",
+          "confidence": 7
+        },
+        "JAX-NYG": {
+          "team": "JAX",
           "confidence": 6
         },
-        "LAC-BAL": {
-          "team": "BAL",
+        "MIN-SF": {
+          "team": "SF",
+          "confidence": 3
+        },
+        "CIN-WAS": {
+          "team": "CIN",
           "confidence": 5
         }
       }
@@ -1315,64 +1261,61 @@ const PICKS_DATA = {
         40,
         42,
         84,
-        114
+        114,
+        63
       ],
       "picks": {
-        "WAS-NYG": {
-          "team": "NYG",
-          "confidence": 2
-        },
-        "NE-DET": {
-          "team": "NE",
-          "confidence": 7
-        },
-        "KC-ATL": {
-          "team": "KC",
-          "confidence": 12
-        },
-        "HOU-CLE": {
+        "IND-HOU": {
           "team": "HOU",
-          "confidence": 3
-        },
-        "MIN-GB": {
-          "team": "GB",
-          "confidence": 4
-        },
-        "JAX-TEN": {
-          "team": "JAX",
-          "confidence": 10
-        },
-        "MIA-IND": {
-          "team": "IND",
-          "confidence": 9
-        },
-        "CAR-NO": {
-          "team": "NO",
-          "confidence": 6
-        },
-        "BUF-NYJ": {
-          "team": "BUF",
-          "confidence": 14
-        },
-        "SEA-LV": {
-          "team": "SEA",
-          "confidence": 5
-        },
-        "LAR-ARI": {
-          "team": "LAR",
-          "confidence": 13
-        },
-        "SF-DAL": {
-          "team": "DAL",
           "confidence": 11
         },
-        "PIT-CIN": {
-          "team": "PIT",
+        "MIA-BUF": {
+          "team": "BUF",
+          "confidence": 13
+        },
+        "NO-CHI": {
+          "team": "CHI",
+          "confidence": 12
+        },
+        "TEN-DAL": {
+          "team": "DAL",
           "confidence": 8
         },
-        "LAC-BAL": {
-          "team": "BAL",
+        "TB-DET": {
+          "team": "DET",
+          "confidence": 7
+        },
+        "ARI-KC": {
+          "team": "KC",
+          "confidence": 10
+        },
+        "PIT-PHI": {
+          "team": "PIT",
+          "confidence": 4
+        },
+        "BAL-CAR": {
+          "team": "CAR",
+          "confidence": 3
+        },
+        "NYJ-LAC": {
+          "team": "NYJ",
           "confidence": 1
+        },
+        "LV-DEN": {
+          "team": "DEN",
+          "confidence": 9
+        },
+        "JAX-NYG": {
+          "team": "JAX",
+          "confidence": 6
+        },
+        "MIN-SF": {
+          "team": "MIN",
+          "confidence": 2
+        },
+        "CIN-WAS": {
+          "team": "CIN",
+          "confidence": 5
         }
       }
     },
@@ -1387,64 +1330,61 @@ const PICKS_DATA = {
         53,
         69,
         83,
-        112
+        112,
+        77
       ],
       "picks": {
-        "WAS-NYG": {
-          "team": "NYG",
-          "confidence": 5
-        },
-        "NE-DET": {
-          "team": "DET",
-          "confidence": 1
-        },
-        "KC-ATL": {
-          "team": "KC",
-          "confidence": 9
-        },
-        "HOU-CLE": {
+        "IND-HOU": {
           "team": "HOU",
           "confidence": 8
         },
-        "MIN-GB": {
-          "team": "MIN",
-          "confidence": 2
-        },
-        "JAX-TEN": {
-          "team": "JAX",
-          "confidence": 14
-        },
-        "MIA-IND": {
-          "team": "IND",
-          "confidence": 3
-        },
-        "CAR-NO": {
-          "team": "NO",
-          "confidence": 4
-        },
-        "BUF-NYJ": {
+        "MIA-BUF": {
           "team": "BUF",
           "confidence": 13
         },
-        "SEA-LV": {
-          "team": "SEA",
-          "confidence": 10
-        },
-        "LAR-ARI": {
-          "team": "LAR",
+        "NO-CHI": {
+          "team": "CHI",
           "confidence": 12
         },
-        "SF-DAL": {
-          "team": "SF",
+        "TEN-DAL": {
+          "team": "DAL",
+          "confidence": 5
+        },
+        "TB-DET": {
+          "team": "DET",
+          "confidence": 3
+        },
+        "ARI-KC": {
+          "team": "KC",
+          "confidence": 11
+        },
+        "PIT-PHI": {
+          "team": "PIT",
           "confidence": 7
         },
-        "PIT-CIN": {
-          "team": "CIN",
+        "BAL-CAR": {
+          "team": "CAR",
+          "confidence": 4
+        },
+        "NYJ-LAC": {
+          "team": "NYJ",
+          "confidence": 1
+        },
+        "LV-DEN": {
+          "team": "LV",
+          "confidence": 2
+        },
+        "JAX-NYG": {
+          "team": "JAX",
+          "confidence": 10
+        },
+        "MIN-SF": {
+          "team": "SF",
           "confidence": 6
         },
-        "LAC-BAL": {
-          "team": "BAL",
-          "confidence": 11
+        "CIN-WAS": {
+          "team": "CIN",
+          "confidence": 9
         }
       }
     },
@@ -1459,64 +1399,61 @@ const PICKS_DATA = {
         53,
         64,
         93,
-        117
+        117,
+        91
       ],
       "picks": {
-        "WAS-NYG": {
-          "team": "NYG",
-          "confidence": 6
-        },
-        "NE-DET": {
-          "team": "DET",
-          "confidence": 1
-        },
-        "KC-ATL": {
-          "team": "KC",
-          "confidence": 13
-        },
-        "HOU-CLE": {
+        "IND-HOU": {
           "team": "HOU",
-          "confidence": 8
-        },
-        "MIN-GB": {
-          "team": "MIN",
-          "confidence": 2
-        },
-        "JAX-TEN": {
-          "team": "JAX",
-          "confidence": 14
-        },
-        "MIA-IND": {
-          "team": "IND",
-          "confidence": 4
-        },
-        "CAR-NO": {
-          "team": "CAR",
-          "confidence": 5
-        },
-        "BUF-NYJ": {
-          "team": "BUF",
-          "confidence": 12
-        },
-        "SEA-LV": {
-          "team": "SEA",
-          "confidence": 10
-        },
-        "LAR-ARI": {
-          "team": "LAR",
-          "confidence": 11
-        },
-        "SF-DAL": {
-          "team": "SF",
-          "confidence": 9
-        },
-        "PIT-CIN": {
-          "team": "CIN",
           "confidence": 7
         },
-        "LAC-BAL": {
-          "team": "LAC",
+        "MIA-BUF": {
+          "team": "BUF",
+          "confidence": 13
+        },
+        "NO-CHI": {
+          "team": "CHI",
+          "confidence": 12
+        },
+        "TEN-DAL": {
+          "team": "DAL",
+          "confidence": 11
+        },
+        "TB-DET": {
+          "team": "DET",
+          "confidence": 10
+        },
+        "ARI-KC": {
+          "team": "KC",
+          "confidence": 9
+        },
+        "PIT-PHI": {
+          "team": "PIT",
           "confidence": 3
+        },
+        "BAL-CAR": {
+          "team": "CAR",
+          "confidence": 6
+        },
+        "NYJ-LAC": {
+          "team": "LAC",
+          "confidence": 2
+        },
+        "LV-DEN": {
+          "team": "DEN",
+          "confidence": 4
+        },
+        "JAX-NYG": {
+          "team": "JAX",
+          "confidence": 5
+        },
+        "MIN-SF": {
+          "team": "SF",
+          "confidence": 1
+        },
+        "CIN-WAS": {
+          "team": "CIN",
+          "confidence": 8
         }
       }
     }
