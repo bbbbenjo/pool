@@ -3,14 +3,34 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 11,
-  "lastUpdate": "2026-11-22T21:21:04.498986Z",
-  "lastGameUpdate": "2026-11-22T21:21:04.188687Z",
-  "lastApiCheck": "2026-11-22T21:21:04.188687Z",
-  "lastApiSuccess": "2026-11-22T21:21:04.498256Z",
-  "nextEligibleCheck": "2026-11-22T21:37:00Z",
+  "lastUpdate": "2026-11-22T23:47:29.486347Z",
+  "lastGameUpdate": "2026-11-22T23:47:29.168728Z",
+  "lastApiCheck": "2026-11-22T23:47:29.168728Z",
+  "lastApiSuccess": "2026-11-22T23:47:29.485710Z",
+  "nextEligibleCheck": "2026-11-23T00:07:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-11-22T23:47:29.168728Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 5 unresolved game(s); 1 newly final."
+    },
+    {
+      "time": "2026-11-22T23:47:29.168728Z",
+      "type": "state",
+      "message": "JAX-NYG: API status underway."
+    },
+    {
+      "time": "2026-11-22T23:47:29.168728Z",
+      "type": "state",
+      "message": "LV-DEN: API status underway."
+    },
+    {
+      "time": "2026-11-22T23:47:29.168728Z",
+      "type": "final",
+      "message": "NYJ-LAC: FINAL — NYJ won."
+    },
     {
       "time": "2026-11-22T21:21:04.188687Z",
       "type": "check",
