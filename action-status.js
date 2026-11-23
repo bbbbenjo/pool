@@ -1,16 +1,21 @@
 const ACTION_STATUS = {
   "version": 1,
-  "status": "ok",
+  "status": "error",
   "season": 2026,
   "week": 11,
-  "lastUpdate": "2026-11-22T23:47:29.486347Z",
+  "lastUpdate": "2026-11-23T00:46:06.366957Z",
   "lastGameUpdate": "2026-11-22T23:47:29.168728Z",
-  "lastApiCheck": "2026-11-22T23:47:29.168728Z",
-  "lastApiSuccess": "2026-11-22T23:47:29.485710Z",
-  "nextEligibleCheck": "2026-11-23T00:07:00Z",
-  "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
-  "lastError": null,
+  "lastApiCheck": "2026-11-23T00:46:06.201669Z",
+  "lastApiSuccess": "2026-11-23T00:46:06.366747Z",
+  "nextEligibleCheck": "2026-11-23T01:07:00Z",
+  "nextCheckReason": "Retry after the most recent updater error.",
+  "lastError": "Final game was reported without a safely identifiable winner or tie.",
   "history": [
+    {
+      "time": "2026-11-23T00:46:06.366851Z",
+      "type": "error",
+      "message": "Final game was reported without a safely identifiable winner or tie."
+    },
     {
       "time": "2026-11-22T23:47:29.168728Z",
       "type": "check",
