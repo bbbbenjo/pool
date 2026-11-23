@@ -176,10 +176,12 @@ const GAMES_DATA = {
       "kickoff": "2026-11-23T01:20Z",
       "favorite": "SF",
       "pAway": 0.393245,
-      "final": false,
-      "winner": null,
-      "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-11-23T00:55:29.040291Z"
+      "final": true,
+      "winner": "SF",
+      "apiStatus": "final",
+      "apiStatusCheckedAt": "2026-11-23T04:27:37.846577Z",
+      "awayScore": 10,
+      "homeScore": 35
     },
     {
       "id": "CIN-WAS",
@@ -192,7 +194,7 @@ const GAMES_DATA = {
       "final": false,
       "winner": null,
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-11-23T00:55:29.040291Z"
+      "apiStatusCheckedAt": "2026-11-23T04:27:37.846577Z"
     }
   ],
   "colors": {

@@ -3,14 +3,24 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 11,
-  "lastUpdate": "2026-11-23T00:55:29.267348Z",
-  "lastGameUpdate": "2026-11-23T00:55:29.040291Z",
-  "lastApiCheck": "2026-11-23T00:55:29.040291Z",
-  "lastApiSuccess": "2026-11-23T00:55:29.266807Z",
-  "nextEligibleCheck": "2026-11-23T01:22:00Z",
+  "lastUpdate": "2026-11-23T04:27:38.008606Z",
+  "lastGameUpdate": "2026-11-23T04:27:37.846577Z",
+  "lastApiCheck": "2026-11-23T04:27:37.846577Z",
+  "lastApiSuccess": "2026-11-23T04:27:38.008087Z",
+  "nextEligibleCheck": "2026-11-24T01:22:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-11-23T04:27:37.846577Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 2 unresolved game(s); 1 newly final."
+    },
+    {
+      "time": "2026-11-23T04:27:37.846577Z",
+      "type": "final",
+      "message": "MIN-SF: FINAL — SF won."
+    },
     {
       "time": "2026-11-23T00:55:29.040291Z",
       "type": "check",
