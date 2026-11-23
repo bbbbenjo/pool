@@ -1,16 +1,26 @@
 const ACTION_STATUS = {
   "version": 1,
-  "status": "error",
+  "status": "ok",
   "season": 2026,
   "week": 11,
-  "lastUpdate": "2026-11-23T00:46:06.366957Z",
-  "lastGameUpdate": "2026-11-22T23:47:29.168728Z",
-  "lastApiCheck": "2026-11-23T00:46:06.201669Z",
-  "lastApiSuccess": "2026-11-23T00:46:06.366747Z",
+  "lastUpdate": "2026-11-23T00:47:48.452195Z",
+  "lastGameUpdate": "2026-11-23T00:47:48.324360Z",
+  "lastApiCheck": "2026-11-23T00:47:48.324360Z",
+  "lastApiSuccess": "2026-11-23T00:47:48.451431Z",
   "nextEligibleCheck": "2026-11-23T01:07:00Z",
-  "nextCheckReason": "Retry after the most recent updater error.",
-  "lastError": "Final game was reported without a safely identifiable winner or tie.",
+  "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
+  "lastError": null,
   "history": [
+    {
+      "time": "2026-11-23T00:47:48.324360Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 4 unresolved game(s); 1 newly final."
+    },
+    {
+      "time": "2026-11-23T00:47:48.324360Z",
+      "type": "final",
+      "message": "LV-DEN: FINAL — DEN won."
+    },
     {
       "time": "2026-11-23T00:46:06.366851Z",
       "type": "error",

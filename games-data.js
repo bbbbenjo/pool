@@ -146,12 +146,12 @@ const GAMES_DATA = {
       "kickoff": "2026-11-22T21:25Z",
       "favorite": "DEN",
       "pAway": 0.178019,
-      "final": false,
-      "winner": null,
-      "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-11-22T23:47:29.168728Z",
-      "awayScore": 17,
-      "homeScore": 24
+      "final": true,
+      "winner": "DEN",
+      "apiStatus": "final",
+      "apiStatusCheckedAt": "2026-11-23T00:47:48.324360Z",
+      "awayScore": 24,
+      "homeScore": 38
     },
     {
       "id": "JAX-NYG",
@@ -164,9 +164,9 @@ const GAMES_DATA = {
       "final": false,
       "winner": null,
       "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-11-22T23:47:29.168728Z",
-      "awayScore": 6,
-      "homeScore": 20
+      "apiStatusCheckedAt": "2026-11-23T00:47:48.324360Z",
+      "awayScore": 18,
+      "homeScore": 23
     },
     {
       "id": "MIN-SF",
@@ -179,7 +179,7 @@ const GAMES_DATA = {
       "final": false,
       "winner": null,
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-11-22T23:47:29.168728Z"
+      "apiStatusCheckedAt": "2026-11-23T00:47:48.324360Z"
     },
     {
       "id": "CIN-WAS",
@@ -192,7 +192,7 @@ const GAMES_DATA = {
       "final": false,
       "winner": null,
       "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-11-22T23:47:29.168728Z"
+      "apiStatusCheckedAt": "2026-11-23T00:47:48.324360Z"
     }
   ],
   "colors": {
