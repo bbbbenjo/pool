@@ -3,14 +3,24 @@ const ACTION_STATUS = {
   "status": "ok",
   "season": 2026,
   "week": 11,
-  "lastUpdate": "2026-11-23T04:27:38.008606Z",
-  "lastGameUpdate": "2026-11-23T04:27:37.846577Z",
-  "lastApiCheck": "2026-11-23T04:27:37.846577Z",
-  "lastApiSuccess": "2026-11-23T04:27:38.008087Z",
-  "nextEligibleCheck": "2026-11-24T01:22:00Z",
+  "lastUpdate": "2026-11-24T01:17:41.804532Z",
+  "lastGameUpdate": "2026-11-24T01:17:41.646246Z",
+  "lastApiCheck": "2026-11-24T01:17:41.646246Z",
+  "lastApiSuccess": "2026-11-24T01:17:41.803804Z",
+  "nextEligibleCheck": "2026-11-24T01:37:00Z",
   "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-11-24T01:17:41.646246Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 1 unresolved game(s); 0 newly final."
+    },
+    {
+      "time": "2026-11-24T01:17:41.646246Z",
+      "type": "state",
+      "message": "CIN-WAS: API status underway."
+    },
     {
       "time": "2026-11-23T04:27:37.846577Z",
       "type": "check",

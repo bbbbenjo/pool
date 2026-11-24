@@ -193,8 +193,10 @@ const GAMES_DATA = {
       "pAway": 0.700162,
       "final": false,
       "winner": null,
-      "apiStatus": "pre-game",
-      "apiStatusCheckedAt": "2026-11-23T04:27:37.846577Z"
+      "apiStatus": "underway",
+      "apiStatusCheckedAt": "2026-11-24T01:17:41.646246Z",
+      "awayScore": 0,
+      "homeScore": 0
     }
   ],
   "colors": {
