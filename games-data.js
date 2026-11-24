@@ -191,12 +191,12 @@ const GAMES_DATA = {
       "kickoff": "2026-11-24T01:15Z",
       "favorite": "CIN",
       "pAway": 0.700162,
-      "final": false,
-      "winner": null,
-      "apiStatus": "underway",
-      "apiStatusCheckedAt": "2026-11-24T04:16:23.978485Z",
+      "final": true,
+      "winner": "WAS",
+      "apiStatus": "final",
+      "apiStatusCheckedAt": "2026-11-24T14:54:26.249817Z",
       "awayScore": 20,
-      "homeScore": 19
+      "homeScore": 22
     }
   ],
   "colors": {

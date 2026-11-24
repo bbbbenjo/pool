@@ -1,16 +1,26 @@
 const ACTION_STATUS = {
   "version": 1,
-  "status": "ok",
+  "status": "complete",
   "season": 2026,
   "week": 11,
-  "lastUpdate": "2026-11-24T04:16:24.381924Z",
-  "lastGameUpdate": "2026-11-24T04:16:23.978485Z",
-  "lastApiCheck": "2026-11-24T04:16:23.978485Z",
-  "lastApiSuccess": "2026-11-24T04:16:24.381220Z",
-  "nextEligibleCheck": "2026-11-24T04:37:00Z",
-  "nextCheckReason": "Next eligible scheduled check; GitHub may run late.",
+  "lastUpdate": "2026-11-24T14:54:26.797394Z",
+  "lastGameUpdate": "2026-11-24T14:54:26.249817Z",
+  "lastApiCheck": "2026-11-24T14:54:26.249817Z",
+  "lastApiSuccess": "2026-11-24T14:54:26.796768Z",
+  "nextEligibleCheck": null,
+  "nextCheckReason": "All games are final; waiting for the next week's data.",
   "lastError": null,
   "history": [
+    {
+      "time": "2026-11-24T14:54:26.249817Z",
+      "type": "check",
+      "message": "Checked ESPN states/results for 1 unresolved game(s); 1 newly final."
+    },
+    {
+      "time": "2026-11-24T14:54:26.249817Z",
+      "type": "final",
+      "message": "CIN-WAS: FINAL — WAS won."
+    },
     {
       "time": "2026-11-24T04:16:23.978485Z",
       "type": "check",
